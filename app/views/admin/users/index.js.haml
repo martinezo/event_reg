@@ -1,0 +1,12 @@
+:plain
+  if(!$("#show-dialog").is(":empty")){
+    $("#show-dialog").dialog("close");
+  } 
+  if(!$("#new-update-dialog").is(":empty")){
+    $("#new-update-dialog").dialog("close");
+  }
+  $('#record-list').empty();
+  $('#record-list').html("#{escape_javascript(render 'record_tbl')}");
+  remote_will_paginate();
+  jqbuttons();
+

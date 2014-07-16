@@ -1,0 +1,17 @@
+#tbl-sign-in
+  %h1= t('titles.sign_in')
+
+.alert-notice
+= render partial: 'layouts/alert_notice'
+
+.sp
+.tbl-sign-in
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    #tbl-login
+      .form-inputs
+        = f.input :login, required: false, autofocus: true, input_html: {:size => 30}
+        .sp
+        = f.input :password, required: false, input_html: {:size => 30}
+      %br
+      .form-actions
+        = f.button :submit, t('commands.sign_in'), class: 'jq-button'

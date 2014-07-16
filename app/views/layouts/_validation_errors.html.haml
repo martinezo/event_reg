@@ -1,0 +1,9 @@
+.ui-state-error.ui-corner-all
+  .icon.ui-icon.ui-icon-alert
+  .message
+    = "#{errors.count} error(es) impiden guardar este registro."
+  %ul
+    - errors.full_messages.each do |msg|
+      %li
+        = msg
+

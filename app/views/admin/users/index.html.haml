@@ -1,0 +1,20 @@
+#menu
+  =render partial: 'layouts/admin_menu'
+
+%h1= t('titles.users')
+
+=render 'layouts/search', url: admin_users_path
+
+#record-list
+  =render partial: 'record_tbl'
+
+#will-paginate
+  = will_paginate @admin_users, params: {id: nil, action: 'index'}
+
+%br
+
+= link_to_jq_button({url: new_admin_user_path, text: t('commands.new')})
+
+#show-dialog
+#new-update-dialog
+#delete-dialog

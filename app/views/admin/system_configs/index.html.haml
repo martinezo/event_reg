@@ -1,0 +1,33 @@
+#menu
+  =render partial: 'layouts/admin_menu'
+
+%h1= t('titles.system_config')
+.sp
+
+
+.alert-notice
+  =render partial: 'layouts/alert_notice'
+  .sp 
+
+= form_tag admin_system_config_update_path, method: 'post' do
+  .tbl-system-config
+    %strong.col-1.t-right
+      -#TODO Traducir etiquetas
+      Precio al público
+    .col-2
+      = text_field_tag :internal_price, Admin::SystemConfig.internal_price
+    %strong.col-1.t-right
+      Precio interno 
+    .col-2
+      = text_field_tag :external_price, Admin::SystemConfig.external_price
+    %strong.col-1.t-right
+      Correos para notificar nuevas solicitudes
+    .col-2
+      = text_field_tag :new_request_mails, Admin::SystemConfig.new_request_mails, size: 70
+    %strong.col-1.t-right
+      Correos para solicitar ficha de depósito
+    .col-2
+      = text_field_tag :new_deposit_slip_mail, Admin::SystemConfig.new_deposit_slip_mail, size: 40
+  .sp   
+  = jq_submit_tag t('commands.save') 
+  

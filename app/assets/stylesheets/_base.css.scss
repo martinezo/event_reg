@@ -1,0 +1,236 @@
+@import "compass";
+@import "blueprint/grid";
+@import "compass/reset";
+
+$blueprint-container-size: 990px;
+$font-family: Arial,Helvetica;
+
+$base-color-1: #752D02;
+$base-color-2: #C45E04;
+$base-color-3: #E0DBA8;
+$base-color-4: #6D7D1A;
+
+html{
+  overflow-y: auto;
+}
+
+body {
+  background: asset-url("header_bg.jpg", image) repeat-x top #ffffff;
+  font-family: $font-family;
+}
+
+#container{
+  width: 990px;
+  margin: 0px auto;
+}
+
+
+#header {
+  @include column(25);
+  background: asset-url("header.jpg", image) no-repeat white;
+  height: 220px;
+}
+
+#content {
+  @include prepend(0.5);
+  @include column(24);
+  background-color: #ffffff;
+  min-height: 600px;
+}
+
+#footer {
+  clear: both;
+  color: $base-color-3;
+  line-height: 25px;
+  text-align: center;
+  font-size: 10px;
+  padding-top: 2px;
+  background: asset-url("footer.jpg", image) repeat-x top #ffffff;
+  }
+
+h1{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h2{
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h3{
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+strong{
+  font-weight: bold;
+}
+
+.alt-0{
+    background-color: lighten($base-color-3, 20%);
+}
+
+.alt-1{
+  background-color: lighten($base-color-3, 12%);
+}
+
+.sp{
+  clear: both;
+  min-height: 15px;
+}
+
+
+// TABLES
+@mixin t-base{
+  clear: both;
+  display: table;
+  font-size: 12px;
+  padding: 3px 0px 3px 0px;
+  text-indent: 3px;
+}
+
+.t-head{
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 0px;
+  background-color: lighten($base-color-4, 10%);
+  div{
+    background-color: $base-color-4;
+    padding: 2px 0px;
+    }
+}
+
+.t-cent{
+  text-align: center;
+}
+
+.t-left{
+  text-align: left;
+}
+
+.t-right{
+  text-align: right;
+}
+
+@mixin two-columns($c1, $c2){
+  @include t-base;
+  .col-1{ @include column($c1); }
+  .col-2{ @include column($c2); @include last; }
+}
+
+@mixin three-columns($c1, $c2, $c3){
+  @include t-base;
+  .col-1{ @include column($c1); }
+  .col-2{ @include column($c2); }
+  .col-3{ @include column($c3); @include last; }
+}
+
+@mixin four-columns($c1, $c2, $c3, $c4){
+  @include t-base;
+  .col-1{ @include column($c1); }
+  .col-2{ @include column($c2); }
+  .col-3{ @include column($c3); }
+  .col-4{ @include column($c4); @include last; }
+}
+
+@mixin five-columns($c1, $c2, $c3, $c4, $c5){
+  @include t-base;
+  .col-1{ @include column($c1); }
+  .col-2{ @include column($c2); }
+  .col-3{ @include column($c3); }
+  .col-4{ @include column($c4); }
+  .col-5{ @include column($c5); @include last; }
+}
+
+@mixin six-columns($c1, $c2, $c3, $c4, $c5, $c6){
+  @include t-base;
+  .col-1{ @include column($c1); }
+  .col-2{ @include column($c2); }
+  .col-3{ @include column($c3); }
+  .col-4{ @include column($c4); }
+  .col-5{ @include column($c5); }
+  .col-6{ @include column($c6); @include last; }
+}
+
+@mixin seven-columns($c1, $c2, $c3, $c4, $c5, $c6, $c7){
+  @include t-base;
+  .col-1{ @include column($c1); }
+  .col-2{ @include column($c2); }
+  .col-3{ @include column($c3); }
+  .col-4{ @include column($c4); }
+  .col-5{ @include column($c5); }
+  .col-6{ @include column($c6); }
+  .col-7{ @include column($c7); @include last; }
+}
+
+@mixin eight-columns($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8){
+  @include t-base;
+  .col-1{ @include column($c1); }
+  .col-2{ @include column($c2); }
+  .col-3{ @include column($c3); }
+  .col-4{ @include column($c4); }
+  .col-5{ @include column($c5); }
+  .col-6{ @include column($c6); }
+  .col-7{ @include column($c7); }
+  .col-8{ @include column($c8); @include last; }
+}
+
+.t-show{
+  @include two-columns(6,18);
+
+  .col-1{
+    @extend .t-head;
+    @extend .t-right;
+    border-bottom: 1px solid #ffffff;
+    clear: left;
+  }
+  .col-2{
+    border-bottom: 1px solid lighten($base-color-2, 40%);
+  }
+}
+
+.jq-button{
+  font-size: 0.9em !important;
+  font-weight: 500 !important;
+}
+
+// ERROR MESSAGES
+
+// WILL_PAGINATE
+.pagination {
+  margin: 10px 0px 10px 0px;
+  background: lighten($base-color-3, 30%);
+  text-align:center;
+  padding:1em;
+  cursor:default;
+  a, span {
+    padding: 0.2em 0.3em;
+  }
+  .disabled{
+    color:#aaaaaa
+  }
+  .current {
+    font-style:normal;
+    font-weight:bold;
+    color: $base-color-3;
+    background-color: $base-color-1;
+    display:inline-block;
+    width:1.4em;
+    height:1.4em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius:1em;
+  }
+  a{
+    text-decoration:none;
+    color: $base-color-1;
+    &:hover, &:focus{
+      font-weight: bold;
+      background-color: $base-color-2;
+      text-decoration:underline
+    }
+  }
+}

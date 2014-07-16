@@ -1,0 +1,7 @@
+:plain
+  if(!$("#show-dialog").is(":empty")){
+    $("#show-dialog").dialog("close");
+  }
+  $('#new-update-dialog').html("#{escape_javascript(render 'form')}");
+  $('#new-update-dialog').dialog({modal: true, width: 450});
+  jqbuttons();

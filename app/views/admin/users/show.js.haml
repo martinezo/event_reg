@@ -1,0 +1,7 @@
+:plain
+  $('#show-dialog').html("#{escape_javascript(render 'show')}");
+  $('#show-dialog').dialog({
+    width: 450,
+    modal: true,
+  });
+  load_jquery_ui();

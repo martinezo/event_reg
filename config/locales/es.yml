@@ -1,0 +1,51 @@
+es:
+  commands:
+    new: Agregar
+    show: Detalle
+    edit: Modificar
+    delete: Borrar
+    back: Regresar
+    close: Cerrar
+    save: Guardar
+    search: Buscar
+    list_all: Mostrar todos
+    sign_in: Acceder
+    sign_out: Cerrar Sessión
+
+  titles:
+    sign_in: Inicio de sessión como administrador
+    users: Usuarios
+    system_config: Configuración del sistema
+
+
+  notices:
+    saved_successfully: Registro guardado correctamente. 
+    updated_successfully: Registro actualizado correctamente.
+
+  will_paginate:
+    previous_label: Anterior
+    next_label: Siguiente
+
+  activerecord: 
+    attributes:
+      admin/user:
+        login: Usuario
+        name: Nombre
+        mail: Correo
+
+      devise_user:
+        login: Usuario
+        password: Contraseña
+ 
+    errors:
+      models:
+        admin/user:
+          attributes:
+            login: 
+              taken: ya existe.
+              blank: es un dato requerido.
+            name:
+              blank: es un dato requerido.
+            mail:
+              blank: es un dato requerido.            
+

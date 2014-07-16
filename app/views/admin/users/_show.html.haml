@@ -1,0 +1,13 @@
+.alert-notice
+  =render partial: 'layouts/alert_notice'
+
+= show_for @admin_user do |r|
+  = r.attribute :login
+  = r.attribute :name
+  = r.attribute :mail
+.sp
+%hr
+
+.t-right
+  = jq_link_to edit_admin_user_path(@admin_user),t('commands.edit'),'pencil'
+  = jq_link_to admin_users_path, t('commands.close')

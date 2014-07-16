@@ -1,0 +1,10 @@
+= form_tag url, method: :get, remote: true do
+  = hidden_field_tag :direction, params[:direction]
+  = hidden_field_tag :sort, params[:sort]
+  .tbl-search
+    .col-1
+      = text_field_tag :search, '', :size => 23
+    .col-2.t-cent
+      = jq_submit_tag t('commands.search')
+      = link_to_jq_button({url: admin_users_path(search: nil), text: t('commands.list_all')})
+

@@ -1,0 +1,10 @@
+.icon.ui-icon.ui-icon-alert
+.message
+  Este registro será eliminado de forma permanente.
+  %br
+  ¿Está seguro?"
+.sp
+.t-right
+  -# You should pass parameter "record"
+  =link_to 'Aceptar', record, :method => :delete, :remote => true, :class => 'jq-button'
+  =link_to_function 'Cancelar', "$('#delete-dialog').dialog('close');", :class => 'jq-button'

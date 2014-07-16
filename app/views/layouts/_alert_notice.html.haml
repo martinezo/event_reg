@@ -1,0 +1,16 @@
+
+- if flash[:notice]
+  .ui-state-highlight.ui-corner-all
+    .icon.ui-icon.ui-icon-info
+    .message
+      = notice
+  .sp
+
+- if flash[:alert]
+  .ui-state-error.ui-corner-all
+    .icon.ui-icon.ui-icon-alert
+    .message
+      = alert
+  .sp
+
+- flash[:alert], flash[:notice] = nil

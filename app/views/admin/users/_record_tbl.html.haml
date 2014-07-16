@@ -1,0 +1,24 @@
+.tbl-users.t-head
+  .col-1
+    -#TODO Traducir etiquetas
+    =sortable 'name', 'Nombre', admin_users_path
+  .col-2
+    =sortable 'mail', 'Correo', admin_users_path
+  .col-3
+    =sortable 'login', 'Usuario', admin_users_path
+  .col-4
+    &nbsp
+
+
+- @admin_users.each_with_index do |admin_user, i|
+  .tbl-users{:id => "row-#{i}",:class => "alt-#{i % 2}" }
+    .col-1
+      = admin_user.name
+    .col-2
+      = admin_user.mail
+    .col-3
+      = admin_user.login
+    .col-4.t-cent
+      = link_to_jq_button({url: admin_user, icon: 'person', title: t('commands.show')})
+      = link_to_jq_button({url: edit_admin_user_path(admin_user), icon: 'pencil', title: t('commands.edit')})
+      = link_to_jq_button({url: admin_delete_user_path(admin_user), icon: 'trash', title: 'Eliminar'})

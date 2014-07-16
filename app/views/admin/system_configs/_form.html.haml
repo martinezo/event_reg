@@ -1,0 +1,10 @@
+= form_for @admin_system_config do |f|
+  - if @admin_system_config.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_system_config.errors.count, "error")} prohibited this admin_system_config from being saved:"
+      %ul
+        - @admin_system_config.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

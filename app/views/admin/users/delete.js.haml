@@ -1,0 +1,4 @@
+:plain
+  $('#delete-dialog').html("#{escape_javascript(render 'layouts/delete_dialog', :record => @admin_user)}");
+  $('#delete-dialog').dialog({resizable: false, width: 380, modal: true});
+  jqbuttons();

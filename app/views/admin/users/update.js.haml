@@ -1,0 +1,11 @@
+- if @errors
+  $('.error-explanation').html("#{escape_javascript(render 'layouts/validation_errors', errors: @errors)}");
+  center_ui_dialog();
+- else
+  :plain
+    $('#new-update-dialog').dialog("close");
+    $('#show-dialog').html("#{escape_javascript(render 'show')}");
+    $('#show-dialog').dialog({modal: true, width: 450});
+    $('#record-list').empty();
+    $('#record-list').html("#{escape_javascript(render 'record_tbl')}");
+    jqbuttons();
