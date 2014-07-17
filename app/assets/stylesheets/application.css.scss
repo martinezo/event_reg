@@ -33,7 +33,7 @@
 .tbl-system-config{
   @include two-columns(8,16);
   .col-1{
-    background: $base-color-2;
+    background: $base-color-3;
   }
 }
 
@@ -80,6 +80,7 @@
   border-radius: 4px;
   border: solid #ffffff 1px;
   width: 190px;
+  text-align: right;
   z-index : 9999;
 }
 
