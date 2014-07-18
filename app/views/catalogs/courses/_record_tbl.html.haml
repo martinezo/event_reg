@@ -16,6 +16,9 @@
     .col-2
       = I18n.localize(catalogs_course.start_date, :format => :long_only_date)
     .col-3.t-cent
-      = link_to_jq_button({url: catalogs_course, icon: 'document', title: t('commands.show')})
+      = link_to_jq_button({url: catalogs_course, icon: 'document', title: t('commands.show'), remote: false})
       = link_to_jq_button({url: edit_catalogs_course_path(catalogs_course), icon: 'pencil', title: t('commands.edit'), remote: false})
       -# = link_to_jq_button({url: catalogs_delete_course_path(catalogs_course), icon: 'trash', title: 'Eliminar'})
+
+#will-paginate
+  = will_paginate @catalogs_courses, params: {id: nil, action: 'index'}

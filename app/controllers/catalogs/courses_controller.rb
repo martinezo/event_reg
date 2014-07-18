@@ -29,7 +29,7 @@ class Catalogs::CoursesController < ApplicationController
 
     if @catalogs_course.save
        flash[:notice] = t('notices.saved_successfully')
-       index
+       render :js => "window.location = '#{edit_catalogs_course_path(@catalogs_course)}'"
     else
        @errors = @catalogs_course.errors
     end
@@ -38,15 +38,37 @@ class Catalogs::CoursesController < ApplicationController
   # PATCH/PUT /catalogs/courses/1
   # PATCH/PUT /catalogs/courses/1.json
   def update
-    # respond_to do |format|
-    #   if @catalogs_course.update(catalogs_course_params)
-    #     format.html { redirect_to @catalogs_course, notice: 'Course was successfully updated.' }
-    #     format.json { head :no_content }
-    #   else
-    #     format.html { render action: 'edit' }
-    #     format.json { render json: @catalogs_course.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    @catalogs_course = Catalogs::Course.find(params[:id])
+
+    #upload content_file
+    content_file_name =  params[:catalogs_course][:content_file]
+    content_file = params[:catalogs_course_content_file_tag]
+    @catalogs_course.upload_file(content_file, "#{@catalogs_course.id.to_s}_program_file.#{content_file_name.sub(/^.*\./,'')}") if content_file
+
+    #upload image file 1
+    image_file1_name =  params[:catalogs_course][:image_file1]
+    image_file1 = params[:catalogs_course_image_file1_tag]
+    @catalogs_course.upload_file(image_file1, "#{@catalogs_course.id.to_s}_image_file1.#{image_file1_name.sub(/^.*\./,'')}") if image_file1
+
+    #upload image file 2
+    image_file2_name =  params[:catalogs_course][:image_file2]
+    image_file2 = params[:catalogs_course_image_file2_tag]
+    @catalogs_course.upload_file(image_file2, "#{@catalogs_course.id.to_s}_image_file2.#{image_file2_name.sub(/^.*\./,'')}") if image_file2
+
+    #upload image file 3
+    image_file3_name =  params[:catalogs_course][:image_file3]
+    image_file3 = params[:catalogs_course_image_file3_tag]
+    @catalogs_course.upload_file(image_file3, "#{@catalogs_course.id.to_s}_image_file3.#{image_file3_name.sub(/^.*\./,'')}") if image_file3
+
+    respond_to do |format|
+      if @catalogs_course.update(catalogs_course_params)
+        format.html { redirect_to @catalogs_course, notice: 'Course was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @catalogs_course.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /catalogs/courses/1

@@ -11,6 +11,7 @@ es:
     list_all: Mostrar todos
     sign_in: Acceder
     sign_out: Cerrar Sessión
+    select_file: Selecciona un archivo...
 
   titles:
     edit: Modificar %{param}
@@ -22,9 +23,8 @@ es:
     courses: Cursos / Eventos
     course: Curso / Evento
     event_general_data: Datos Generales
-    event_detail_date: Detalles
+    event_detail_data: Detalles
     event_metadata: Configuración
-
 
   notices:
     saved_successfully: Registro guardado correctamente. 
@@ -56,9 +56,9 @@ es:
         max_quota: Cupo máximo
         instructors: Instructores
         contact: Mayores informes
-        image_file1: imagen 1
-        image_file2: imagen 2
-        image_file3: imagen 3
+        image_file1: Imagen para portal web 1
+        image_file2: Imagen para portal web 2
+        image_file3: Imagen para portal web 3
         start_date_pub: Fecha inicio de publicación de curso/evento
         end_date_pub: Fecha fin de publicación de curso/evento
         start_date_reg: Fecha inicio de registro
@@ -72,8 +72,6 @@ es:
         opt_field: Campo opcional
         opt_field_title: Campo opcional Titulo
         start_date: Fecha Inicio
-
-
 
       devise_user:
         login: Usuario

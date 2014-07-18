@@ -1,6 +1,7 @@
-= simple_form_for @catalogs_course, :html => {:novalidate => true, multipart: true}, remote: true do |f|
+= simple_form_for @catalogs_course, :html => {:novalidate => true, multipart: true} do |f|
 
-  %h2= t('titles.event_general_data')
+  %h3.t-head= t('titles.event_general_data')
+
   .tbl-courses-attr
     .col-1
       =f.label :name
@@ -23,25 +24,73 @@
     .col-2
       = f.input_field :schedule, :size => 70
 
-  %h2= t('titles.event_detail_date')
+  %h3.t-head= t('titles.event_detail_data')
+
   .tbl-courses-attr
     .col-1
       =f.label :content_file
-    .col-2
-      .input-file-wrapper
-        =f.input_field :content_file, as: :file, class: 'jqbutton'
-        .file-button
-          Selcciona un archivo
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_content_file_tag, nil, type: 'file'
+      .input-file-jq
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          =f.input_field :content_file, size: 30, placeholder: 'Se recomienda un archivo PDF', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_content_file'}
+          &nbsp;
+    .sp
+
+  %h3.t-head= t('titles.event_metadata')
+
+  .tbl-courses-attr
+    .col-1
+      =f.label :image_file1
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_image_file1_tag, nil, type: 'file', accept: 'image/png,image/gif,image/jpeg'
+      .input-file-jq
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          -#TODO placeholder message set size of images
+          =f.input_field :image_file1, size: 30, placeholder: 'Archivo JPG 300x150 pixeles', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file1'}
+          &nbsp;
     .sp
     .col-1
-      Archivo Seleccionado
-    .col-2
-      =text_field_tag :catalogs_course_content_file_str, nil, size: 70, disabled: true
-      =button_tag  'Quitar archivo', :class => 'jq-button clear_file', :value => '#catalogs_course_content_file'
-
-  %h2= t('titles.event_metadata')
+      =f.label :image_file2
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_image_file2_tag, nil, type: 'file'
+      .input-file-jq
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          -#TODO placeholder message set size of images
+          =f.input_field :image_file2, size: 30, placeholder: 'Archivo JPG 300x150 pixeles', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file2'}
+          &nbsp;
+    .sp
+    .col-1
+      =f.label :image_file3
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_image_file3_tag, nil, type: 'file'
+      .input-file-jq
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          -#TODO placeholder message set size of images
+          =f.input_field :image_file3, size: 30, placeholder: 'Archivo JPG 300x150 pixeles', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file3'}
+          &nbsp;
 
   =f.submit
+
+= link_to 'Show', @catalogs_course
+\|
+= link_to 'Back', catalogs_courses_path
 
 -#= form_for @catalogs_course do |f|
   - if @catalogs_course.errors.any?

@@ -9,5 +9,13 @@ class Catalogs::Course < ActiveRecord::Base
     else
       all
     end
-  end 
+  end
+
+  #UPLOAD FILE. IMPORTANT add to _form view , form_for(@instance, :html => {:multipart => true})
+  def upload_file(upload,filename)
+    directory = "public/attachments"
+    path = File.join(directory, filename)
+    # write the file
+    File.open(path, "wb") { |f| f.write(upload.tempfile.read) }
+  end
 end

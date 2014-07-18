@@ -138,21 +138,31 @@ a.sortable{
   }
 }
 
-//.ui-dialog-content{
-//  overflow: hidden;
-//}
-
-.input-file-wrapper {
+.file-selector{
   position: relative;
-  .file{
+  .input-file{
     position: absolute;
-    opacity: 0;
     z-index: 99;
+    opacity: 0;
   }
-  .file-button{
+  .input-file-jq {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 180px;
+    top: 0;
+    left: 0;
+    .input-file-button {
+      top: 0;
+      left: 0;
+    }
+    .input-file-str {
+      display: inline-block;
+    }
+    .remove-file-button {
+      display: inline-block;
+    }
   }
+}
+
+h3{
+  color: $base-color-1;
+  text-indent: 1em;
 }
