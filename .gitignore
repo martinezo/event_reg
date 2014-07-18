@@ -19,3 +19,6 @@ config/ldap.yml
 
 # RubyMine
 /.idea
+
+#sqlite3 data base in macbookpro
+db/event_reg_development
