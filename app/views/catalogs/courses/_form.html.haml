@@ -1,0 +1,142 @@
+= simple_form_for @catalogs_course, :html => {:novalidate => true, multipart: true}, remote: true do |f|
+
+  %h2= t('titles.event_general_data')
+  .tbl-courses-attr
+    .col-1
+      =f.label :name
+    .col-2
+      =f.input_field :name, :size => 50
+    .col-1
+      = f.label :start_date
+    .col-2
+      = f.input_field :start_date, as: :string, class: 'jq-datepicker', size: 18
+    .col-1
+      = f.label :description
+    .col-2
+      = f.input_field :description, as: :text, :size => "95x5"
+    .col-1
+      = f.label :location
+    .col-2
+      = f.input_field :location, :size => 70
+    .col-1
+      = f.label :schedule
+    .col-2
+      = f.input_field :schedule, :size => 70
+
+  %h2= t('titles.event_detail_date')
+  .tbl-courses-attr
+    .col-1
+      =f.label :content_file
+    .col-2
+      .input-file-wrapper
+        =f.input_field :content_file, as: :file, class: 'jqbutton'
+        .file-button Selcciona un archivo
+
+
+  %h2= t('titles.event_metadata')
+
+  =f.submit
+
+-#= form_for @catalogs_course do |f|
+  - if @catalogs_course.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@catalogs_course.errors.count, "error")} prohibited this catalogs_course from being saved:"
+      %ul
+        - @catalogs_course.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :schedule
+    = f.text_field :schedule
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :content_file
+    = f.text_field :content_file
+  .field
+    = f.label :price1
+    = f.text_field :price1
+  .field
+    = f.label :price2
+    = f.text_field :price2
+  .field
+    = f.label :price3
+    = f.text_field :price3
+  .field
+    = f.label :payment_methods
+    = f.text_field :payment_methods
+  .field
+    = f.label :target
+    = f.text_field :target
+  .field
+    = f.label :prerequisites
+    = f.text_field :prerequisites
+  .field
+    = f.label :min_quota
+    = f.text_field :min_quota
+  .field
+    = f.label :max_quota
+    = f.text_field :max_quota
+  .field
+    = f.label :instructors
+    = f.text_field :instructors
+  .field
+    = f.label :contact
+    = f.text_field :contact
+  .field
+    = f.label :image_file1
+    = f.text_field :image_file1
+  .field
+    = f.label :image_file2
+    = f.text_field :image_file2
+  .field
+    = f.label :image_file3
+    = f.text_field :image_file3
+  .field
+    = f.label :start_date_pub
+    = f.date_select :start_date_pub
+  .field
+    = f.label :end_date_pub
+    = f.date_select :end_date_pub
+  .field
+    = f.label :start_date_reg
+    = f.date_select :start_date_reg
+  .field
+    = f.label :end_date_reg
+    = f.date_select :end_date_reg
+  .field
+    = f.label :mail_notif_deposit
+    = f.text_field :mail_notif_deposit
+  .field
+    = f.label :academic_data_required
+    = f.check_box :academic_data_required
+  .field
+    = f.label :info_after_reg
+    = f.text_field :info_after_reg
+  .field
+    = f.label :color_theme1
+    = f.text_field :color_theme1
+  .field
+    = f.label :color_theme2
+    = f.text_field :color_theme2
+  .field
+    = f.label :color_theme3
+    = f.text_field :color_theme3
+  .field
+    = f.label :opt_field
+    = f.text_field :opt_field
+  .field
+    = f.label :opt_field_title
+    = f.text_field :opt_field_title
+  .actions
+    = f.submit 'Save'

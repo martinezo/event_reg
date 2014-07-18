@@ -24,6 +24,14 @@ function remote_will_paginate(){
     $(".pagination a").attr('data-remote', 'true');
 }
 
+function jqdatepicker(){
+    $('.jq-datepicker').datepicker({ dateFormat: 'yy/mm/dd' });
+}
+
+function jqfilebuttons(){
+    $(".file-button").button();
+}
+
 function jqbuttons(){
     $(".jq-button").each(function(){
 //        alert($(this).attr("jq-icon") == null);
@@ -51,6 +59,8 @@ function jqmenu(){
 
 function load_jquery_ui(){
     jqbuttons();
+    jqdatepicker();
+    jqfilebuttons();
     remote_will_paginate();
     jqmenu();
 }

@@ -29,6 +29,17 @@
   @include four-columns(9,9,3,3);
 }
 
+.tbl-courses{
+  @include three-columns(16,5,3);
+}
+
+.tbl-courses-attr{
+  @include two-columns(6,18);
+  .col-1{
+    text-align: right;
+    background-color: $base-color-3;
+  }
+}
 
 .tbl-system-config{
   @include two-columns(8,16);
@@ -57,11 +68,12 @@
   .input .string, .input .password, .input .select, .input .email {
     display: block;
     clear: both;
+    margin-bottom: 5px;
   }
   label{
     font-weight: bold;
     font-size: 12px;
-    margin-bottom: 5px;
+    display: block;
   }
 }
 
@@ -87,7 +99,7 @@
 a.sortable{
   &:link, &:visited{
     text-decoration: none;
-    color: $base-color-1;
+    color: $base-color-3;
   }
   &:hover {
     background-color: $base-color-4;
@@ -106,6 +118,8 @@ a.sortable{
     }
   }
 }
+
+
 
 .error-explanation, .alert-notice, #delete-dialog {
   font-size: 12px;
@@ -127,3 +141,18 @@ a.sortable{
 //.ui-dialog-content{
 //  overflow: hidden;
 //}
+
+.input-file-wrapper {
+  position: relative;
+  .file{
+    position: absolute;
+    opacity: 100;
+    z-index: 99;
+  }
+  .file-button{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 180px;
+  }
+}

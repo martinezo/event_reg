@@ -1,0 +1,67 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  name: MyString
+  description: MyString
+  schedule: MyString
+  location: MyString
+  content_file: MyString
+  price1: 9.99
+  price2: 9.99
+  price3: 9.99
+  payment_methods: MyString
+  target: MyString
+  prerequisites: MyString
+  min_quota: MyString
+  max_quota: MyString
+  instructors: MyString
+  contact: MyString
+  image_file1: MyString
+  image_file2: MyString
+  image_file3: MyString
+  start_date_pub: 2014-07-16
+  end_date_pub: 2014-07-16
+  start_date_reg: 2014-07-16
+  end_date_reg: 2014-07-16
+  mail_notif_deposit: MyString
+  academic_data_required: false
+  info_after_reg: MyString
+  color_theme1: MyString
+  color_theme2: MyString
+  color_theme3: MyString
+  opt_field: MyString
+  opt_field_title: MyString
+
+two:
+  user_id: 1
+  name: MyString
+  description: MyString
+  schedule: MyString
+  location: MyString
+  content_file: MyString
+  price1: 9.99
+  price2: 9.99
+  price3: 9.99
+  payment_methods: MyString
+  target: MyString
+  prerequisites: MyString
+  min_quota: MyString
+  max_quota: MyString
+  instructors: MyString
+  contact: MyString
+  image_file1: MyString
+  image_file2: MyString
+  image_file3: MyString
+  start_date_pub: 2014-07-16
+  end_date_pub: 2014-07-16
+  start_date_reg: 2014-07-16
+  end_date_reg: 2014-07-16
+  mail_notif_deposit: MyString
+  academic_data_required: false
+  info_after_reg: MyString
+  color_theme1: MyString
+  color_theme2: MyString
+  color_theme3: MyString
+  opt_field: MyString
+  opt_field_title: MyString

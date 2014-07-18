@@ -13,9 +13,17 @@ es:
     sign_out: Cerrar Sessión
 
   titles:
+    edit: Modificar %{param}
+    delete: Borrar (%{param})
+
     sign_in: Inicio de sessión como administrador
     users: Usuarios
     system_config: Configuración del sistema
+    courses: Cursos / Eventos
+    course: Curso / Evento
+    event_general_data: Datos Generales
+    event_detail_date: Detalles
+    event_metadata: Configuración
 
 
   notices:
@@ -49,3 +57,38 @@ es:
             mail:
               blank: es un dato requerido.            
 
+#http://blog.lingohub.com/developers/2013/08/internationalization-for-ruby-i18n-gem/
+  time:
+    am: a.m.
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+      long_only_date: ! '%d de %B de %Y'
+    pm: p.m.
+
+  date:
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+      long_only_date: ! '%d de %B de %Y'
+    order:
+      - :day
+      - :month
+      - :year
+
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre 

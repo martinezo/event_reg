@@ -7,6 +7,11 @@
         %a Catálogos
         %ul
           %li#options
+            - if controller_name == 'courses'
+              =label_tag t('titles.courses'), nil, class: 'ui-state-disabled'
+            - else
+              =link_to t('titles.courses'), catalogs_courses_path
+          %li#options
             - if controller_name == 'users'
               =label_tag t('titles.users'), nil, class: 'ui-state-disabled'
             - else

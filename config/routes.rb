@@ -1,5 +1,9 @@
 EventReg::Application.routes.draw do
 
+  namespace :catalogs do
+    resources :courses
+  end
+
   devise_for :devise_users
   namespace :admin do
     resources :users
@@ -14,7 +18,7 @@ EventReg::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'admin/users#index'
+  root 'catalogs/courses#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

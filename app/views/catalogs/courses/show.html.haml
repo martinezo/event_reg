@@ -1,0 +1,99 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @catalogs_course.user_id
+%p
+  %b Name:
+  = @catalogs_course.name
+%p
+  %b Description:
+  = @catalogs_course.description
+%p
+  %b Schedule:
+  = @catalogs_course.schedule
+%p
+  %b Location:
+  = @catalogs_course.location
+%p
+  %b Content file:
+  = @catalogs_course.content_file
+%p
+  %b Price1:
+  = @catalogs_course.price1
+%p
+  %b Price2:
+  = @catalogs_course.price2
+%p
+  %b Price3:
+  = @catalogs_course.price3
+%p
+  %b Payment methods:
+  = @catalogs_course.payment_methods
+%p
+  %b Target:
+  = @catalogs_course.target
+%p
+  %b Prerequisites:
+  = @catalogs_course.prerequisites
+%p
+  %b Min quota:
+  = @catalogs_course.min_quota
+%p
+  %b Max quota:
+  = @catalogs_course.max_quota
+%p
+  %b Instructors:
+  = @catalogs_course.instructors
+%p
+  %b Contact:
+  = @catalogs_course.contact
+%p
+  %b Image file1:
+  = @catalogs_course.image_file1
+%p
+  %b Image file2:
+  = @catalogs_course.image_file2
+%p
+  %b Image file3:
+  = @catalogs_course.image_file3
+%p
+  %b Start date pub:
+  = @catalogs_course.start_date_pub
+%p
+  %b End date pub:
+  = @catalogs_course.end_date_pub
+%p
+  %b Start date reg:
+  = @catalogs_course.start_date_reg
+%p
+  %b End date reg:
+  = @catalogs_course.end_date_reg
+%p
+  %b Mail notif deposit:
+  = @catalogs_course.mail_notif_deposit
+%p
+  %b Academic data required:
+  = @catalogs_course.academic_data_required
+%p
+  %b Info after reg:
+  = @catalogs_course.info_after_reg
+%p
+  %b Color theme1:
+  = @catalogs_course.color_theme1
+%p
+  %b Color theme2:
+  = @catalogs_course.color_theme2
+%p
+  %b Color theme3:
+  = @catalogs_course.color_theme3
+%p
+  %b Opt field:
+  = @catalogs_course.opt_field
+%p
+  %b Opt field title:
+  = @catalogs_course.opt_field_title
+
+= link_to 'Edit', edit_catalogs_course_path(@catalogs_course)
+\|
+= link_to 'Back', catalogs_courses_path

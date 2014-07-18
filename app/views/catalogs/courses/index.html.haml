@@ -1,0 +1,18 @@
+#menu
+  =render partial: 'layouts/admin_menu'
+
+%h1= t('titles.courses')
+
+=render 'layouts/search', url: catalogs_courses_path
+
+%br
+
+#record-list
+  =render partial: 'record_tbl'
+
+%br
+
+= link_to_jq_button({url: new_catalogs_course_path, text: t('commands.new')})
+
+-#TODO translate title
+#new-dialog{title: 'Nuevo curso / evento'}

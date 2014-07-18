@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+// Necesary for uploading files with ajax response (remote: true). Add in Gemfile: gem 'remotipart'
+// Error: ActionController::InvalidAuthenticityToken in Catalogs::CoursesController#update
+//= require jquery.remotipart
 //= require turbolinks
 //= require_tree .
