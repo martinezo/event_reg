@@ -30,8 +30,14 @@
     .col-2
       .input-file-wrapper
         =f.input_field :content_file, as: :file, class: 'jqbutton'
-        .file-button Selcciona un archivo
-
+        .file-button
+          Selcciona un archivo
+    .sp
+    .col-1
+      Archivo Seleccionado
+    .col-2
+      =text_field_tag :catalogs_course_content_file_str, nil, size: 70, disabled: true
+      =button_tag  'Quitar archivo', :class => 'jq-button clear_file', :value => '#catalogs_course_content_file'
 
   %h2= t('titles.event_metadata')
 
