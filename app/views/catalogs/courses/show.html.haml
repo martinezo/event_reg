@@ -1,3 +1,19 @@
+.alert-notice
+  =render partial: 'layouts/alert_notice'
+
+= show_for @catalogs_course do |r|
+  = r.attribute :name
+  = r.attribute :description
+  = r.attribute :schedule
+
+
+.sp
+%hr
+
+.t-right
+  = link_to_jq_button({url: edit_catalogs_course_path(@catalogs_course), title: t('commands.edit'), icon: 'pencil'})
+  = link_to_jq_button({text: t('commands.close')})
+
 %p#notice= notice
 
 %p
