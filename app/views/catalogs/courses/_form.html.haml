@@ -40,6 +40,43 @@
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_content_file'}
           &nbsp;
     .sp
+    .col-1
+      -#TODO Crear campo de descripcion de precio
+      = f.label :price1
+    .col-2
+      = f.input_field :price1
+    .col-1
+      = f.label :price2
+    .col-2
+      = f.input_field :price2
+    .col-1
+      = f.label :payment_methods
+    .col-2
+      = f.input_field :payment_methods, :size => 70
+    .col-1
+      = f.label :target
+    .col-2
+      = f.input_field :target, :size => 70
+    .col-1
+      = f.label :prerequisites
+    .col-2
+      = f.input_field :prerequisites, as: :text, :size => "95x5"
+    .col-1
+      = f.label :min_quota
+    .col-2
+      = f.input_field :min_quota
+    .col-1
+      = f.label :max_quota
+    .col-2
+      = f.input_field :max_quota
+    .col-1
+      = f.label :instructors
+    .col-2
+      = f.input_field :instructors, :size => 70
+    .col-1
+      = f.label :contact
+    .col-2
+      = f.input_field :contact, :size => 70
 
   %h3.t-head= t('titles.event_metadata')
 
@@ -85,6 +122,59 @@
           =f.input_field :image_file3, size: 30, placeholder: 'Archivo JPG 300x150 pixeles', readonly: true
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file3'}
           &nbsp;
+    .sp
+    .col-1
+      = f.label :start_date_pub
+    .col-2
+      = f.input_field :start_date_pub, as: :string, class: 'jq-datepicker', size: 18
+    .sp
+    .col-1
+      = f.label :end_date_pub
+    .col-2
+      = f.input_field :end_date_pub, as: :string, class: 'jq-datepicker', size: 18
+    .sp
+    .col-1
+      = f.label :start_date_reg
+    .col-2
+      = f.input_field :start_date_reg, as: :string, class: 'jq-datepicker', size: 18
+    .sp
+    .col-1
+      = f.label :end_date_reg
+    .col-2
+      = f.input_field :end_date_reg, as: :string, class: 'jq-datepicker', size: 18
+    .col-1
+      = f.label :mail_notif_deposit
+    .col-2
+      = f.input_field :mail_notif_deposit, :size => 70
+    .col-1
+      = f.label :academic_data_required
+    .col-2
+      = f.input_field :academic_data_required
+    .sp
+    .col-1
+      = f.label :info_after_reg
+    .col-2
+      = f.input_field :info_after_reg, as: :text, :size => "95x3"
+    .col-1
+      = f.label :color_theme1
+    .col-2
+      = f.input_field :color_theme1, :size => 70
+    .col-1
+      = f.label :color_theme2
+    .col-2
+      = f.input_field :color_theme2, :size => 70
+    .col-1
+      = f.label :color_theme3
+    .col-2
+      = f.input_field :color_theme3, :size => 70
+    .col-1
+      = f.label :opt_field
+    .col-2
+      = f.input_field :opt_field, :size => 70
+    .col-1
+      = f.label :opt_field_title
+    .col-2
+      = f.input_field :opt_field_title, :size => 70
 
   =f.submit
 
