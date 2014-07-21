@@ -7,133 +7,136 @@
     .col-1
       = r.label :name
     .col-2
-      = @catalogs_course.name
+      = r.value :name
     .col-1
       = r.label :start_date
     .col-2
-      = I18n.localize(@catalogs_course.start_date, :format => :long_only_date)
+      = r.value :start_date, :format => :long_only_date
     .col-1
       = r.label :description
     .col-2
-      = @catalogs_course.description
+      = r.value :description
     .col-1
       = r.label :location
     .col-2
-      = @catalogs_course.location
+      = r.value :location
     .col-1
       = r.label :schedule
     .col-2
-      = @catalogs_course.schedule
+      = r.value :schedule
     .sp
 
     %h3.t-head= t('titles.event_detail_data')
     .col-1
       = r.label :content_file
     .col-2
-      = @catalogs_course.content_file
+      = r.value :content_file
     .col-1
       = r.label :price1
     .col-2
-      = number_with_precision(@catalogs_course.price1, precision: 2)
+      = number_with_precision(r.value :price1, precision: 2)
     .col-1
       = r.label :price2
     .col-2
-      = number_with_precision(@catalogs_course.price2, precision: 2)
+      = number_with_precision(r.value :price2, precision: 2)
     .col-1
       = r.label :price3
     .col-2
-      = number_with_precision(@catalogs_course.price3, precision: 2)
+      = number_with_precision(r.value :price3, precision: 2)
     .col-1
       = r.label :payment_methods
     .col-2
-      = @catalogs_course.payment_methods.to_s() + '.'
+      = r.value :payment_methods
     .col-1
       = r.label :target
     .col-2
-      = @catalogs_course.target
+      = r.value :target
     .col-1
       = r.label :prerequisites
     .col-2
-      = @catalogs_course.prerequisites
+      = r.value :prerequisites
     .col-1
       = r.label :min_quota
     .col-2
-      = @catalogs_course.min_quota
+      = r.value :min_quota
     .col-1
       = r.label :max_quota
     .col-2
-      = @catalogs_course.max_quota
+      = r.value :max_quota
     .col-1
       = r.label :instructors
     .col-2
-      = @catalogs_course.instructors
+      = r.value :instructors
     .col-1
       = r.label :contact
     .col-2
-      = @catalogs_course.contact
+      = r.value :contact
     .sp
 
     %h3.t-head= t('titles.event_metadata')
     .col-1
       = r.label :image_file1
     .col-2
-      = @catalogs_course.image_file1
+      = r.value :image_file1
     .col-1
       = r.label :image_file2
     .col-2
-      = @catalogs_course.image_file2
+      = r.value :image_file2
     .col-1
       = r.label :image_file3
     .col-2
-      = @catalogs_course.image_file3
+      = r.value :image_file3
     .col-1
       = r.label :start_date_pub
     .col-2
-      = @catalogs_course.start_date_pub
+      = r.value :start_date_pub
+    .sp
     .col-1
       = r.label :end_date_pub
     .col-2
-      = @catalogs_course.end_date_pub
+      = r.value :end_date_pub
+    .sp
     .col-1
       = r.label :start_date_reg
     .col-2
-      = @catalogs_course.start_date_reg
+      = r.value :start_date_reg
     .col-1
       = r.label :end_date_reg
     .col-2
-      = @catalogs_course.end_date_reg
+      = r.value :end_date_reg
     .col-1
       = r.label :mail_notif_deposit
     .col-2
-      = @catalogs_course.mail_notif_deposit
+      = r.value :mail_notif_deposit
     .col-1
       = r.label :academic_data_required
     .col-2
-      = check_box :academic_data_required, "1", {:checked => @catalogs_course.academic_data_required, :disabled => true}
+      = r.value :academic_data_required
+    .sp
     .col-1
       = r.label :info_after_reg
     .col-2
-      = @catalogs_course.info_after_reg
+      = r.value :info_after_reg
     .col-1
       = r.label :color_theme1
     .col-2
-      = @catalogs_course.color_theme1
+      = r.value :color_theme1
     .col-1
       = r.label :color_theme2
     .col-2
-      = @catalogs_course.color_theme2
+      = r.value :color_theme2
     .col-1
       = r.label :color_theme3
     .col-2
-      = @catalogs_course.color_theme3
+      = r.value :color_theme3
     .col-1
       = r.label :opt_field
     .col-2
-      = @catalogs_course.opt_field
+      = r.value :opt_field
     .col-1
       = r.label :opt_field_title
     .col-2
-      = @catalogs_course.opt_field_title
+      = r.value :opt_field_title
 
 .sp
 %hr
@@ -145,6 +148,6 @@
 %p#notice= notice
 
 
-= link_to 'Edit', edit_catalogs_course_path(@catalogs_course)
-\|
-= link_to 'Back', catalogs_courses_path
+-#= link_to 'Edit', edit_catalogs_course_path(r.value :
+-#\|
+-#= link_to 'Back', catalogs_courses_path
