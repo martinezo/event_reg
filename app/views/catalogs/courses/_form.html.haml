@@ -24,6 +24,7 @@
     .col-2
       = f.input_field :schedule, :size => 70
 
+
   %h3.t-head= t('titles.event_detail_data')
 
   .tbl-courses-attr
@@ -41,7 +42,6 @@
           &nbsp;
     .sp
     .col-1
-      -#TODO Crear campo de descripcion de precio
       = f.label :price1
     .col-2
       = f.input_field :price1
@@ -49,6 +49,10 @@
       = f.label :price2
     .col-2
       = f.input_field :price2
+    .col-1
+      = f.label :price3
+    .col-2
+      = f.input_field :price3
     .col-1
       = f.label :payment_methods
     .col-2
@@ -60,7 +64,7 @@
     .col-1
       = f.label :prerequisites
     .col-2
-      = f.input_field :prerequisites, as: :text, :size => "95x5"
+      = f.input_field :prerequisites, as: :text, :size => "95x3"
     .col-1
       = f.label :min_quota
     .col-2
@@ -77,6 +81,8 @@
       = f.label :contact
     .col-2
       = f.input_field :contact, :size => 70
+
+
 
   %h3.t-head= t('titles.event_metadata')
 
@@ -137,7 +143,6 @@
       = f.label :start_date_reg
     .col-2
       = f.input_field :start_date_reg, as: :string, class: 'jq-datepicker', size: 18
-    .sp
     .col-1
       = f.label :end_date_reg
     .col-2
@@ -154,7 +159,7 @@
     .col-1
       = f.label :info_after_reg
     .col-2
-      = f.input_field :info_after_reg, as: :text, :size => "95x3"
+      = f.input_field :info_after_reg, :size => 70
     .col-1
       = f.label :color_theme1
     .col-2
@@ -175,6 +180,8 @@
       = f.label :opt_field_title
     .col-2
       = f.input_field :opt_field_title, :size => 70
+
+
 
   =f.submit
 
