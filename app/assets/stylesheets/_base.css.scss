@@ -119,20 +119,20 @@ strong{
 
 @mixin two-columns($c1, $c2){
   @include t-base;
-  .col-1{ @include column($c1); }
+  .col-1{ @include column($c1); clear: left;}
   .col-2{ @include column($c2); @include last; }
 }
 
 @mixin three-columns($c1, $c2, $c3){
   @include t-base;
-  .col-1{ @include column($c1); }
+  .col-1{ @include column($c1); clear: left; margin-buttom: 4px; }
   .col-2{ @include column($c2); }
   .col-3{ @include column($c3); @include last; }
 }
 
 @mixin four-columns($c1, $c2, $c3, $c4){
   @include t-base;
-  .col-1{ @include column($c1); }
+  .col-1{ @include column($c1); clear: left; margin-buttom: 4px; }
   .col-2{ @include column($c2); }
   .col-3{ @include column($c3); }
   .col-4{ @include column($c4); @include last; }
@@ -140,7 +140,7 @@ strong{
 
 @mixin five-columns($c1, $c2, $c3, $c4, $c5){
   @include t-base;
-  .col-1{ @include column($c1); }
+  .col-1{ @include column($c1); clear: left; margin-buttom: 4px; }
   .col-2{ @include column($c2); }
   .col-3{ @include column($c3); }
   .col-4{ @include column($c4); }
@@ -149,7 +149,7 @@ strong{
 
 @mixin six-columns($c1, $c2, $c3, $c4, $c5, $c6){
   @include t-base;
-  .col-1{ @include column($c1); }
+  .col-1{ @include column($c1); clear: left; margin-buttom: 4px; }
   .col-2{ @include column($c2); }
   .col-3{ @include column($c3); }
   .col-4{ @include column($c4); }
@@ -159,7 +159,7 @@ strong{
 
 @mixin seven-columns($c1, $c2, $c3, $c4, $c5, $c6, $c7){
   @include t-base;
-  .col-1{ @include column($c1); }
+  .col-1{ @include column($c1); clear: left; margin-buttom: 4px; }
   .col-2{ @include column($c2); }
   .col-3{ @include column($c3); }
   .col-4{ @include column($c4); }
@@ -170,7 +170,7 @@ strong{
 
 @mixin eight-columns($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8){
   @include t-base;
-  .col-1{ @include column($c1); }
+  .col-1{ @include column($c1); clear: left; margin-buttom: 4px; }
   .col-2{ @include column($c2); }
   .col-3{ @include column($c3); }
   .col-4{ @include column($c4); }

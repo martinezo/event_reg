@@ -94,6 +94,23 @@
   width: 190px;
   text-align: right;
   z-index : 9999;
+  a:hover{
+    background-color: $base-color-3;
+  }
+}
+
+.ui-datepicker{
+  z-index: 500 !important;
+}
+
+.colorpicker{
+  margin:0;
+  padding:0;
+  border:0.5;
+  width:70px;
+  height:18px;
+  border-right: 20px solid $base-color-1;
+  line-height:18px;
 }
 
 a.sortable{

@@ -10,13 +10,14 @@ module ApplicationHelper
   def link_to_jq_button(options)
     url = options[:url]
     text = options[:text] || '&nbsp'.html_safe
+    jq_text = !options[:text].nil?
     title = options[:title] || nil
     remote = options[:remote].nil? ? true : options[:remote]
     data = options[:data] || nil
     icon = options[:icon] || nil
     id = options[:id] || nil
     htm_class = 'jq-button' << (options[:htm_class] ? ",#{html_class}" : '')
-    link_to text, url, title: title, remote: remote, data: data, 'jq-icon'=> icon, id: id, class: htm_class
+    link_to text, url, title: title, remote: remote, data: data, 'jq-icon'=> icon, id: id, class: htm_class, 'jq-text' => jq_text
   end
 
 

@@ -23,6 +23,9 @@ es:
       sessions:
         signed_in: 'Iniciaste sesión correctamente.'
         signed_out: 'Cerraste sesión correctamente.'
+    sessions:
+      devise_user:
+        signed_in: 'Sesión iniciada correctamente.'
     passwords:
       send_instructions: 'Recibirás un email con instrucciones para reiniciar tu contraseña en unos minutos.'
       updated: 'Tu contraseña fue cambiada correctamente. Has iniciado sesión.'

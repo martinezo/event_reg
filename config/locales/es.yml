@@ -131,3 +131,9 @@ es:
     - octubre
     - noviembre
     - diciembre 
+
+  show_for:
+    blank: No especificado
+
+
+

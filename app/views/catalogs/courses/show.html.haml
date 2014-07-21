@@ -1,3 +1,10 @@
+%h1= t('titles.course')
+
+.t-right
+  = link_to_jq_button({url: edit_catalogs_course_path(@catalogs_course), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
+  = link_to_jq_button({url: catalogs_courses_path, text: t('commands.close'), icon: 'close', remote: false})
+.sp
+
 .alert-notice
   =render partial: 'layouts/alert_notice'
 
@@ -89,21 +96,21 @@
     .col-1
       = r.label :start_date_pub
     .col-2
-      = r.value :start_date_pub
+      = r.value :start_date_pub, :format => :long_only_date
     .sp
     .col-1
       = r.label :end_date_pub
     .col-2
-      = r.value :end_date_pub
+      = r.value :end_date_pub, :format => :long_only_date
     .sp
     .col-1
       = r.label :start_date_reg
     .col-2
-      = r.value :start_date_reg
+      = r.value :start_date_reg, :format => :long_only_date
     .col-1
       = r.label :end_date_reg
     .col-2
-      = r.value :end_date_reg
+      = r.value :end_date_reg, :format => :long_only_date
     .col-1
       = r.label :mail_notif_deposit
     .col-2
@@ -142,10 +149,11 @@
 %hr
 
 .t-right
-  = link_to_jq_button({url: edit_catalogs_course_path(@catalogs_course), title: t('commands.edit'), icon: 'pencil'})
-  = link_to_jq_button({text: t('commands.close')})
+  = link_to_jq_button({url: edit_catalogs_course_path(@catalogs_course), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
+  = link_to_jq_button({url: catalogs_courses_path, text: t('commands.close'), icon: 'close', remote: false})
+.sp
 
-%p#notice= notice
+-#%p#notice= notice
 
 
 -#= link_to 'Edit', edit_catalogs_course_path(r.value :

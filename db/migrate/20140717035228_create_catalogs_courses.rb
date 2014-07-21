@@ -13,8 +13,8 @@ class CreateCatalogsCourses < ActiveRecord::Migration
       t.string :payment_methods
       t.string :target
       t.string :prerequisites
-      t.string :min_quota
-      t.string :max_quota
+      t.integer :min_quota
+      t.integer :max_quota
       t.string :instructors
       t.string :contact
       t.string :image_file1

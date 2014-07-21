@@ -9,5 +9,7 @@
 %hr
 
 .t-right
-  = jq_link_to edit_admin_user_path(@admin_user),t('commands.edit'),'pencil'
-  = jq_link_to admin_users_path, t('commands.close')
+  = link_to_jq_button({url: edit_admin_user_path(@admin_user), icon: 'pencil', text: t('commands.edit')})
+  = link_to_jq_button({url: admin_users_path, icon: 'close', text: t('commands.close')})
+  -#= jq_link_to edit_admin_user_path(@admin_user),t('commands.edit'),'pencil'
+  -#= jq_link_to admin_users_path, t('commands.close')

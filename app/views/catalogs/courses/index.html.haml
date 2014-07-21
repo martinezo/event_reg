@@ -3,6 +3,9 @@
 
 %h1= t('titles.courses')
 
+.alert-notice
+  =render partial: 'layouts/alert_notice'
+
 =render 'layouts/search', url: catalogs_courses_path
 
 %br

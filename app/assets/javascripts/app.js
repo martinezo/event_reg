@@ -59,4 +59,3 @@ function load_jquery_ui(){
     remote_will_paginate();
     jqmenu();
 }
-

@@ -6,6 +6,8 @@ $(document).ready ->
 #  alert 'ready'
   fill_input_file_name()
   clear_input_file()
+  color_picker()
+  set_colorpickers()
   return
 
 #For turbolinks: http://stackoverflow.com/questions/17600093/rails-javascript-not-loading-after-clicking-through-link-to-helper. Instead of $(document).ready
@@ -13,6 +15,8 @@ $(document).on "page:load", ->
 #  alert 'load'
   fill_input_file_name()
   clear_input_file()
+  color_picker()
+  set_colorpickers()
   return
 
 fill_input_file_name = ->
@@ -26,5 +30,26 @@ clear_input_file = ->
     event.preventDefault()
     $($(this).attr("name")).val ""
     $($(this).attr("name") + "_tag").val ""
+    return
+  return
+
+color_picker = ->
+  # Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
+  $(".colorpicker").colpick(
+    layout: "hex"
+    submit: 0
+    colorScheme: "dark"
+    onChange: (hsb, hex, rgb, el, bySetColor) ->
+      $(el).css "border-color", "#" + hex
+      $(el).val hex  unless bySetColor
+      return
+  ).keyup ->
+    $(this).colpickSetColor @value
+    return
+  return
+
+set_colorpickers = ->
+  $(".colorpicker").each ->
+    $(this).css "border-right-color", "#" + $(this).val()
     return
   return
