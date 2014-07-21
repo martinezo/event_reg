@@ -2,10 +2,138 @@
   =render partial: 'layouts/alert_notice'
 
 = show_for @catalogs_course do |r|
-  = r.attribute :name
-  = r.attribute :description
-  = r.attribute :schedule
+  %h3.t-head= t('titles.event_general_data')
+  .tbl-courses-attr
+    .col-1
+      = r.label :name
+    .col-2
+      = @catalogs_course.name
+    .col-1
+      = r.label :start_date
+    .col-2
+      = I18n.localize(@catalogs_course.start_date, :format => :long_only_date)
+    .col-1
+      = r.label :description
+    .col-2
+      = @catalogs_course.description
+    .col-1
+      = r.label :location
+    .col-2
+      = @catalogs_course.location
+    .col-1
+      = r.label :schedule
+    .col-2
+      = @catalogs_course.schedule
+    .sp
 
+    %h3.t-head= t('titles.event_detail_data')
+    .col-1
+      = r.label :content_file
+    .col-2
+      = @catalogs_course.content_file
+    .col-1
+      = r.label :price1
+    .col-2
+      = number_with_precision(@catalogs_course.price1, precision: 2)
+    .col-1
+      = r.label :price2
+    .col-2
+      = number_with_precision(@catalogs_course.price2, precision: 2)
+    .col-1
+      = r.label :price3
+    .col-2
+      = number_with_precision(@catalogs_course.price3, precision: 2)
+    .col-1
+      = r.label :payment_methods
+    .col-2
+      = @catalogs_course.payment_methods.to_s() + '.'
+    .col-1
+      = r.label :target
+    .col-2
+      = @catalogs_course.target
+    .col-1
+      = r.label :prerequisites
+    .col-2
+      = @catalogs_course.prerequisites
+    .col-1
+      = r.label :min_quota
+    .col-2
+      = @catalogs_course.min_quota
+    .col-1
+      = r.label :max_quota
+    .col-2
+      = @catalogs_course.max_quota
+    .col-1
+      = r.label :instructors
+    .col-2
+      = @catalogs_course.instructors
+    .col-1
+      = r.label :contact
+    .col-2
+      = @catalogs_course.contact
+    .sp
+
+    %h3.t-head= t('titles.event_metadata')
+    .col-1
+      = r.label :image_file1
+    .col-2
+      = @catalogs_course.image_file1
+    .col-1
+      = r.label :image_file2
+    .col-2
+      = @catalogs_course.image_file2
+    .col-1
+      = r.label :image_file3
+    .col-2
+      = @catalogs_course.image_file3
+    .col-1
+      = r.label :start_date_pub
+    .col-2
+      = @catalogs_course.start_date_pub
+    .col-1
+      = r.label :end_date_pub
+    .col-2
+      = @catalogs_course.end_date_pub
+    .col-1
+      = r.label :start_date_reg
+    .col-2
+      = @catalogs_course.start_date_reg
+    .col-1
+      = r.label :end_date_reg
+    .col-2
+      = @catalogs_course.end_date_reg
+    .col-1
+      = r.label :mail_notif_deposit
+    .col-2
+      = @catalogs_course.mail_notif_deposit
+    .col-1
+      = r.label :academic_data_required
+    .col-2
+      = check_box :academic_data_required, "1", {:checked => @catalogs_course.academic_data_required, :disabled => true}
+    .col-1
+      = r.label :info_after_reg
+    .col-2
+      = @catalogs_course.info_after_reg
+    .col-1
+      = r.label :color_theme1
+    .col-2
+      = @catalogs_course.color_theme1
+    .col-1
+      = r.label :color_theme2
+    .col-2
+      = @catalogs_course.color_theme2
+    .col-1
+      = r.label :color_theme3
+    .col-2
+      = @catalogs_course.color_theme3
+    .col-1
+      = r.label :opt_field
+    .col-2
+      = @catalogs_course.opt_field
+    .col-1
+      = r.label :opt_field_title
+    .col-2
+      = @catalogs_course.opt_field_title
 
 .sp
 %hr
@@ -16,99 +144,6 @@
 
 %p#notice= notice
 
-%p
-  %b User:
-  = @catalogs_course.user_id
-%p
-  %b Name:
-  = @catalogs_course.name
-%p
-  %b Description:
-  = @catalogs_course.description
-%p
-  %b Schedule:
-  = @catalogs_course.schedule
-%p
-  %b Location:
-  = @catalogs_course.location
-%p
-  %b Content file:
-  = @catalogs_course.content_file
-%p
-  %b Price1:
-  = @catalogs_course.price1
-%p
-  %b Price2:
-  = @catalogs_course.price2
-%p
-  %b Price3:
-  = @catalogs_course.price3
-%p
-  %b Payment methods:
-  = @catalogs_course.payment_methods
-%p
-  %b Target:
-  = @catalogs_course.target
-%p
-  %b Prerequisites:
-  = @catalogs_course.prerequisites
-%p
-  %b Min quota:
-  = @catalogs_course.min_quota
-%p
-  %b Max quota:
-  = @catalogs_course.max_quota
-%p
-  %b Instructors:
-  = @catalogs_course.instructors
-%p
-  %b Contact:
-  = @catalogs_course.contact
-%p
-  %b Image file1:
-  = @catalogs_course.image_file1
-%p
-  %b Image file2:
-  = @catalogs_course.image_file2
-%p
-  %b Image file3:
-  = @catalogs_course.image_file3
-%p
-  %b Start date pub:
-  = @catalogs_course.start_date_pub
-%p
-  %b End date pub:
-  = @catalogs_course.end_date_pub
-%p
-  %b Start date reg:
-  = @catalogs_course.start_date_reg
-%p
-  %b End date reg:
-  = @catalogs_course.end_date_reg
-%p
-  %b Mail notif deposit:
-  = @catalogs_course.mail_notif_deposit
-%p
-  %b Academic data required:
-  = @catalogs_course.academic_data_required
-%p
-  %b Info after reg:
-  = @catalogs_course.info_after_reg
-%p
-  %b Color theme1:
-  = @catalogs_course.color_theme1
-%p
-  %b Color theme2:
-  = @catalogs_course.color_theme2
-%p
-  %b Color theme3:
-  = @catalogs_course.color_theme3
-%p
-  %b Opt field:
-  = @catalogs_course.opt_field
-%p
-  %b Opt field title:
-  = @catalogs_course.opt_field_title
 
 = link_to 'Edit', edit_catalogs_course_path(@catalogs_course)
 \|
