@@ -53,9 +53,20 @@ function jqmenu(){
     $('#admin-menu').menu({position: { of: $('#admin-menu'), my: "right top", at: "right bottom", collision: "none none" }});
 }
 
+function carousel(){
+    $('#carousel').owlCarousel({
+        navigation : false, // Show next and prev buttons
+        slideSpeed : 300,
+        paginationSpeed : 1000,
+        singleItem: true,
+        autoPlay:  5000
+    });
+}
+
 function load_jquery_ui(){
     jqbuttons();
     jqdatepicker();
     remote_will_paginate();
     jqmenu();
+    carousel();
 }

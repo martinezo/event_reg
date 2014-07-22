@@ -1,41 +1,68 @@
-@import "compass";
-@import "blueprint/grid";
+/*
+ *= require_directory ./owl-carousel
+ */
+//@import "compass";
+//@import "blueprint/grid";
 @import "compass/reset";
 
 $blueprint-container-size: 990px;
 $font-family: Arial,Helvetica;
 
-#c-header {
-  //@include column(25);
-  //background: asset-url("header.jpg", image) no-repeat white;
-  height: 80px;
+#c-container{
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
 }
 
-#c-header-bg{
-  width: 990px;
-  margin: 0px auto;
-  background: asset-url('c_header_bg.gif', image) no-repeat;
+#c-header{
+  #c-header-bg {
+    width: 990px;
+    height: 80px;
+    background: asset-url('c_header_bg.gif', image) no-repeat;
+    margin: 0 auto;
+    opacity: 0.2;
+  }
+  #c-header-logo{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: asset-url('c_header_logo.png', image) no-repeat;
+    height: 80px;
+    width: 155px;
+    overflow-y: hidden;
+  }
 }
 
-#c_container{
-  width: 990px;
-  margin: 0px auto;
-}
-
-
-#c_content {
-  @include prepend(0.5);
-  @include column(24);
-  background-color: #ffffff;
-  min-height: 600px;
-}
-
-#c_footer {
-  clear: both;
-  //color: $base-color-3;
+#c-footer {
   line-height: 25px;
   text-align: center;
   font-size: 10px;
   padding-top: 2px;
-  //background: asset-url("footer.jpg", image) repeat-x top #ffffff;
 }
+
+#c-course-info{
+  width: 960px;
+  margin: 0 auto;
+  min-height: 600px;
+  padding: 15px;
+  font-family: $font-family;
+}
+
+#name{
+  text-align: center;
+  font-size: 30px;
+  border-bottom: solid 2px;
+  padding-bottom: 1em;
+}
+
+
+
+#carousel .item{
+  display: block;
+  width: 960px;
+  height: 260px;
+  border-bottom: solid 2px;
+}
+

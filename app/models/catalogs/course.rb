@@ -1,5 +1,8 @@
 # encoding: utf-8
 class Catalogs::Course < ActiveRecord::Base
+  require 'color_handler'
+  include ColorHandler
+
   # validates_uniqueness_of :login
   validates_presence_of :name, :start_date
 
@@ -17,5 +20,32 @@ class Catalogs::Course < ActiveRecord::Base
     path = File.join(directory, filename)
     # write the file
     File.open(path, "wb") { |f| f.write(upload.tempfile.read) }
+  end
+
+  def color_theme_l(color,amount)
+    case color
+      when 1
+        lighten_color color_theme1,amount
+      when 2
+        lighten_color color_theme2,amount
+      when 3
+        lighten_color color_theme3,amount
+      else
+        lighten_color '000000',nil
+    end
+  end
+
+
+  def color_theme_d(color,amount)
+    case color
+      when 1
+        darken_color color_theme1,amount
+      when 2
+        darken_color color_theme2,amount
+      when 3
+        darken_color color_theme3,amount
+      else
+        darken_color '000000',nil
+    end
   end
 end

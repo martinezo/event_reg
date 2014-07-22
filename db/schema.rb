@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 20140719032828) do
     t.string   "payment_methods"
     t.string   "target"
     t.string   "prerequisites"
-    t.string   "min_quota"
-    t.string   "max_quota"
     t.string   "instructors"
     t.string   "contact"
     t.string   "image_file1"
@@ -69,6 +67,8 @@ ActiveRecord::Schema.define(version: 20140719032828) do
     t.string   "opt_bol2"
     t.string   "opt_sel"
     t.string   "opt_sel_options"
+    t.integer  "min_quota"
+    t.integer  "max_quota"
   end
 
 end

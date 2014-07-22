@@ -9,7 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require_directory ./jquery
+ *= require_directory ./catalogs
  */
 
 @import "base";
@@ -38,6 +39,9 @@
   .col-1{
     text-align: right;
     background-color: $base-color-3;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    margin-bottom: 0.25em;
   }
 }
 

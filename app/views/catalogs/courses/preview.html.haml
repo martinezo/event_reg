@@ -1,2 +1,19 @@
-#c-header{style: "background-color: ##{@catalogs_course.color_theme1};"}
-#c-header-bg
+#c-container{style: "background-color: ##{@catalogs_course.color_theme_l 3,0.5};"}
+  #c-header{style: "background-color: ##{@catalogs_course.color_theme1};"}
+    #c-header-bg
+    #c-header-logo
+  #c-course-info{style: "background-color: ##{@catalogs_course.color_theme_l 3,0.6}; color: ##{@catalogs_course.color_theme1}"}
+    = show_for @catalogs_course do |r|
+      #name
+        = r.value :name
+      #carousel
+        -@carousel.each do |img|
+          .item{style:"background-image:url('#{img}');"}
+
+        -#.item{style:"background-image:url('/attachments/#{@catalogs_course.id}_image_file1.#{@catalogs_course.image_file1.sub(/^.*\./,'')}');"}
+        -#.item{style:"background-image:url('/attachments/#{@catalogs_course.id}_image_file2.#{@catalogs_course.image_file2.sub(/^.*\./,'')}');"}
+        -#.item{style:"background-image:url('/attachments/#{@catalogs_course.id}_image_file3.#{@catalogs_course.image_file3.sub(/^.*\./,'')}');"}
+
+#c-footer{style: "background-color: ##{@catalogs_course.color_theme1}; color: ##{@catalogs_course.color_theme_l 1,0.3}"}
+  Ramón Martínez Olvera | INB-UNAM
+

@@ -1,4 +1,5 @@
 class Catalogs::CoursesController < ApplicationController
+
   before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :preview]
   helper_method :sort_column, :sort_direction
 
@@ -85,7 +86,10 @@ class Catalogs::CoursesController < ApplicationController
 
 
   def preview
-
+    image_1 = "/attachments/#{@catalogs_course.id}_image_file1.#{@catalogs_course.image_file1.sub(/^.*\./,'')}" unless @catalogs_course.image_file1.empty?
+    image_2 = "/attachments/#{@catalogs_course.id}_image_file2.#{@catalogs_course.image_file2.sub(/^.*\./,'')}" unless @catalogs_course.image_file2.empty?
+    image_3 = "/attachments/#{@catalogs_course.id}_image_file3.#{@catalogs_course.image_file3.sub(/^.*\./,'')}" unless @catalogs_course.image_file3.empty?
+    @carousel = [image_1, image_2, image_3].compact
   end
 
   private
