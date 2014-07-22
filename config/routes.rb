@@ -2,6 +2,7 @@ EventReg::Application.routes.draw do
 
   namespace :catalogs do
     resources :courses
+    get 'courses/preview/:id' => 'courses#preview', as: 'preview'
   end
 
   devise_for :devise_users

@@ -1,6 +1,8 @@
 class Catalogs::CoursesController < ApplicationController
-  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :preview]
   helper_method :sort_column, :sort_direction
+
+  layout 'events_courses', only: [:preview]
   
   # GET /catalogs/courses
   # GET /catalogs/courses.json
@@ -79,6 +81,11 @@ class Catalogs::CoursesController < ApplicationController
       format.html { redirect_to catalogs_courses_url }
       format.json { head :no_content }
     end
+  end
+
+
+  def preview
+
   end
 
   private

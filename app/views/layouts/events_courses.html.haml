@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title .:: Cursos Eventos UNAM - INB ::.
+    -# <link rel="shortcut icon" href="faviicon.png">    
+    = stylesheet_link_tag    "event_courses", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    %body
+      //#header
+      //#container
+      //#header
+      //.sp
+      //#content
+      = yield
+      //#footer

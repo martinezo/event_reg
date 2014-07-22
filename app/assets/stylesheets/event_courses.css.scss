@@ -1,0 +1,41 @@
+@import "compass";
+@import "blueprint/grid";
+@import "compass/reset";
+
+$blueprint-container-size: 990px;
+$font-family: Arial,Helvetica;
+
+#c-header {
+  //@include column(25);
+  //background: asset-url("header.jpg", image) no-repeat white;
+  height: 80px;
+}
+
+#c-header-bg{
+  width: 990px;
+  margin: 0px auto;
+  background: asset-url('c_header_bg.gif', image) no-repeat;
+}
+
+#c_container{
+  width: 990px;
+  margin: 0px auto;
+}
+
+
+#c_content {
+  @include prepend(0.5);
+  @include column(24);
+  background-color: #ffffff;
+  min-height: 600px;
+}
+
+#c_footer {
+  clear: both;
+  //color: $base-color-3;
+  line-height: 25px;
+  text-align: center;
+  font-size: 10px;
+  padding-top: 2px;
+  //background: asset-url("footer.jpg", image) repeat-x top #ffffff;
+}
