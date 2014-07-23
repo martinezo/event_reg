@@ -24,7 +24,7 @@
     .col-2
       = f.input_field :schedule, :size => 70
 
-
+  .sp
   %h3.t-head= t('titles.event_detail_data')
 
   .tbl-courses-attr
@@ -81,12 +81,41 @@
       = f.label :contact
     .col-2
       = f.input_field :contact, :size => 70
+    .sp
+    %h3.t-head= t('titles.optional_data')
+    .col-1
+      = f.label :opt_text
+    .col-2
+      = f.input_field :opt_text, :size => 70
+    .col-1
+      = f.label :opt_str1
+    .col-2
+      = f.input_field :opt_str1, :size => 70
+    .col-1
+      = f.label :opt_str2
+    .col-2
+      = f.input_field :opt_str2, :size => 70
+    .col-1
+      = f.label :opt_bol1
+    .col-2
+      = f.input_field :opt_bol1, :size => 70
+    .col-1
+      = f.label :opt_bol2
+    .col-2
+      = f.input_field :opt_bol2, :size => 70
+    .col-1
+      = f.label :opt_sel
+    .col-2
+      = f.input_field :opt_sel, :size => 70
+    .col-1
+      = f.label :opt_sel_options
+    .col-2
+      = f.input_field :opt_sel_options, :size => 70
 
+    .sp
+    %h3.t-head= t('titles.event_metadata')
 
-
-  %h3.t-head= t('titles.event_metadata')
-
-  .tbl-courses-attr
+    .tbl-courses-attr
     .col-1
       =f.label :image_file1
     .col-2.file-selector

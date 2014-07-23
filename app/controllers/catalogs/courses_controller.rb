@@ -100,7 +100,14 @@ class Catalogs::CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def catalogs_course_params
-      params.require(:catalogs_course).permit(:user_id, :name, :start_date, :description, :schedule, :location, :content_file, :price1, :price2, :price3, :payment_methods, :target, :prerequisites, :min_quota, :max_quota, :instructors, :contact, :image_file1, :image_file2, :image_file3, :start_date_pub, :end_date_pub, :start_date_reg, :end_date_reg, :mail_notif_deposit, :academic_data_required, :info_after_reg, :color_theme1, :color_theme2, :color_theme3, :opt_field, :opt_field_title)
+      params.require(:catalogs_course).permit(:user_id, :name, :start_date, :description, :schedule, :location,
+                                              :content_file, :price1, :price2, :price3, :opt_text, :opt_str1,
+                                              :opt_str2, :opt_bol1, :opt_bol2, :opt_sel, :opt_sel_options, :payment_methods, :target,
+                                              :prerequisites, :min_quota, :max_quota, :instructors, :contact,
+                                              :image_file1, :image_file2, :image_file3, :start_date_pub,
+                                              :end_date_pub, :start_date_reg, :end_date_reg, :mail_notif_deposit,
+                                              :academic_data_required, :info_after_reg, :color_theme1,
+                                              :color_theme2, :color_theme3, :opt_field, :opt_field_title)
     end
 
     def sort_column

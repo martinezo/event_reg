@@ -25,6 +25,7 @@ es:
     event_general_data: Datos Generales
     event_detail_data: Detalles
     event_metadata: Configuración
+    optional_data: Datos opcionales
 
   notices:
     saved_successfully: Registro guardado correctamente. 
@@ -49,6 +50,13 @@ es:
         price1: Precio 1
         price2: Precio 2
         price3: Precio 3
+        opt_text: Título del campo texto opcional
+        opt_str1: Título de campo string opcional 1
+        opt_str2: Título de campo string opcional 2
+        opt_bol1: Título de campo booleano opcional 1
+        opt_bol2: Título de campo booleano opcional 2
+        opt_sel: Título de campo select
+        opt_sel_options: Opciones del campo select, separadas por coma
         payment_methods: Formas de pago y descuentos
         target: Dirigido a
         prerequisites: Prerequisitos
@@ -70,7 +78,7 @@ es:
         color_theme2: Color tema 2
         color_theme3: Color tema 3
         opt_field: Campo opcional
-        opt_field_title: Campo opcional Titulo
+        opt_field_title: Campo opcional Título
         start_date: Fecha Inicio
 
       devise_user:

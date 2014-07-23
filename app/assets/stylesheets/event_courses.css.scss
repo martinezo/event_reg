@@ -50,14 +50,17 @@ $font-family: Arial,Helvetica;
   font-family: $font-family;
 }
 
+#c-description{
+  font-size: 1.2em;
+  padding-bottom: 0.5em;
+}
+
 #name{
   text-align: center;
   font-size: 30px;
   border-bottom: solid 2px;
   padding-bottom: 1em;
 }
-
-
 
 #carousel .item{
   display: block;
@@ -66,3 +69,22 @@ $font-family: Arial,Helvetica;
   border-bottom: solid 2px;
 }
 
+.tbl-course-info{
+  display: block-inline;
+}
+
+.col-1{
+  float: left;
+  width: 25%;
+  font-size: 0.8em;
+}
+
+.col-2{
+  width: 75%;
+  font-size: 0.9em;
+}
+
+.c-info{
+  padding-top: 0.5em;  
+  padding-bottom: 0.5em;
+}
