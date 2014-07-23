@@ -126,7 +126,7 @@
           =t('commands.select_file')
         .input-file-str
           -#TODO placeholder message set size of images
-          =f.input_field :image_file1, size: 30, placeholder: 'Archivo JPG 300x150 pixeles', readonly: true
+          =f.input_field :image_file1, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file1'}
           &nbsp;
     .sp
@@ -140,7 +140,7 @@
           =t('commands.select_file')
         .input-file-str
           -#TODO placeholder message set size of images
-          =f.input_field :image_file2, size: 30, placeholder: 'Archivo JPG 300x150 pixeles', readonly: true
+          =f.input_field :image_file2, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file2'}
           &nbsp;
     .sp
@@ -154,7 +154,7 @@
           =t('commands.select_file')
         .input-file-str
           -#TODO placeholder message set size of images
-          =f.input_field :image_file3, size: 30, placeholder: 'Archivo JPG 300x150 pixeles', readonly: true
+          =f.input_field :image_file3, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file3'}
           &nbsp;
     .sp
@@ -202,13 +202,14 @@
     .col-2
       = f.input_field :color_theme3, class: 'colorpicker'
     .col-1
-      = f.label :opt_field
-    .col-2
-      = f.input_field :opt_field, :size => 70
-    .col-1
       = f.label :opt_field_title
     .col-2
       = f.input_field :opt_field_title, :size => 70
+    .col-1
+      = f.label :opt_field
+    .col-2
+      = f.input_field :opt_field, :size => 70
+
 
 
 
