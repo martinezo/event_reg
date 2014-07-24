@@ -116,3 +116,17 @@ $font-family: Arial,Helvetica;
     color: inherit;
   }
 }
+
+.alert{
+  width: 600px;
+  height: 50px;
+  border: solid #ff0000 3px;
+  margin: 20px auto;
+  text-align: center;
+  padding-top: 20px;
+  background-image: url('hover.png');
+  background-color: hotpink;
+  font-size: 30px !important;
+  border-radius: 15px;
+}
+

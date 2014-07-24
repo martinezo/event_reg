@@ -191,9 +191,28 @@ h3{
   text-indent: 1em;
 }
 
+.event-course{
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
 .image-course{
+  margin: 0 auto 1em;
   width: 300px;
   height: 81px;
-  background-color: blue;
-  //background-size: contain !important;
+  &:hover{
+    opacity: 0.5;
+  }
 }
+
+.ec-name{
+  color: $base-color-1;
+}
+
+.ec-date{
+  margin-top: 0.5em;
+  font-size: 1.2em;
+  color: $base-color-2;
+}
+

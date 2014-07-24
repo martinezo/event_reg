@@ -2,7 +2,7 @@ EventReg::Application.routes.draw do
 
   namespace :public do
     get "events_courses/index"
-    get "events_courses/event_info"
+    get "events_courses/event_info/:id" => 'events_courses#event_info', as: 'event_info'
   end
 
   namespace :catalogs do

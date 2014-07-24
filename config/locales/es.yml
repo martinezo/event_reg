@@ -35,6 +35,7 @@ es:
   notices:
     saved_successfully: Registro guardado correctamente. 
     updated_successfully: Registro actualizado correctamente.
+    event_info_unavalable: "¡Información de evento no disponible!"
 
   will_paginate:
     previous_label: Anterior

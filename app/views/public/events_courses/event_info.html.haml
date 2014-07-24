@@ -1,2 +1,7 @@
-%h1 Public::EventsCourses#event_info
-%p Find me in app/views/public/events_courses/event_info.html.haml
+- if flash[:alert]
+  .alert
+    %h3= render :partial => 'layouts/alert_notice'
+- else
+  =render partial: 'catalogs/courses/event_course_info'
+
+

@@ -6,6 +6,9 @@ class Catalogs::Course < ActiveRecord::Base
   # validates_uniqueness_of :login
   validates_presence_of :name, :start_date, :description
 
+  #Change sql function now() instead date() for postresql
+  scope :publishable, -> {where('date() BETWEEN start_date_pub AND end_date_pub')}
+
   def self.search(search)
     if search
       where("translate(lower(name),'áéíóúàèìòù', 'aeiouaeiou') LIKE translate(lower(?),'áéíóúàèìòù', 'aeiouaeiou')", "%#{search}%")

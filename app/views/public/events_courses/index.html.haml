@@ -1,5 +1,8 @@
+.sp
 - @courses.each do |c|
- .sp
- .image-course{style: "background: url('/attachments/#{c.id}_image_file1.#{c.image_file1.sub(/.*\./,'') unless c.image_file1.nil?}'); background-size: contain"}
- = c.name
- = c.start_date
+  .event-course
+    .image-course
+      =link_to image_tag("/attachments/#{c.id}_image_file1.#{c.image_file1.sub(/.*\./,'')}", size: '300x81'),
+        public_event_info_path(c), target: '_blank'
+    %strong.ec-name= c.name
+    .ec-date= I18n.localize(c.start_date, format: :long_only_date)
