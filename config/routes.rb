@@ -1,5 +1,10 @@
 EventReg::Application.routes.draw do
 
+  namespace :public do
+    get "events_courses/index"
+    get "events_courses/event_info"
+  end
+
   namespace :catalogs do
     resources :courses
     get 'courses/preview/:id' => 'courses#preview', as: 'course_preview'

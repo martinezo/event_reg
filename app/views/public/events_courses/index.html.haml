@@ -1,0 +1,5 @@
+- @courses.each do |c|
+ .sp
+ .image-course{style: "background: url('/attachments/#{c.id}_image_file1.#{c.image_file1.sub(/.*\./,'') unless c.image_file1.nil?}'); background-size: contain"}
+ = c.name
+ = c.start_date
