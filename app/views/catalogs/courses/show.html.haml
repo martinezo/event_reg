@@ -3,12 +3,14 @@
 .t-right
   = link_to_jq_button({url: edit_catalogs_course_path(@catalogs_course), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
   = link_to_jq_button({url: catalogs_courses_path, text: t('commands.close'), icon: 'close', remote: false})
+  = link_to_jq_button({url: catalogs_course_preview_path, text: t('commands.preview'), icon: 'triangle-1-e', remote: false, target: '_blank'})
 .sp
 
 .alert-notice
   =render partial: 'layouts/alert_notice'
 
 = show_for @catalogs_course do |r|
+
   %h3.t-head= t('titles.event_general_data')
   .tbl-courses-attr
     .col-1
@@ -37,17 +39,18 @@
     .col-1
       = r.label :content_file
     .col-2
-      = r.value :content_file
+      = link_to @catalogs_course.content_file,
+        catalogs_course_download_file_path("#{@catalogs_course.id}_program_file.#{@catalogs_course.content_file.sub(/^.*\./,'')}", name: @catalogs_course.content_file)
     .col-1
-      = r.label :price1
+      %strong= "#{t('general.price')} (#{@catalogs_course.price1_desc})"
     .col-2
       = number_with_precision(r.value :price1, precision: 2)
     .col-1
-      = r.label :price2
+      %strong= "#{t('general.price')} (#{@catalogs_course.price2_desc})"
     .col-2
       = number_with_precision(r.value :price2, precision: 2)
     .col-1
-      = r.label :price3
+      %strong= "#{t('general.price')} (#{@catalogs_course.price3_desc})"
     .col-2
       = number_with_precision(r.value :price3, precision: 2)
     .col-1
@@ -79,6 +82,76 @@
     .col-2
       = r.value :contact
     .sp
+
+    %h3.t-head= t('titles.event_metadata')
+    .col-1
+      = r.label :image_file1
+    .col-2
+      = link_to @catalogs_course.image_file1,
+        catalogs_course_download_file_path("#{@catalogs_course.id}_image_file1.#{@catalogs_course.image_file1.sub(/^.*\./,'')}", name: @catalogs_course.image_file1)
+    .col-1
+      = r.label :image_file2
+    .col-2
+      = link_to @catalogs_course.image_file2,
+        catalogs_course_download_file_path("#{@catalogs_course.id}_image_file2.#{@catalogs_course.image_file2.sub(/^.*\./,'')}", name: @catalogs_course.image_file2)
+    .col-1
+      = r.label :image_file3
+    .col-2
+      = link_to @catalogs_course.image_file3,
+        catalogs_course_download_file_path("#{@catalogs_course.id}_image_file3.#{@catalogs_course.image_file3.sub(/^.*\./,'')}", name: @catalogs_course.image_file3)
+    .col-1
+      = r.label :color_theme1
+    .col-2
+      = r.value :color_theme1,
+        wrapper_html: {style: "border: solid 1px ##{@catalogs_course.color_theme1}; border-width: 0 25px 0 0; width: 15%;"}
+    .col-1
+      = r.label :color_theme2
+    .col-2
+      = r.value :color_theme2,
+        wrapper_html: {style: "border: solid 1px ##{@catalogs_course.color_theme2}; border-width: 0 25px 0 0; width: 15%;"}
+    .col-1
+      = r.label :color_theme3
+    .col-2
+      = r.value :color_theme3,
+        wrapper_html: {style: "border: solid 1px ##{@catalogs_course.color_theme3}; border-width: 0 25px 0 0; width: 15%;"}
+    .col-1
+      = r.label :start_date_pub
+    .col-2
+      = r.value :start_date_pub, :format => :long_only_date
+    .col-1
+      = r.label :end_date_pub
+    .col-2
+      = r.value :end_date_pub, :format => :long_only_date
+    .col-1
+      = r.label :start_date_reg
+    .col-2
+      = r.value :start_date_reg, :format => :long_only_date
+    .col-1
+      = r.label :end_date_reg
+    .col-2
+      = r.value :end_date_reg, :format => :long_only_date
+    .col-1
+      = r.label :mail_notif_deposit
+    .col-2
+      = r.value :mail_notif_deposit
+    .col-1
+      = r.label :academic_data_required
+    .col-2
+      = r.value :academic_data_required
+    .col-1
+      = r.label :info_after_reg
+    .col-2
+      = r.value :info_after_reg
+    .col-1
+      = r.label :opt_field_title
+    .col-2
+      = r.value :opt_field_title
+    .col-1
+      = r.label :opt_field
+    .col-2
+      = r.value :opt_field
+    .sp
+
     %h3.t-head= t('titles.optional_data')
     .col-1
       = r.label :opt_text
@@ -109,76 +182,11 @@
     .col-2
       = r.value :opt_sel_options
     .sp
-    %h3.t-head= t('titles.event_metadata')
-    .col-1
-      = r.label :image_file1
-    .col-2
-      = r.value :image_file1
-    .col-1
-      = r.label :image_file2
-    .col-2
-      = r.value :image_file2
-    .col-1
-      = r.label :image_file3
-    .col-2
-      = r.value :image_file3
-    .col-1
-      = r.label :color_theme1
-    .col-2
-      = r.value :color_theme1
-    .col-1
-      = r.label :color_theme2
-    .col-2
-      = r.value :color_theme2
-    .col-1
-      = r.label :color_theme3
-    .col-2
-      = r.value :color_theme3
-    .col-1
-      = r.label :start_date_pub
-    .col-2
-      = r.value :start_date_pub, :format => :long_only_date
-    .sp
-    .col-1
-      = r.label :end_date_pub
-    .col-2
-      = r.value :end_date_pub, :format => :long_only_date
-    .sp
-    .col-1
-      = r.label :start_date_reg
-    .col-2
-      = r.value :start_date_reg, :format => :long_only_date
-    .col-1
-      = r.label :end_date_reg
-    .col-2
-      = r.value :end_date_reg, :format => :long_only_date
-    .col-1
-      = r.label :mail_notif_deposit
-    .col-2
-      = r.value :mail_notif_deposit
-    .col-1
-      = r.label :academic_data_required
-    .col-2
-      = r.value :academic_data_required
-    .sp
-    .col-1
-      = r.label :info_after_reg
-    .col-2
-      = r.value :info_after_reg
-    .col-1
-      = r.label :opt_field_title
-    .col-2
-      = r.value :opt_field_title
-    .col-1
-      = r.label :opt_field
-    .col-2
-      = r.value :opt_field
 
-.sp
 %hr
-
 .t-right
   = link_to_jq_button({url: edit_catalogs_course_path(@catalogs_course), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
   = link_to_jq_button({url: catalogs_courses_path, text: t('commands.close'), icon: 'close', remote: false})
+  = link_to_jq_button({url: catalogs_course_preview_path, text: t('commands.preview'), icon: 'triangle-1-e', remote: false, target: '_blank'})
 .sp
 

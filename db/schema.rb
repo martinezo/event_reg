@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719032828) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140719025804) do
 
   create_table "admin_users", force: true do |t|
     t.string   "login"
@@ -37,6 +34,8 @@ ActiveRecord::Schema.define(version: 20140719032828) do
     t.string   "payment_methods"
     t.string   "target"
     t.string   "prerequisites"
+    t.integer  "min_quota"
+    t.integer  "max_quota"
     t.string   "instructors"
     t.string   "contact"
     t.string   "image_file1"
@@ -67,8 +66,6 @@ ActiveRecord::Schema.define(version: 20140719032828) do
     t.string   "opt_bol2"
     t.string   "opt_sel"
     t.string   "opt_sel_options"
-    t.integer  "min_quota"
-    t.integer  "max_quota"
   end
 
 end

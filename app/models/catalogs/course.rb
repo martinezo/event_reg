@@ -4,7 +4,7 @@ class Catalogs::Course < ActiveRecord::Base
   include ColorHandler
 
   # validates_uniqueness_of :login
-  validates_presence_of :name, :start_date
+  validates_presence_of :name, :start_date, :description
 
   def self.search(search)
     if search

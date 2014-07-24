@@ -69,7 +69,10 @@
 }
 
 .simple_form {
-  .input .string, .input .password, .input .select, .input .email {
+  input{
+    font-size: 12px !important;
+  }
+  .input .string, .password, .select, .email {
     display: block;
     clear: both;
     margin-bottom: 5px;

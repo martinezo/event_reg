@@ -12,6 +12,8 @@ es:
     sign_in: Acceder
     sign_out: Cerrar Sessión
     select_file: Selecciona un archivo...
+    preview: Vista Previa
+    cancel: Cancelar
 
   titles:
     edit: Modificar %{param}
@@ -25,7 +27,10 @@ es:
     event_general_data: Datos Generales
     event_detail_data: Detalles
     event_metadata: Configuración
-    optional_data: Datos opcionales
+    optional_data: Datos opcionales para registro
+
+  general:
+    price: Precio
 
   notices:
     saved_successfully: Registro guardado correctamente. 
@@ -47,16 +52,19 @@ es:
         schedule: Fechas y Horarios
         location: Lugar
         content_file: Programa
+        price1_desc: Descripción Precio 1
+        price2_desc: Descripción Precio 2
+        price3_desc: Descripción Precio 3
         price1: Precio 1
         price2: Precio 2
         price3: Precio 3
-        opt_text: Título del campo texto opcional
-        opt_str1: Título de campo string opcional 1
-        opt_str2: Título de campo string opcional 2
-        opt_bol1: Título de campo booleano opcional 1
-        opt_bol2: Título de campo booleano opcional 2
-        opt_sel: Título de campo select
-        opt_sel_options: Opciones del campo select, separadas por coma
+        opt_text: Título del campo texto(largo) opcional
+        opt_str1: Título de campo texto opcional 1
+        opt_str2: Título de campo texto opcional 2
+        opt_bol1: Título de campo si/no opcional 1
+        opt_bol2: Título de campo si/no opcional 2
+        opt_sel: Título de campo de selección
+        opt_sel_options: Opciones del campo de seleccion
         payment_methods: Formas de pago y descuentos
         target: Dirigido a
         prerequisites: Prerequisitos
@@ -100,6 +108,8 @@ es:
           attributes:
             name:
               take: ya existe.
+              blank: es un dato requerido.
+            description:
               blank: es un dato requerido.
             start_date:
               blank: es un dato requerido.

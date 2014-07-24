@@ -52,7 +52,8 @@ $font-family: Arial,Helvetica;
 
 #c-description{
   font-size: 1.2em;
-  padding-bottom: 0.5em;
+  padding: 1em 0;
+  text-align: center;
 }
 
 #name{
@@ -70,7 +71,11 @@ $font-family: Arial,Helvetica;
 }
 
 .tbl-course-info{
-  display: block-inline;
+  display: block;
+}
+
+.row{
+  border: inherit;
 }
 
 .col-1{
@@ -80,11 +85,34 @@ $font-family: Arial,Helvetica;
 }
 
 .col-2{
+  margin-left: 25%;
   width: 75%;
   font-size: 0.9em;
+}
+
+.alt-0{
+  background-image: url('alt-0.png');
+}
+
+.alt-1{
+  background-image: url('alt-1.png');
 }
 
 .c-info{
   padding-top: 0.5em;  
   padding-bottom: 0.5em;
+  border: inherit;
+  &:hover{
+    background-image: url('hover.png');
+    font-weight: bold;
+  }
+}
+
+.c-link{
+  a:link {
+    color: inherit;
+  }
+  a:visited{
+    color: inherit;
+  }
 }

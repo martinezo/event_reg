@@ -1,0 +1,116 @@
+#c-container{style: "background-color: ##{@cc.color_theme_l 3,0.4};"}
+  #c-header{style: "background-color: ##{@cc.color_theme1};"}
+    #c-header-bg
+    #c-header-logo
+  #c-course-info{style: "background-color: ##{@cc.color_theme_l 3,0.6}; color: ##{@cc.color_theme1}"}
+    = show_for @cc do |r|
+      #name
+        = r.value :name
+      #carousel
+        -@carousel.each do |img|
+          .item{style:"background-image:url('#{img}');"}
+      #c-description
+        =r.value :description
+      - i = 0
+      #tbl-course-info{style:"border: solid ##{@cc.color_theme1}; border-width: 1px 0px; background-color: ##{@cc.color_theme2};"}
+        - if !@cc.schedule.empty?
+          - i += 1
+          #c-schedule.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :schedule
+            .col-2
+              =r.value :schedule
+        - if !@cc.location.empty?
+          - i +=1
+          #c-location.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :location
+            .col-2
+              =r.value :location
+        - if !@cc.content_file.empty?
+          - i +=1
+          #c-content_file.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :content_file
+            .col-2.c-link{style: "color: ##{@cc.color_theme1}"}
+              = link_to @cc.content_file,
+                catalogs_course_download_file_path("#{@cc.id}_program_file.#{@cc.content_file.sub(/^.*\./,'')}", name: @cc.content_file)
+        - if !@cc.price1_desc.empty?
+          - i +=1
+          #c-price1.c-info{class: "alt-#{i%2}"}
+            .col-1
+              ="#{t('general.price')} (#{@cc.price1_desc})"
+            .col-2
+              =r.value :price1
+        - if !@cc.price2_desc.empty?
+          - i +=1
+          #c-price2.c-info{class: "alt-#{i%2}"}
+            .col-1
+              ="#{t('general.price')} (#{@cc.price2_desc})"
+            .col-2
+              =r.value :price2
+        - if !@cc.price3_desc.empty?
+          - i +=1
+          #c-price3.c-info{class: "alt-#{i%2}"}
+            .col-1
+              ="#{t('general.price')} (#{@cc.price3_desc})"
+            .col-2
+              =r.value :price3
+        - if !@cc.payment_methods.empty?
+          - i +=1
+          #c-payment_methods.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :payment_methods
+            .col-2
+              =r.value :payment_methods
+        - if !@cc.target.empty?
+          - i +=1
+          #c-target.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :target
+            .col-2
+              =r.value :target
+        - if !@cc.prerequisites.empty?
+          - i +=1
+          #c-prerequisites.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :prerequisites
+            .col-2
+              =r.value :prerequisites
+        - if @cc.min_quota && @cc.min_quota>0
+          - i +=1
+          #c-min_quota.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :min_quota
+            .col-2
+              =r.value :min_quota
+        - if @cc.max_quota && @cc.max_quota>0
+          - i +=1
+          #c-max_quota.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :max_quota
+            .col-2
+              =r.value :max_quota
+        - if !@cc.instructors.empty?
+          - i +=1
+          #c-instructors.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :instructors
+            .col-2
+              =r.value :instructors
+        - if !@cc.contact.empty?
+          - i +=1
+          #c-contact.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.label :contact
+            .col-2
+              =r.value :contact
+        - if !@cc.opt_field_title.empty?
+          - i +=1
+          #c-opt_field.c-info{class: "alt-#{i%2}"}
+            .col-1
+              =r.value :opt_field_title
+            .col-2
+              =r.value :opt_field
+#c-footer{style: "background-color: ##{@cc.color_theme1}; color: ##{@cc.color_theme_l 1,0.3}"}
+  Ramón Martínez Olvera (442) 5623 40 52 | INB-UNAM

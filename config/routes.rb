@@ -2,7 +2,10 @@ EventReg::Application.routes.draw do
 
   namespace :catalogs do
     resources :courses
-    get 'courses/preview/:id' => 'courses#preview', as: 'preview'
+    get 'courses/preview/:id' => 'courses#preview', as: 'course_preview'
+    get 'courses/download_file/:filename' => 'courses#download_file',
+        as: 'course_download_file',
+        constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }
   end
 
   devise_for :devise_users

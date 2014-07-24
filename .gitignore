@@ -22,5 +22,5 @@ config/ldap.yml
 
 #sqlite3 data base in macbookpro
 db/event_reg_development
-public/attachments/
+public/attachments/*
 Gemfile.lock

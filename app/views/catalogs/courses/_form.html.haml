@@ -1,7 +1,11 @@
 = simple_form_for @catalogs_course, :html => {:novalidate => true, multipart: true} do |f|
 
-  %h3.t-head= t('titles.event_general_data')
+  .t-right
+    =jq_submit_tag t('commands.save')
+    = link_to_jq_button({url: catalogs_courses_path, text: t('commands.cancel'), icon: 'close', remote: false})
+  .sp
 
+  %h3.t-head= t('titles.event_general_data')
   .tbl-courses-attr
     .col-1
       =f.label :name
@@ -14,7 +18,7 @@
     .col-1
       = f.label :description
     .col-2
-      = f.input_field :description, as: :text, :size => "95x5"
+      = f.input_field :description, as: :text, :size => "90x5"
     .col-1
       = f.label :location
     .col-2
@@ -26,7 +30,6 @@
 
   .sp
   %h3.t-head= t('titles.event_detail_data')
-
   .tbl-courses-attr
     .col-1
       =f.label :content_file
@@ -40,15 +43,26 @@
           =f.input_field :content_file, size: 30, placeholder: 'Se recomienda un archivo PDF', readonly: true
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_content_file'}
           &nbsp;
-    .sp
+    .col-1
+      = f.label :price1_desc
+    .col-2
+      = f.input_field :price1_desc, :size => 70
     .col-1
       = f.label :price1
     .col-2
       = f.input_field :price1, as: :numeric
     .col-1
+      = f.label :price2_desc
+    .col-2
+      = f.input_field :price2_desc, :size => 70
+    .col-1
       = f.label :price2
     .col-2
       = f.input_field :price2
+    .col-1
+      = f.label :price3_desc
+    .col-2
+      = f.input_field :price3_desc, :size => 70
     .col-1
       = f.label :price3
     .col-2
@@ -60,11 +74,11 @@
     .col-1
       = f.label :target
     .col-2
-      = f.input_field :target, :size => 70
+      = f.input_field :target, as: :text, :size => "90x3"
     .col-1
       = f.label :prerequisites
     .col-2
-      = f.input_field :prerequisites, as: :text, :size => "95x3"
+      = f.input_field :prerequisites, :size => 70
     .col-1
       = f.label :min_quota
     .col-2
@@ -82,6 +96,98 @@
     .col-2
       = f.input_field :contact, :size => 70
     .sp
+
+    %h3.t-head= t('titles.event_metadata')
+    .tbl-courses-attr
+    .col-1
+      =f.label :image_file1
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_image_file1_tag, nil, type: 'file', accept: 'image/png,image/gif,image/jpeg'
+      .input-file-jq
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          -#TODO placeholder message set size of images
+          =f.input_field :image_file1, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file1'}
+          &nbsp;
+    .col-1
+      =f.label :image_file2
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_image_file2_tag, nil, type: 'file'
+      .input-file-jq
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          -#TODO placeholder message set size of images
+          =f.input_field :image_file2, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file2'}
+          &nbsp;
+    .col-1
+      =f.label :image_file3
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_image_file3_tag, nil, type: 'file'
+      .input-file-jq
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          -#TODO placeholder message set size of images
+          =f.input_field :image_file3, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file3'}
+          &nbsp;
+    .col-1
+      = f.label :color_theme1
+    .col-2
+      = f.input_field :color_theme1, class: 'colorpicker'
+    .col-1
+      = f.label :color_theme2
+    .col-2
+      = f.input_field :color_theme2, class: 'colorpicker'
+    .col-1
+      = f.label :color_theme3
+    .col-2
+      = f.input_field :color_theme3, class: 'colorpicker'
+    .col-1
+      = f.label :start_date_pub
+    .col-2
+      = f.input_field :start_date_pub, as: :string, class: 'jq-datepicker', size: 18
+    .col-1
+      = f.label :end_date_pub
+    .col-2
+      = f.input_field :end_date_pub, as: :string, class: 'jq-datepicker', size: 18
+    .col-1
+      = f.label :start_date_reg
+    .col-2
+      = f.input_field :start_date_reg, as: :string, class: 'jq-datepicker', size: 18
+    .col-1
+      = f.label :end_date_reg
+    .col-2
+      = f.input_field :end_date_reg, as: :string, class: 'jq-datepicker', size: 18
+    .col-1
+      = f.label :mail_notif_deposit
+    .col-2
+      = f.input_field :mail_notif_deposit, :size => 70
+    .col-1
+      = f.label :academic_data_required
+    .col-2
+      = f.input_field :academic_data_required
+    .col-1
+      = f.label :info_after_reg
+    .col-2
+      = f.input_field :info_after_reg, :size => 70
+    .col-1
+      = f.label :opt_field_title
+    .col-2
+      = f.input_field :opt_field_title, :size => 70
+    .col-1
+      = f.label :opt_field
+    .col-2
+      = f.input_field :opt_field, :size => 70
+    .sp
+
     %h3.t-head= t('titles.optional_data')
     .col-1
       = f.label :opt_text
@@ -110,215 +216,13 @@
     .col-1
       = f.label :opt_sel_options
     .col-2
-      = f.input_field :opt_sel_options, :size => 70
-
+      = f.input_field :opt_sel_options, :size => 70, placeholder: 'Separar las opciones con coma ","'
     .sp
-    %h3.t-head= t('titles.event_metadata')
 
-    .tbl-courses-attr
-    .col-1
-      =f.label :image_file1
-    .col-2.file-selector
-      .input-file
-        =text_field_tag :catalogs_course_image_file1_tag, nil, type: 'file', accept: 'image/png,image/gif,image/jpeg'
-      .input-file-jq
-        .input-file-button.jq-button
-          =t('commands.select_file')
-        .input-file-str
-          -#TODO placeholder message set size of images
-          =f.input_field :image_file1, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
-        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file1'}
-          &nbsp;
-    .sp
-    .col-1
-      =f.label :image_file2
-    .col-2.file-selector
-      .input-file
-        =text_field_tag :catalogs_course_image_file2_tag, nil, type: 'file'
-      .input-file-jq
-        .input-file-button.jq-button
-          =t('commands.select_file')
-        .input-file-str
-          -#TODO placeholder message set size of images
-          =f.input_field :image_file2, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
-        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file2'}
-          &nbsp;
-    .sp
-    .col-1
-      =f.label :image_file3
-    .col-2.file-selector
-      .input-file
-        =text_field_tag :catalogs_course_image_file3_tag, nil, type: 'file'
-      .input-file-jq
-        .input-file-button.jq-button
-          =t('commands.select_file')
-        .input-file-str
-          -#TODO placeholder message set size of images
-          =f.input_field :image_file3, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
-        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file3'}
-          &nbsp;
-    .sp
-    .col-1
-      = f.label :start_date_pub
-    .col-2
-      = f.input_field :start_date_pub, as: :string, class: 'jq-datepicker', size: 18
-    .sp
-    .col-1
-      = f.label :end_date_pub
-    .col-2
-      = f.input_field :end_date_pub, as: :string, class: 'jq-datepicker', size: 18
-    .sp
-    .col-1
-      = f.label :start_date_reg
-    .col-2
-      = f.input_field :start_date_reg, as: :string, class: 'jq-datepicker', size: 18
-    .col-1
-      = f.label :end_date_reg
-    .col-2
-      = f.input_field :end_date_reg, as: :string, class: 'jq-datepicker', size: 18
-    .col-1
-      = f.label :mail_notif_deposit
-    .col-2
-      = f.input_field :mail_notif_deposit, :size => 70
-    .col-1
-      = f.label :academic_data_required
-    .col-2
-      = f.input_field :academic_data_required
-    .sp
-    .col-1
-      = f.label :info_after_reg
-    .col-2
-      = f.input_field :info_after_reg, :size => 70
-    .col-1
-      = f.label :color_theme1
-    .col-2
-      = f.input_field :color_theme1, class: 'colorpicker'
-    .col-1
-      = f.label :color_theme2
-    .col-2
-      = f.input_field :color_theme2, class: 'colorpicker'
-    .col-1
-      = f.label :color_theme3
-    .col-2
-      = f.input_field :color_theme3, class: 'colorpicker'
-    .col-1
-      = f.label :opt_field_title
-    .col-2
-      = f.input_field :opt_field_title, :size => 70
-    .col-1
-      = f.label :opt_field
-    .col-2
-      = f.input_field :opt_field, :size => 70
+  %hr
+  .t-right
+    =jq_submit_tag t('commands.save')
+    = link_to_jq_button({url: catalogs_courses_path, text: t('commands.cancel'), icon: 'close', remote: false})
+  .sp
+-#= link_to 'Back', catalogs_courses_path0
 
-
-
-
-  =f.submit
-
-= link_to 'Show', @catalogs_course
-\|
-= link_to 'Back', catalogs_courses_path
-
--#= form_for @catalogs_course do |f|
-  - if @catalogs_course.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@catalogs_course.errors.count, "error")} prohibited this catalogs_course from being saved:"
-      %ul
-        - @catalogs_course.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :schedule
-    = f.text_field :schedule
-  .field
-    = f.label :location
-    = f.text_field :location
-  .field
-    = f.label :content_file
-    = f.text_field :content_file
-  .field
-    = f.label :price1
-    = f.text_field :price1
-  .field
-    = f.label :price2
-    = f.text_field :price2
-  .field
-    = f.label :price3
-    = f.text_field :price3
-  .field
-    = f.label :payment_methods
-    = f.text_field :payment_methods
-  .field
-    = f.label :target
-    = f.text_field :target
-  .field
-    = f.label :prerequisites
-    = f.text_field :prerequisites
-  .field
-    = f.label :min_quota
-    = f.text_field :min_quota
-  .field
-    = f.label :max_quota
-    = f.text_field :max_quota
-  .field
-    = f.label :instructors
-    = f.text_field :instructors
-  .field
-    = f.label :contact
-    = f.text_field :contact
-  .field
-    = f.label :image_file1
-    = f.text_field :image_file1
-  .field
-    = f.label :image_file2
-    = f.text_field :image_file2
-  .field
-    = f.label :image_file3
-    = f.text_field :image_file3
-  .field
-    = f.label :start_date_pub
-    = f.date_select :start_date_pub
-  .field
-    = f.label :end_date_pub
-    = f.date_select :end_date_pub
-  .field
-    = f.label :start_date_reg
-    = f.date_select :start_date_reg
-  .field
-    = f.label :end_date_reg
-    = f.date_select :end_date_reg
-  .field
-    = f.label :mail_notif_deposit
-    = f.text_field :mail_notif_deposit
-  .field
-    = f.label :academic_data_required
-    = f.check_box :academic_data_required
-  .field
-    = f.label :info_after_reg
-    = f.text_field :info_after_reg
-  .field
-    = f.label :color_theme1
-    = f.text_field :color_theme1
-  .field
-    = f.label :color_theme2
-    = f.text_field :color_theme2
-  .field
-    = f.label :color_theme3
-    = f.text_field :color_theme3
-  .field
-    = f.label :opt_field
-    = f.text_field :opt_field
-  .field
-    = f.label :opt_field_title
-    = f.text_field :opt_field_title
-  .actions
-    = f.submit 'Save'

@@ -1,6 +1,6 @@
 class Catalogs::CoursesController < ApplicationController
 
-  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :preview]
+  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
   layout 'events_courses', only: [:preview]
@@ -86,10 +86,19 @@ class Catalogs::CoursesController < ApplicationController
 
 
   def preview
-    image_1 = "/attachments/#{@catalogs_course.id}_image_file1.#{@catalogs_course.image_file1.sub(/^.*\./,'')}" unless @catalogs_course.image_file1.empty?
-    image_2 = "/attachments/#{@catalogs_course.id}_image_file2.#{@catalogs_course.image_file2.sub(/^.*\./,'')}" unless @catalogs_course.image_file2.empty?
-    image_3 = "/attachments/#{@catalogs_course.id}_image_file3.#{@catalogs_course.image_file3.sub(/^.*\./,'')}" unless @catalogs_course.image_file3.empty?
+    @cc= Catalogs::Course.find(params[:id])
+    image_1 = "/attachments/#{@cc.id}_image_file1.#{@cc.image_file1.sub(/^.*\./,'')}" unless @cc.image_file1.empty?
+    image_2 = "/attachments/#{@cc.id}_image_file2.#{@cc.image_file2.sub(/^.*\./,'')}" unless @cc.image_file2.empty?
+    image_3 = "/attachments/#{@cc.id}_image_file3.#{@cc.image_file3.sub(/^.*\./,'')}" unless @cc.image_file3.empty?
     @carousel = [image_1, image_2, image_3].compact
+  end
+
+  def download_file
+    file = "public/attachments/#{params[:filename]}"
+    name = params[:name]
+    type = params[:filename].sub(/^.*\./,'')
+    send_file  file, filename: name, type: "application/#{type}"
+    #"#{Rails.root}/#{file}",
   end
 
   private
@@ -101,7 +110,8 @@ class Catalogs::CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def catalogs_course_params
       params.require(:catalogs_course).permit(:user_id, :name, :start_date, :description, :schedule, :location,
-                                              :content_file, :price1, :price2, :price3, :opt_text, :opt_str1,
+                                              :content_file, :price1, :price2, :price3, :price1_desc, :price2_desc, :price3_desc,
+                                              :opt_text, :opt_str1,
                                               :opt_str2, :opt_bol1, :opt_bol2, :opt_sel, :opt_sel_options, :payment_methods, :target,
                                               :prerequisites, :min_quota, :max_quota, :instructors, :contact,
                                               :image_file1, :image_file2, :image_file3, :start_date_pub,
@@ -117,5 +127,5 @@ class Catalogs::CoursesController < ApplicationController
     def sort_direction
       params[:direction] || 'asc' 
     end
- 
+
 end
