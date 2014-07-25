@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_admin_user, only: [:show, :edit, :update, :destroy, :delete]
+  before_action :authorize_resource
   helper_method :sort_column, :sort_direction
 
   # GET /admin/users
@@ -60,6 +61,11 @@ class Admin::UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_user
       @admin_user = Admin::User.find(params[:id])
+    end
+
+    # Authorize cancan
+    def authorize_resource
+      authorize! :manage, @admin_users, :message => "Not authorized to enter this section."
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

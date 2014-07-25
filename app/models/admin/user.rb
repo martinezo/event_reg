@@ -3,6 +3,8 @@ class Admin::User < ActiveRecord::Base
   validates_uniqueness_of :login
   validates_presence_of :login, :name, :mail
 
+  has_many :courses, :class_name => 'Catalogs::Course'
+
   ROLES = {'Administrador' => 1, 'Creador de cursos' => 2, 'Administrador de cursos' => 3}
   attr_reader :role_str
 

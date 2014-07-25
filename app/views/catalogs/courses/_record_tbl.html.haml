@@ -8,22 +8,24 @@
   .col-3
     &nbsp
 
-
-- @catalogs_courses.each_with_index do |catalogs_course, i|
-  .tbl-courses{:id => "row-#{i}",:class => "alt-#{i % 2}" }
-    .col-1
-      = catalogs_course.name
-    .col-2
-      = I18n.localize(catalogs_course.start_date, :format => :long_only_date)
-    .col-3.t-cent
-      = link_to_jq_button({url: catalogs_course, icon: 'document', title: t('commands.show'), remote: false})
-      = link_to_jq_button({url: edit_catalogs_course_path(catalogs_course), icon: 'pencil', title: t('commands.edit'), remote: false})
-      = link_to_jq_button({url: catalogs_course_preview_path(catalogs_course), icon: 'triangle-1-e', title: t('commands.preview'), remote: false, target: '_blank'})
-      = link_to_jq_button({url: catalogs_participants_path(course_id: catalogs_course), icon: 'person', title: t('titles.participants'), remote: false})
-      -#TODO link to download xls list of participants
-      -#= link_to_jq_button({url: '#', icon: 'person', title: t('titles.download'), remote: false})
-      -#TODO implement destroy action (don forget to erase related files to course in public/attachments)
-      -# = link_to_jq_button({url: catalogs_delete_course_path(catalogs_course), icon: 'trash', title: 'Eliminar'})
+- i=0
+- @catalogs_courses.each do |catalogs_course|
+  - if can? :update, catalogs_course
+    - i += 1
+    .tbl-courses{:id => "row-#{i}",:class => "alt-#{i % 2}" }
+      .col-1
+        = catalogs_course.name
+      .col-2
+        = I18n.localize(catalogs_course.start_date, :format => :long_only_date)
+      .col-3.t-cent
+        = link_to_jq_button({url: catalogs_course, icon: 'document', title: t('commands.show'), remote: false})
+        = link_to_jq_button({url: edit_catalogs_course_path(catalogs_course), icon: 'pencil', title: t('commands.edit'), remote: false})
+        = link_to_jq_button({url: catalogs_course_preview_path(catalogs_course), icon: 'triangle-1-e', title: t('commands.preview'), remote: false, target: '_blank'})
+        = link_to_jq_button({url: catalogs_participants_path(course_id: catalogs_course), icon: 'person', title: t('titles.participants'), remote: false})
+        -#TODO link to download xls list of participants
+        -#= link_to_jq_button({url: '#', icon: 'person', title: t('titles.download'), remote: false})
+        -#TODO implement destroy action (don forget to erase related files to course in public/attachments)
+        -# = link_to_jq_button({url: catalogs_delete_course_path(catalogs_course), icon: 'trash', title: 'Eliminar'})
 
 #will-paginate
   = will_paginate @catalogs_courses, params: {id: nil, action: 'index'}

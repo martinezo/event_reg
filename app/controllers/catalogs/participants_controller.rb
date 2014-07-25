@@ -1,5 +1,6 @@
 class Catalogs::ParticipantsController < ApplicationController
   before_action :set_catalogs_participant, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_resource, only: [:edit, :show, :destroy]
 
   # GET /catalogs/participants
   # GET /catalogs/participants.json
@@ -10,6 +11,7 @@ class Catalogs::ParticipantsController < ApplicationController
   # GET /catalogs/participants/1
   # GET /catalogs/participants/1.json
   def show
+    #authorize! :show, @catalogs_participant, :message => "Not authorized to enter this section."
   end
 
   # GET /catalogs/participants/new
@@ -19,6 +21,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
   # GET /catalogs/participants/1/edit
   def edit
+    #authorize! :edit, @catalogs_participant, :message => "Not authorized to enter this section."
   end
 
   # POST /catalogs/participants
@@ -70,5 +73,10 @@ class Catalogs::ParticipantsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def catalogs_participant_params
       params.require(:catalogs_participant).permit(:course_id, :name, :surnames, :mail, :phone_numbers, :workplace, :bachelor_deg, :master_deg, :phd_deg, :inv_name, :inv_rfc, :inv_address, :inv_city, :inv_municipality, :inv_state, :inv_email, :opt_text, :str_op1, :opt_str1, :opt_str2, :opt_bol1, :opt_bol2, :opt_sel, :confirmed, :price)
+    end
+
+    # Authorize cancan
+    def authorize_resource
+      authorize! :manage, @catalogs_participant, :message => "Not authorized to enter this section."
     end
 end

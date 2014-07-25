@@ -12,7 +12,7 @@
             - else
               =link_to t('titles.courses'), catalogs_courses_path
           %li#options
-            - if controller_name == 'users'
+            - if controller_name == 'users' or cannot? :update, @admin_user
               =label_tag t('titles.users'), nil, class: 'ui-state-disabled'
             - else
               =link_to t('titles.users'), admin_users_path

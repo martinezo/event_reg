@@ -2,6 +2,7 @@
 .error-explanation
 
 = simple_form_for @catalogs_course, :html => {:novalidate => true}, remote: true do |f|
+  = f.hidden_field :user_id, value: current_devise_user.id
   = f.input :name, :input_html => {:size => 50}
   = f.input :start_date, as: :string, input_html: {class: 'jq-datepicker'}
   = f.input :description, as: :text, :input_html => {:size => "48x5"}

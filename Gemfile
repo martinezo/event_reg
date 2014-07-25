@@ -60,3 +60,4 @@ gem 'will_paginate'
 # Necesary for uploading files with ajax response (remote: true)
 # Error: ActionController::InvalidAuthenticityToken in Catalogs::CoursesController#update
 gem 'remotipart'
+gem 'cancancan'

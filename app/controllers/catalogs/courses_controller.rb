@@ -23,6 +23,7 @@ class Catalogs::CoursesController < ApplicationController
 
   # GET /catalogs/courses/1/edit
   def edit
+    authorize! :update, @catalogs_course, :message => "Not authorized to enter this section."
   end
 
   # POST /catalogs/courses
@@ -42,6 +43,7 @@ class Catalogs::CoursesController < ApplicationController
   # PATCH/PUT /catalogs/courses/1.json
   def update
     @catalogs_course = Catalogs::Course.find(params[:id])
+    authorize! :update, @catalogs_course, :message => "Not authorized to enter this section."
 
     #upload content_file
     content_file_name =  params[:catalogs_course][:content_file]

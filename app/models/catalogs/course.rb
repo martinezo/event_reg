@@ -3,6 +3,7 @@ class Catalogs::Course < ActiveRecord::Base
   require 'color_handler'
   include ColorHandler
 
+  belongs_to :user, :class_name => 'Admin::User'
   has_many :participants, :class_name => 'Catalogs::Participant'
 
   # validates_uniqueness_of :login
