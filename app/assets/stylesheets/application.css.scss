@@ -27,7 +27,7 @@
 }
 
 .tbl-users{
-  @include four-columns(9,9,3,3);
+  @include five-columns(6,7,3,5,3);
 }
 
 .tbl-courses{

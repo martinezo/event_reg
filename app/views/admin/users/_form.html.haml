@@ -4,6 +4,7 @@
   = f.input :login, :input_html => {:size => 15}
   = f.input :name, :input_html => {:size => 40}
   = f.input :mail, :input_html => {:size => 40}
+  = f.input :role, collection: Admin::User::ROLES
   .sp
   %hr
   .t-right

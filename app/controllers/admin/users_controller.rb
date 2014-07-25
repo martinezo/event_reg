@@ -64,7 +64,7 @@ class Admin::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_user_params
-      params.require(:admin_user).permit(:login, :name, :mail)
+      params.require(:admin_user).permit(:login, :name, :mail, :role)
     end
     
     def sort_column

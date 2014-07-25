@@ -51,6 +51,8 @@ es:
         login: Usuario
         name: Nombre
         mail: Correo
+        role: Rol
+        role_str: Rol
       catalogs/course:
         name: Nombre
         description: Descripción
