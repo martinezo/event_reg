@@ -14,6 +14,7 @@ es:
     select_file: Selecciona un archivo...
     preview: Vista Previa
     cancel: Cancelar
+    download: Descargar %{param}
 
   titles:
     edit: Modificar %{param}
@@ -28,6 +29,9 @@ es:
     event_detail_data: Detalles
     event_metadata: Configuración
     optional_data: Datos opcionales para registro
+    participants: Participantes
+    participant: Participante
+
 
   general:
     price: Precio
@@ -35,7 +39,7 @@ es:
   notices:
     saved_successfully: Registro guardado correctamente. 
     updated_successfully: Registro actualizado correctamente.
-    event_info_unavalable: "¡Información de evento no disponible!"
+    event_info_unavalable: ¡Información de evento no disponible!
 
   will_paginate:
     previous_label: Anterior

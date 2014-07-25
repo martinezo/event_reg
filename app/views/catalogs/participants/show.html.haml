@@ -1,0 +1,81 @@
+%p#notice= notice
+
+%p
+  %b Course:
+  = @catalogs_participant.course_id
+%p
+  %b Name:
+  = @catalogs_participant.name
+%p
+  %b Surnames:
+  = @catalogs_participant.surnames
+%p
+  %b Mail:
+  = @catalogs_participant.mail
+%p
+  %b Phone numbers:
+  = @catalogs_participant.phone_numbers
+%p
+  %b Workplace:
+  = @catalogs_participant.workplace
+%p
+  %b Bachelor deg:
+  = @catalogs_participant.bachelor_deg
+%p
+  %b Master deg:
+  = @catalogs_participant.master_deg
+%p
+  %b Phd deg:
+  = @catalogs_participant.phd_deg
+%p
+  %b Inv name:
+  = @catalogs_participant.inv_name
+%p
+  %b Inv rfc:
+  = @catalogs_participant.inv_rfc
+%p
+  %b Inv address:
+  = @catalogs_participant.inv_address
+%p
+  %b Inv city:
+  = @catalogs_participant.inv_city
+%p
+  %b Inv municipality:
+  = @catalogs_participant.inv_municipality
+%p
+  %b Inv state:
+  = @catalogs_participant.inv_state
+%p
+  %b Inv email:
+  = @catalogs_participant.inv_email
+%p
+  %b Opt text:
+  = @catalogs_participant.opt_text
+%p
+  %b Str op1:
+  = @catalogs_participant.str_op1
+%p
+  %b Opt str1:
+  = @catalogs_participant.opt_str1
+%p
+  %b Opt str2:
+  = @catalogs_participant.opt_str2
+%p
+  %b Opt bol1:
+  = @catalogs_participant.opt_bol1
+%p
+  %b Opt bol2:
+  = @catalogs_participant.opt_bol2
+%p
+  %b Opt sel:
+  = @catalogs_participant.opt_sel
+%p
+  %b Confirmed:
+  = @catalogs_participant.confirmed
+%p
+  %b Price:
+  = @catalogs_participant.price
+
+= link_to 'Edit', edit_catalogs_participant_path(@catalogs_participant)
+\|
+= link_to 'Back', catalogs_participants_path

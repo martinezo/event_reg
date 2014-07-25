@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_id: 1
+  name: MyString
+  surnames: MyString
+  mail: MyString
+  phone_numbers: MyString
+  workplace: MyString
+  bachelor_deg: MyString
+  master_deg: MyString
+  phd_deg: MyString
+  inv_name: MyString
+  inv_rfc: MyString
+  inv_address: MyString
+  inv_city: MyString
+  inv_municipality: MyString
+  inv_state: MyString
+  inv_email: MyString
+  opt_text: MyText
+  str_op1: MyString
+  opt_str1: MyString
+  opt_str2: MyString
+  opt_bol1: false
+  opt_bol2: false
+  opt_sel: MyString
+  confirmed: false
+  price: 1
+
+two:
+  course_id: 1
+  name: MyString
+  surnames: MyString
+  mail: MyString
+  phone_numbers: MyString
+  workplace: MyString
+  bachelor_deg: MyString
+  master_deg: MyString
+  phd_deg: MyString
+  inv_name: MyString
+  inv_rfc: MyString
+  inv_address: MyString
+  inv_city: MyString
+  inv_municipality: MyString
+  inv_state: MyString
+  inv_email: MyString
+  opt_text: MyText
+  str_op1: MyString
+  opt_str1: MyString
+  opt_str2: MyString
+  opt_bol1: false
+  opt_bol2: false
+  opt_sel: MyString
+  confirmed: false
+  price: 1

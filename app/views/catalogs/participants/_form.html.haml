@@ -1,0 +1,85 @@
+= form_for @catalogs_participant do |f|
+  - if @catalogs_participant.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@catalogs_participant.errors.count, "error")} prohibited this catalogs_participant from being saved:"
+      %ul
+        - @catalogs_participant.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :course_id
+    = f.number_field :course_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :surnames
+    = f.text_field :surnames
+  .field
+    = f.label :mail
+    = f.text_field :mail
+  .field
+    = f.label :phone_numbers
+    = f.text_field :phone_numbers
+  .field
+    = f.label :workplace
+    = f.text_field :workplace
+  .field
+    = f.label :bachelor_deg
+    = f.text_field :bachelor_deg
+  .field
+    = f.label :master_deg
+    = f.text_field :master_deg
+  .field
+    = f.label :phd_deg
+    = f.text_field :phd_deg
+  .field
+    = f.label :inv_name
+    = f.text_field :inv_name
+  .field
+    = f.label :inv_rfc
+    = f.text_field :inv_rfc
+  .field
+    = f.label :inv_address
+    = f.text_field :inv_address
+  .field
+    = f.label :inv_city
+    = f.text_field :inv_city
+  .field
+    = f.label :inv_municipality
+    = f.text_field :inv_municipality
+  .field
+    = f.label :inv_state
+    = f.text_field :inv_state
+  .field
+    = f.label :inv_email
+    = f.text_field :inv_email
+  .field
+    = f.label :opt_text
+    = f.text_area :opt_text
+  .field
+    = f.label :str_op1
+    = f.text_field :str_op1
+  .field
+    = f.label :opt_str1
+    = f.text_field :opt_str1
+  .field
+    = f.label :opt_str2
+    = f.text_field :opt_str2
+  .field
+    = f.label :opt_bol1
+    = f.check_box :opt_bol1
+  .field
+    = f.label :opt_bol2
+    = f.check_box :opt_bol2
+  .field
+    = f.label :opt_sel
+    = f.text_field :opt_sel
+  .field
+    = f.label :confirmed
+    = f.check_box :confirmed
+  .field
+    = f.label :price
+    = f.number_field :price
+  .actions
+    = f.submit 'Save'
