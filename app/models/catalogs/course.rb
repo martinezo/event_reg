@@ -9,7 +9,7 @@ class Catalogs::Course < ActiveRecord::Base
   validates_presence_of :name, :start_date, :description
 
   #Change sql function now() instead date() for postresql
-  scope :publishable, -> {where('date() BETWEEN start_date_pub AND end_date_pub')}
+  scope :publishable, -> {where('now() BETWEEN start_date_pub AND end_date_pub')}
 
   def self.search(search)
     if search

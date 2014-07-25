@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140724220424) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admin_users", force: true do |t|
     t.string   "login"
     t.string   "name"
@@ -34,8 +37,6 @@ ActiveRecord::Schema.define(version: 20140724220424) do
     t.string   "payment_methods"
     t.string   "target"
     t.string   "prerequisites"
-    t.integer  "min_quota"
-    t.integer  "max_quota"
     t.string   "instructors"
     t.string   "contact"
     t.string   "image_file1"
@@ -66,6 +67,8 @@ ActiveRecord::Schema.define(version: 20140724220424) do
     t.string   "opt_bol2"
     t.string   "opt_sel"
     t.string   "opt_sel_options"
+    t.integer  "min_quota"
+    t.integer  "max_quota"
   end
 
   create_table "catalogs_participants", force: true do |t|
