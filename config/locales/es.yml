@@ -22,6 +22,7 @@ es:
 
     sign_in: Inicio de sessión como administrador
     users: Usuarios
+    mail: Correo
     system_config: Configuración del sistema
     courses: Cursos / Eventos
     course: Curso / Evento

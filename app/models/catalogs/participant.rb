@@ -5,6 +5,14 @@ class Catalogs::Participant < ActiveRecord::Base
   
   attr_reader :complete_name
 
+  def self.search(search)
+    if search
+      where("translate(lower(name),'áéíóúàèìòù', 'aeiouaeiou') LIKE translate(lower(?),'áéíóúàèìòù', 'aeiouaeiou')", "%#{search}%")
+    else
+      all
+    end
+  end
+
   def complete_name
     "#{name} #{surnames}"
   end
