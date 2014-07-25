@@ -45,6 +45,24 @@
   }
 }
 
+
+.tbl-participants{
+  @include three-columns(15,5,4);
+}
+
+.tbl-participants-attr{
+  @include two-columns(6,18);
+  .col-1{
+    text-align: right;
+    background-color: $base-color-3;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    margin-bottom: 0.25em;
+  }
+}
+
+
+
 .tbl-system-config{
   @include two-columns(8,16);
   .col-1{

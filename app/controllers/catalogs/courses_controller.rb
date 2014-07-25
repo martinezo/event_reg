@@ -109,7 +109,7 @@ class Catalogs::CoursesController < ApplicationController
       @catalogs_course = Catalogs::Course.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white index through.
     def catalogs_course_params
       params.require(:catalogs_course).permit(:user_id, :name, :start_date, :description, :schedule, :location,
                                               :content_file, :price1, :price2, :price3, :price1_desc, :price2_desc, :price3_desc,

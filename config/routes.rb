@@ -2,6 +2,7 @@ EventReg::Application.routes.draw do
 
   namespace :catalogs do
     resources :participants
+    get 'participants/list/:course_id' => 'participants#list', as: 'participants_list'
   end
 
   namespace :public do

@@ -16,7 +16,7 @@ class Admin::SystemConfigsController < ApplicationController
       Admin::SystemConfig.get
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white index through.
     def admin_system_config_params
       params[:admin_system_config]
     end

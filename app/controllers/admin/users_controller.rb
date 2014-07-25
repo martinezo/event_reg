@@ -68,7 +68,7 @@ class Admin::UsersController < ApplicationController
       authorize! :manage, @admin_users, :message => "Not authorized to enter this section."
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white index through.
     def admin_user_params
       params.require(:admin_user).permit(:login, :name, :mail, :role)
     end
