@@ -1,0 +1,8 @@
+.error-explanation
+
+= simple_form_for @catalogs_course, url: catalogs_course_update_owner_path(id: @catalogs_course.id), method: :post, :html => {:novalidate => true}, remote: true do |f|
+  = f.association :user
+  .sp
+  %hr
+  .t-right
+    = jq_submit_tag t('commands.save')

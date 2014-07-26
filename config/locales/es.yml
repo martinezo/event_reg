@@ -32,6 +32,7 @@ es:
     optional_data: Datos opcionales para registro
     participants: Participantes
     participant: Participante
+    change_owner: Cambiar de propietario
 
 
   general:
@@ -55,6 +56,7 @@ es:
         role: Rol
         role_str: Rol
       catalogs/course:
+        user: Propietario
         name: Nombre
         description: Descripción
         schedule: Fechas y Horarios

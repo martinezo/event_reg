@@ -16,6 +16,8 @@ EventReg::Application.routes.draw do
     get 'courses/download_file/:filename' => 'courses#download_file',
         as: 'course_download_file',
         constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }
+    get 'courses/change_owner/:id' => 'courses#change_owner', as: 'course_change_owner'
+    post 'course/update_owner' => 'courses#update_owner', as: 'course_update_owner'
   end
 
   devise_for :devise_users

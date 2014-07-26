@@ -1,6 +1,6 @@
 class Catalogs::CoursesController < ApplicationController
 
-  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :change_owner, :update_owner]
   helper_method :sort_column, :sort_direction
 
   layout 'events_courses', only: [:preview]
@@ -73,6 +73,18 @@ class Catalogs::CoursesController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @catalogs_course.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def change_owner
+
+  end
+
+  def update_owner
+    if catalogs_course_params[:user_id].empty?
+      @errors = @catalogs_course.errors.add(:user_id, 'Propietario no válido').errors
+    else
+      @catalogs_course.update_attribute(:user_id, catalogs_course_params[:user_id])
     end
   end
 
