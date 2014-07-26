@@ -12,6 +12,9 @@
       #c-description
         =r.value :description
       - i = 0
+      -if @cc.registrable
+        #c-registration-link{style: "background-color: ##{@cc.color_theme1}; color: ##{@cc.color_theme_l 1,0.8}"}
+          =link_to t('commands.registration'), public_registration_path(@cc.id)
       #tbl-course-info{style:"border: solid ##{@cc.color_theme1}; border-width: 1px 0px; background-color: ##{@cc.color_theme2};"}
         - if !@cc.schedule.empty?
           - i += 1

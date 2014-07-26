@@ -14,6 +14,15 @@ class Catalogs::Course < ActiveRecord::Base
   #Change sql function now() instead date() for postresql
   scope :publishable, -> {where('now() BETWEEN start_date_pub AND end_date_pub')}
 
+  attr_reader :registrable
+
+  #TODO validate if user write directly the url in navigator
+  #TODO add method publishable
+  def registrable
+    ((start_date_reg.try(:beginning_of_day) || end_date_reg.try(:beginning_of_day))..
+     (end_date_reg.try(:end_of_day) || start_date_reg.try(:end_of_day))).cover? Time.now
+  end
+
   def self.search(search)
     if search
       where("translate(lower(name),'áéíóúàèìòù', 'aeiouaeiou') LIKE translate(lower(?),'áéíóúàèìòù', 'aeiouaeiou')", "%#{search}%")

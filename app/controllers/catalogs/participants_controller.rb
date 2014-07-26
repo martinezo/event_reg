@@ -24,7 +24,10 @@ class Catalogs::ParticipantsController < ApplicationController
   # GET /catalogs/participants/new
   def new
     @catalogs_participant = Catalogs::Participant.new
-    @catalogs_course = Catalogs::Course.find(params[:course_id])
+    # El nombre de la variable de instancia del curso debe llamarse @cc
+    # porque el template para la vista pública usa esta variable para
+    # tomar los colores del tema
+    @cc = Catalogs::Course.find(params[:course_id])
   end
 
   # GET /catalogs/participants/1/edit

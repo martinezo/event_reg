@@ -6,8 +6,9 @@ EventReg::Application.routes.draw do
   end
 
   namespace :public do
-    get "events_courses/index"
-    get "events_courses/event_info/:id" => 'events_courses#event_info', as: 'event_info'
+    get 'events_courses/index'
+    get 'events_courses/event_info/:id' => 'events_courses#event_info', as: 'event_info'
+    get 'events_courses/registration/:course_id' => 'events_courses#new_participant', as: 'registration'
   end
 
   namespace :catalogs do

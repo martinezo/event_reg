@@ -1,6 +1,6 @@
 class Public::EventsCoursesController < ApplicationController
   skip_before_filter :authenticate_devise_user!
-  layout 'events_courses', only: [:event_info]
+  layout 'events_courses', only: [:event_info, :new_participant]
 
   def index
      @courses = Catalogs::Course.publishable.order(:start_date)
@@ -17,5 +17,14 @@ class Public::EventsCoursesController < ApplicationController
       flash[:alert] = t('notices.event_info_unavalable')
       puts flash[:alert]
     end
+  end
+
+  def new_participant
+    @catalogs_participant = Catalogs::Participant.new
+    @cc = Catalogs::Course.find(params[:course_id])
+  end
+
+  def create_participant
+
   end
 end

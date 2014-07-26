@@ -15,6 +15,7 @@ es:
     preview: Vista Previa
     cancel: Cancelar
     download: Descargar %{param}
+    registration: Registro
 
   titles:
     edit: Modificar %{param}
