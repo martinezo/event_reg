@@ -81,10 +81,10 @@ class Catalogs::CoursesController < ApplicationController
   end
 
   def update_owner
-    if catalogs_course_params[:user_id].empty?
-      @errors = @catalogs_course.errors.add(:user_id, 'Propietario no válido').errors
+    if @catalogs_course.update_attributes(user_id: catalogs_course_params[:user_id])
+      index
     else
-      @catalogs_course.update_attribute(:user_id, catalogs_course_params[:user_id])
+      @errors = @catalogs_course.errors
     end
   end
 

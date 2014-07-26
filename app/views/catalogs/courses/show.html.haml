@@ -18,6 +18,10 @@
     .col-2
       = r.value :name
     .col-1
+      = r.label :user_id
+    .col-2
+      .wrapper= @catalogs_course.user.name
+    .col-1
       = r.label :start_date
     .col-2
       = r.value :start_date, :format => :long_only_date

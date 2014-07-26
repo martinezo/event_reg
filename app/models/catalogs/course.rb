@@ -6,6 +6,8 @@ class Catalogs::Course < ActiveRecord::Base
   belongs_to :user, :class_name => 'Admin::User'
   has_many :participants, :class_name => 'Catalogs::Participant'
 
+  validates :user_id, presence: true
+
   # validates_uniqueness_of :login
   validates_presence_of :name, :start_date, :description
 

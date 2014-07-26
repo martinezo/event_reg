@@ -56,6 +56,7 @@ es:
         role: Rol
         role_str: Rol
       catalogs/course:
+        user_id: Propietario
         user: Propietario
         name: Nombre
         description: Descripción
@@ -123,6 +124,8 @@ es:
               blank: es un dato requerido.
             start_date:
               blank: es un dato requerido.
+            user_id:
+              blank: es un dato rquerido.
 
 #http://blog.lingohub.com/developers/2013/08/internationalization-for-ruby-i18n-gem/
   time:

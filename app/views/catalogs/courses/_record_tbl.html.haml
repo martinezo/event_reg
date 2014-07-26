@@ -22,7 +22,8 @@
         = link_to_jq_button({url: edit_catalogs_course_path(catalogs_course), icon: 'pencil', title: t('commands.edit'), remote: false})
         = link_to_jq_button({url: catalogs_course_preview_path(catalogs_course), icon: 'triangle-1-e', title: t('commands.preview'), remote: false, target: '_blank'})
         = link_to_jq_button({url: catalogs_participants_list_path(catalogs_course), icon: 'person', title: t('titles.participants'), remote: false})
-        = link_to_jq_button({url: catalogs_course_change_owner_path(catalogs_course), icon: 'transfer-e-w', title: t('titles.change_owner')})
+        -if can? :change_owner, @catalogs_course
+          = link_to_jq_button({url: catalogs_course_change_owner_path(catalogs_course), icon: 'transfer-e-w', title: t('titles.change_owner')})
         -#TODO link to download xls index of participants
         -#= link_to_jq_button({url: '#', icon: 'person', title: t('titles.download'), remote: false})
         -#TODO implement destroy action (don forget to erase related files to course in public/attachments)
