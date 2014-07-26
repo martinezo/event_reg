@@ -14,14 +14,19 @@ class Public::EventsCoursesController < ApplicationController
       image_3 = "/attachments/#{@cc.id}_image_file3.#{@cc.image_file3.sub(/^.*\./,'')}" unless @cc.image_file3.empty?
       @carousel = [image_1, image_2, image_3].compact
     else
-      flash[:alert] = t('notices.event_info_unavalable')
+      flash[:alert] = t('notices.event_info_unavailable')
       puts flash[:alert]
     end
   end
 
   def new_participant
-    @catalogs_participant = Catalogs::Participant.new
     @cc = Catalogs::Course.find(params[:course_id])
+    if @cc.registrable
+      @catalogs_participant = Catalogs::Participant.new
+    else
+      flash[:alert] = t('notices.registration_unavailable')
+      puts flash[:alert]
+    end
   end
 
   def create_participant

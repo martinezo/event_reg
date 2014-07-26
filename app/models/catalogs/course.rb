@@ -17,7 +17,6 @@ class Catalogs::Course < ActiveRecord::Base
   attr_reader :registrable
 
   #TODO validate if user write directly the url in navigator
-  #TODO add method publishable
   def registrable
     ((start_date_reg.try(:beginning_of_day) || end_date_reg.try(:beginning_of_day))..
      (end_date_reg.try(:end_of_day) || start_date_reg.try(:end_of_day))).cover? Time.now

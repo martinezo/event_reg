@@ -4,4 +4,8 @@
     #c-header-logo
   #c-course-info{style: "background-color: ##{@cc.color_theme_l 3,0.6}; color: ##{@cc.color_theme1}"}
     .sp
+    - if flash[:alert]
+      .alert
+        %h3= render :partial => 'layouts/alert_notice'
+    - else
       =render partial: 'catalogs/participants/form'
