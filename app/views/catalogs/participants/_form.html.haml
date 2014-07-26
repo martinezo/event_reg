@@ -7,8 +7,7 @@
           %li= msg
 
   .field
-    = f.label :course_id
-    = f.number_field :course_id
+    = f.hidden_field :course_id, value: params[:course_id]
   .field
     = f.label :name
     = f.text_field :name

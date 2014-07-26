@@ -24,6 +24,7 @@ class Catalogs::ParticipantsController < ApplicationController
   # GET /catalogs/participants/new
   def new
     @catalogs_participant = Catalogs::Participant.new
+    @catalogs_course = Catalogs::Course.find(params[:course_id])
   end
 
   # GET /catalogs/participants/1/edit
