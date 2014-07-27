@@ -1,5 +1,5 @@
 class Catalogs::ParticipantsController < ApplicationController
-  before_action :set_catalogs_participant, only: [:show, :edit, :update, :destroy]
+  before_action :set_catalogs_participant, only: [:show, :edit, :update, :destroy, :confirm_participant]
   before_action :authorize_resource, only: [:edit, :show, :destroy]
 
   helper_method :sort_column, :sort_direction
@@ -63,6 +63,10 @@ class Catalogs::ParticipantsController < ApplicationController
         format.json { render json: @catalogs_participant.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm_participant
+    @catalogs_participant.update_attribute(:confirmed, !@catalogs_participant.confirmed)
   end
 
   # DELETE /catalogs/participants/1

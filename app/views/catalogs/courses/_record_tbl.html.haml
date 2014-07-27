@@ -14,7 +14,7 @@
     - i += 1
     .tbl-courses{:id => "row-#{i}",:class => "alt-#{i % 2}" }
       .col-1
-        = catalogs_course.name
+        = "#{catalogs_course.trimmed_name} (#{catalogs_course.num_participants}/#{catalogs_course.num_participants_confirmed})"
       .col-2
         = I18n.localize(catalogs_course.start_date, :format => :long_only_date)
       .col-3.t-cent

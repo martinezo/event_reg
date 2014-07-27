@@ -1,0 +1,10 @@
+:plain
+  if($('#confirm-link').hasClass('ui-icon-circle-check')) {
+    $('#confirm-link').button({ icons: { primary: 'ui-icon-check'}});
+    $('#confirm-link').switchClass('ui-icon-circle-check','ui-icon-check');
+    $('#confirm-link').attr('title','Confirmado');
+  } else {
+    $('#confirm-link').button({ icons: { primary: 'ui-icon-circle-check'}});
+    $('#confirm-link').switchClass('ui-icon-check','ui-icon-circle-check');
+    $('#confirm-link').attr('title','No confirmado');
+  }

@@ -14,7 +14,19 @@ class Catalogs::Course < ActiveRecord::Base
   #Change sql function now() instead date() for postresql
   scope :publishable, -> {where('now() BETWEEN start_date_pub AND end_date_pub')}
 
-  attr_reader :registrable
+  attr_reader :registrable, :num_participants, :num_participants_confirmed, :trimmed_name
+
+  def trimmed_name
+    (name.size < 85)? name : "#{name[0..85]}..."
+  end
+
+  def num_participants
+    self.participants.count
+  end
+
+  def num_participants_confirmed
+    self.participants.where(:confirmed => true).count
+  end
 
   #TODO validate if user write directly the url in navigator
   def registrable
