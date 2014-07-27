@@ -11,6 +11,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
   def list
     course = Catalogs::Course.find(params[:course_id])
+    @course_name = course.name
     @catalogs_participants = Catalogs::Participant.search(params[:search], params[:course_id]).order("#{sort_column} #{sort_direction}").paginate(per_page: 15, page: params[:page])
     authorize! :update, course, :message => "Not autorized for this course"
   end
