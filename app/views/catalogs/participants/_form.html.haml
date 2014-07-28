@@ -33,6 +33,9 @@
     = f.label :phd_deg
     = f.text_field :phd_deg
   .field
+    = f.label :invoice_required
+    = f.check_box :invoice_required
+  .field
     = f.label :inv_name
     = f.text_field :inv_name
   .field
@@ -51,14 +54,11 @@
     = f.label :inv_state
     = f.text_field :inv_state
   .field
-    = f.label :inv_email
-    = f.text_field :inv_email
+    = f.label :inv_mail
+    = f.text_field :inv_mail
   .field
     = f.label :opt_text
     = f.text_area :opt_text
-  .field
-    = f.label :str_op1
-    = f.text_field :str_op1
   .field
     = f.label :opt_str1
     = f.text_field :opt_str1

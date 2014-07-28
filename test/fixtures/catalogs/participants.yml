@@ -17,7 +17,7 @@ one:
   inv_municipality: MyString
   inv_state: MyString
   inv_email: MyString
-  opt_text: MyText
+  text_opt: MyText
   str_op1: MyString
   opt_str1: MyString
   opt_str2: MyString
@@ -44,7 +44,7 @@ two:
   inv_municipality: MyString
   inv_state: MyString
   inv_email: MyString
-  opt_text: MyText
+  text_opt: MyText
   str_op1: MyString
   opt_str1: MyString
   opt_str2: MyString

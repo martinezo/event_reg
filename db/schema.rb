@@ -11,24 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725021611) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140724220424) do
 
   create_table "admin_users", force: true do |t|
     t.string   "login"
     t.string   "name"
     t.string   "mail"
+    t.integer  "role",       default: 2
+    t.integer  "integer",    default: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "role"
   end
 
   create_table "catalogs_courses", force: true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "description"
+    t.date     "start_date"
     t.string   "schedule"
     t.string   "location"
     t.string   "content_file"
@@ -38,6 +37,8 @@ ActiveRecord::Schema.define(version: 20140725021611) do
     t.string   "payment_methods"
     t.string   "target"
     t.string   "prerequisites"
+    t.integer  "min_quota"
+    t.integer  "max_quota"
     t.string   "instructors"
     t.string   "contact"
     t.string   "image_file1"
@@ -55,9 +56,6 @@ ActiveRecord::Schema.define(version: 20140725021611) do
     t.string   "color_theme3"
     t.string   "opt_field"
     t.string   "opt_field_title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.date     "start_date"
     t.string   "price1_desc"
     t.string   "price2_desc"
     t.string   "price3_desc"
@@ -68,8 +66,8 @@ ActiveRecord::Schema.define(version: 20140725021611) do
     t.string   "opt_bol2"
     t.string   "opt_sel"
     t.string   "opt_sel_options"
-    t.integer  "min_quota"
-    t.integer  "max_quota"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "catalogs_participants", force: true do |t|
@@ -82,15 +80,15 @@ ActiveRecord::Schema.define(version: 20140725021611) do
     t.string   "bachelor_deg"
     t.string   "master_deg"
     t.string   "phd_deg"
+    t.boolean  "invoice_required", default: false
     t.string   "inv_name"
     t.string   "inv_rfc"
     t.string   "inv_address"
     t.string   "inv_city"
     t.string   "inv_municipality"
     t.string   "inv_state"
-    t.string   "inv_email"
+    t.string   "inv_mail"
     t.text     "opt_text"
-    t.string   "str_op1"
     t.string   "opt_str1"
     t.string   "opt_str2"
     t.boolean  "opt_bol1"

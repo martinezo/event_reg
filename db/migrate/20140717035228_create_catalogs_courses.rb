@@ -4,6 +4,7 @@ class CreateCatalogsCourses < ActiveRecord::Migration
       t.integer :user_id
       t.string :name
       t.string :description
+      t.date   :start_date
       t.string :schedule
       t.string :location
       t.string :content_file
@@ -32,7 +33,16 @@ class CreateCatalogsCourses < ActiveRecord::Migration
       t.string :color_theme3
       t.string :opt_field
       t.string :opt_field_title
-
+      t.string :price1_desc
+      t.string :price2_desc
+      t.string :price3_desc
+      t.string :opt_text
+      t.string :opt_str1
+      t.string :opt_str2
+      t.string :opt_bol1
+      t.string :opt_bol2
+      t.string :opt_sel
+      t.string :opt_sel_options
       t.timestamps
     end
   end

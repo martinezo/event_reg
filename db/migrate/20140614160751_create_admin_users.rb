@@ -4,7 +4,7 @@ class CreateAdminUsers < ActiveRecord::Migration
       t.string :login
       t.string :name
       t.string :mail
-
+      t.integer :role, :integer, default: 2
       t.timestamps
     end
   end

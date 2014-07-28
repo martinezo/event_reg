@@ -10,15 +10,15 @@ class CreateCatalogsParticipants < ActiveRecord::Migration
       t.string :bachelor_deg
       t.string :master_deg
       t.string :phd_deg
+      t.boolean :invoice_required, default: false
       t.string :inv_name
       t.string :inv_rfc
       t.string :inv_address
       t.string :inv_city
       t.string :inv_municipality
       t.string :inv_state
-      t.string :inv_email
+      t.string :inv_mail
       t.text :opt_text
-      t.string :str_op1
       t.string :opt_str1
       t.string :opt_str2
       t.boolean :opt_bol1
@@ -26,7 +26,6 @@ class CreateCatalogsParticipants < ActiveRecord::Migration
       t.string :opt_sel
       t.boolean :confirmed
       t.integer :price, default: 1
-
       t.timestamps
     end
   end
