@@ -37,6 +37,13 @@ es:
     confirmed: Confirmado
     unconfirmed: No confirmado
 
+  pdf:
+    reg_date: 'Fecha de registro:'
+    general_info: Datos generales
+    name: 'Nombre:'
+    mail: 'Correo:'
+    phone_numbers: 'Telefono(s):'
+    workplace: 'Institución o empresa:'
 
   general:
     price: Precio

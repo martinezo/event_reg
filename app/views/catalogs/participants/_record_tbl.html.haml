@@ -14,7 +14,7 @@
       = catalogs_participant.mail
     .col-3.t-cent
       = link_to_jq_button({url: catalogs_participant, icon: 'document', title: t('commands.show'), remote: false})
-      = link_to_jq_button({url: edit_catalogs_participant_path(catalogs_participant), icon: 'pencil', title: t('commands.edit'), remote: false})
+      = link_to_jq_button({url: edit_catalogs_participant_path(catalogs_participant, course_id:params[:course_id]), icon: 'pencil', title: t('commands.edit'), remote: false})
       = link_to_jq_button({url: catalogs_confirm_participant_path(catalogs_participant), icon: (catalogs_participant.confirmed ? 'check' : 'circle-check'), title: (catalogs_participant.confirmed ? t('titles.confirmed') : t('titles.unconfirmed') ), id: 'confirm-link'})
       -#= link_to_jq_button({url: delete_catalogs_participant_path(participant_id: catalogs_participant), icon: 'trash', title: t('commands.delete'), remote: false})
       -#TODO link to download xls index of participants

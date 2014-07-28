@@ -8,4 +8,4 @@
       .alert
         %h3= render :partial => 'layouts/alert_notice'
     - else
-      =render partial: 'catalogs/participants/form'
+      =render 'catalogs/participants/form', url: public_create_participant_path

@@ -61,3 +61,4 @@ gem 'will_paginate'
 # Error: ActionController::InvalidAuthenticityToken in Catalogs::CoursesController#update
 gem 'remotipart'
 gem 'cancancan'
+gem 'prawn'

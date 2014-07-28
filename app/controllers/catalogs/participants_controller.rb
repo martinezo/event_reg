@@ -19,7 +19,6 @@ class Catalogs::ParticipantsController < ApplicationController
   # GET /catalogs/participants/1
   # GET /catalogs/participants/1.json
   def show
-    #authorize! :show, @catalogs_participant, :message => "Not authorized to enter this section."
   end
 
   # GET /catalogs/participants/new
@@ -33,7 +32,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
   # GET /catalogs/participants/1/edit
   def edit
-    #authorize! :edit, @catalogs_participant, :message => "Not authorized to enter this section."
+    @cc = Catalogs::Course.find(params[:course_id])
   end
 
   # POST /catalogs/participants

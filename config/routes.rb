@@ -10,6 +10,7 @@ EventReg::Application.routes.draw do
     get 'events_courses/index'
     get 'events_courses/event_info/:id' => 'events_courses#event_info', as: 'event_info'
     get 'events_courses/registration/:course_id' => 'events_courses#new_participant', as: 'registration'
+    post 'events_courses/create_participant' => 'events_courses#create_participant', as: 'create_participant'
   end
 
   namespace :catalogs do
