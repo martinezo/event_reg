@@ -20,6 +20,8 @@ es:
   titles:
     edit: Modificar %{param}
     delete: Borrar (%{param})
+#    TODO MOVE TO COMMANDS SECTION
+    new: Nuevo %{param}
 
     sign_in: Inicio de sessión como administrador
     users: Usuarios
@@ -36,6 +38,9 @@ es:
     change_owner: Cambiar de propietario
     confirmed: Confirmado
     unconfirmed: No confirmado
+    academic_data: Datos académicos
+    invoice_data: Datos para factura
+    additional_data: Otros datos
 
   pdf:
     reg_date: 'Fecha de registro:'
@@ -127,6 +132,26 @@ es:
         opt_field: Campo opcional
         opt_field_title: Campo opcional Título
         start_date: Fecha Inicio
+
+      catalogs/participant:
+        course_id: Curso/evento id
+        name: Nombre
+        surnames: Apellidos
+        mail: Correo
+        phone_numbers: Teléfono(s)
+        workplace: Institución empresa en donde labora
+        bachelor_deg: Titulo de licenciatura
+        master_deg: Titulo de Maestría
+        phd_deg: Título de Doctorado
+        inv_name: Nombre o razón social
+        inv_rfc: RFC
+        inv_address: Dirección Fiscal
+        inv_city: Ciudad
+        inv_municipality: Municipio
+        inv_state: Estado
+        inv_email: Email de envío
+
+
 
       devise_user:
         login: Usuario

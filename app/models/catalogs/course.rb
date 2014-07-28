@@ -12,9 +12,46 @@ class Catalogs::Course < ActiveRecord::Base
   validates_presence_of :name, :start_date, :description
 
   #Change sql function now() instead date() for postresql
-  scope :publishable, -> {where('date() BETWEEN start_date_pub AND end_date_pub')}
+  scope :publishable, -> {where('now() BETWEEN start_date_pub AND end_date_pub')}
 
-  attr_reader :registrable, :num_participants, :num_participants_confirmed, :trimmed_name
+  attr_reader :registrable, :num_participants, :num_participants_confirmed, :trimmed_name,
+              :image_file1_s, :image_file2_s, :image_file3_s, :content_file_s
+
+  def image_file1_s(filename = nil)
+    file = filename || image_file1
+    if file.strip.empty?
+      '0_image_file1.jpg'
+    else
+      "#{id}_image_file1.#{file.sub(/.*\./,'')}"
+    end
+  end
+
+  def image_file2_s(filename = nil)
+    file = filename || image_file2
+    if file.strip.empty?
+      nil
+    else
+      "#{id}_image_file2.#{file.sub(/.*\./,'')}"
+    end
+  end
+
+  def image_file3_s(filename = nil)
+    file = filename || image_file3
+    if file.strip.empty?
+      nil
+    else
+      "#{id}_image_file3.#{file.sub(/.*\./,'')}"
+    end
+  end
+
+  def content_file_s(filename = nil)
+    file = filename || content_file
+    if file.strip.empty?
+      nil
+    else
+      "#{id}_content_file.#{file.sub(/.*\./,'')}"
+    end
+  end
 
   def trimmed_name
     (name.size < 85)? name : "#{name[0..85]}..."
@@ -42,9 +79,10 @@ class Catalogs::Course < ActiveRecord::Base
     end
   end
 
+
   #UPLOAD FILE. IMPORTANT add to _form view , form_for(@instance, :html => {:multipart => true})
   def upload_file(upload,filename)
-    directory = "public/attachments"
+    directory = "public/attachments/"
     path = File.join(directory, filename)
     # write the file
     File.open(path, "wb") { |f| f.write(upload.tempfile.read) }

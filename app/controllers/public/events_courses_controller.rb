@@ -11,9 +11,9 @@ class Public::EventsCoursesController < ApplicationController
   def event_info
     @cc= Catalogs::Course.find(params[:id])
     if (@cc.start_date_pub..@cc.end_date_pub).cover? Time.now
-      image_1 = "/attachments/#{@cc.id}_image_file1.#{@cc.image_file1.sub(/^.*\./,'')}" unless @cc.image_file1.empty?
-      image_2 = "/attachments/#{@cc.id}_image_file2.#{@cc.image_file2.sub(/^.*\./,'')}" unless @cc.image_file2.empty?
-      image_3 = "/attachments/#{@cc.id}_image_file3.#{@cc.image_file3.sub(/^.*\./,'')}" unless @cc.image_file3.empty?
+      image_1 = "/attachments/#{@cc.image_file1_s}" unless @cc.image_file1.empty?
+      image_2 = "/attachments/#{@cc.image_file2_s}" unless @cc.image_file2.empty?
+      image_3 = "/attachments/#{@cc.image_file3_s}" unless @cc.image_file3.empty?
       @carousel = [image_1, image_2, image_3].compact
     else
       flash[:alert] = t('notices.event_info_unavailable')

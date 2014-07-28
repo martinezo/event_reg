@@ -42,9 +42,12 @@
     %h3.t-head= t('titles.event_detail_data')
     .col-1
       = r.label :content_file
-    .col-2
-      = link_to @catalogs_course.content_file,
-        catalogs_course_download_file_path("#{@catalogs_course.id}_program_file.#{@catalogs_course.content_file.sub(/^.*\./,'')}", name: @catalogs_course.content_file)
+    .col-2.wrapper
+      -if @catalogs_course.content_file_s
+        = link_to @catalogs_course.content_file,
+        catalogs_course_download_file_path(@catalogs_course.content_file_s, name: @catalogs_course.content_file)
+      -else
+        =t('show_for.blank')
     .col-1
       %strong= "#{t('general.price')} (#{@catalogs_course.price1_desc})"
     .col-2
@@ -90,19 +93,28 @@
     %h3.t-head= t('titles.event_metadata')
     .col-1
       = r.label :image_file1
-    .col-2
-      = link_to @catalogs_course.image_file1,
-        catalogs_course_download_file_path("#{@catalogs_course.id}_image_file1.#{@catalogs_course.image_file1.sub(/^.*\./,'')}", name: @catalogs_course.image_file1)
+    .col-2.wrapper
+      -if @catalogs_course.image_file1.try(:empty?)
+        =t('show_for.blank')
+      -else
+        = link_to @catalogs_course.image_file1,
+        catalogs_course_download_file_path(@catalogs_course.image_file1_s, name: @catalogs_course.image_file1)
     .col-1
       = r.label :image_file2
-    .col-2
-      = link_to @catalogs_course.image_file2,
-        catalogs_course_download_file_path("#{@catalogs_course.id}_image_file2.#{@catalogs_course.image_file2.sub(/^.*\./,'')}", name: @catalogs_course.image_file2)
+    .col-2.wrapper
+      -if @catalogs_course.image_file2_s
+        = link_to @catalogs_course.image_file2,
+        catalogs_course_download_file_path(@catalogs_course.image_file2_s, name: @catalogs_course.image_file2)
+      -else
+        =t('show_for.blank')
     .col-1
       = r.label :image_file3
-    .col-2
-      = link_to @catalogs_course.image_file3,
-        catalogs_course_download_file_path("#{@catalogs_course.id}_image_file3.#{@catalogs_course.image_file3.sub(/^.*\./,'')}", name: @catalogs_course.image_file3)
+    .col-2.wrapper
+      -if @catalogs_course.image_file3_s
+        = link_to @catalogs_course.image_file3,
+        catalogs_course_download_file_path(@catalogs_course.image_file3_s, name: @catalogs_course.image_file3)
+      -else
+        =t('show_for.blank')
     .col-1
       = r.label :color_theme1
     .col-2

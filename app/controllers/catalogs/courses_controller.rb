@@ -46,24 +46,24 @@ class Catalogs::CoursesController < ApplicationController
     authorize! :update, @catalogs_course, :message => "Not authorized to enter this section."
 
     #upload content_file
-    content_file_name =  params[:catalogs_course][:content_file]
+    filename =  params[:catalogs_course][:content_file]
     content_file = params[:catalogs_course_content_file_tag]
-    @catalogs_course.upload_file(content_file, "#{@catalogs_course.id.to_s}_program_file.#{content_file_name.sub(/^.*\./,'')}") if content_file
+    @catalogs_course.upload_file(content_file, @catalogs_course.content_file_s(filename)) if content_file
 
     #upload image file 1
-    image_file1_name =  params[:catalogs_course][:image_file1]
-    image_file1 = params[:catalogs_course_image_file1_tag]
-    @catalogs_course.upload_file(image_file1, "#{@catalogs_course.id.to_s}_image_file1.#{image_file1_name.sub(/^.*\./,'')}") if image_file1
+    filename =  params[:catalogs_course][:image_file1]
+    image_file = params[:catalogs_course_image_file1_tag]
+    @catalogs_course.upload_file(image_file, @catalogs_course.image_file1_s(filename)) if image_file
 
     #upload image file 2
-    image_file2_name =  params[:catalogs_course][:image_file2]
-    image_file2 = params[:catalogs_course_image_file2_tag]
-    @catalogs_course.upload_file(image_file2, "#{@catalogs_course.id.to_s}_image_file2.#{image_file2_name.sub(/^.*\./,'')}") if image_file2
+    filename =  params[:catalogs_course][:image_file2]
+    image_file = params[:catalogs_course_image_file2_tag]
+    @catalogs_course.upload_file(image_file, @catalogs_course.image_file2_s(filename)) if image_file
 
     #upload image file 3
-    image_file3_name =  params[:catalogs_course][:image_file3]
-    image_file3 = params[:catalogs_course_image_file3_tag]
-    @catalogs_course.upload_file(image_file3, "#{@catalogs_course.id.to_s}_image_file3.#{image_file3_name.sub(/^.*\./,'')}") if image_file3
+    filename =  params[:catalogs_course][:image_file3]
+    image_file = params[:catalogs_course_image_file3_tag]
+    @catalogs_course.upload_file(image_file, @catalogs_course.image_file3_s(filename)) if image_file
 
     respond_to do |format|
       if @catalogs_course.update(catalogs_course_params)
@@ -101,9 +101,9 @@ class Catalogs::CoursesController < ApplicationController
 
   def preview
     @cc= Catalogs::Course.find(params[:id])
-    image_1 = "/attachments/#{@cc.id}_image_file1.#{@cc.image_file1.sub(/^.*\./,'')}" unless @cc.image_file1.empty?
-    image_2 = "/attachments/#{@cc.id}_image_file2.#{@cc.image_file2.sub(/^.*\./,'')}" unless @cc.image_file2.empty?
-    image_3 = "/attachments/#{@cc.id}_image_file3.#{@cc.image_file3.sub(/^.*\./,'')}" unless @cc.image_file3.empty?
+    image_1 = "/attachments/#{@cc.image_file1_s}" unless @cc.image_file1.empty?
+    image_2 = "/attachments/#{@cc.image_file2_s}" unless @cc.image_file2.empty?
+    image_3 = "/attachments/#{@cc.image_file3_s}" unless @cc.image_file3.empty?
     @carousel = [image_1, image_2, image_3].compact
   end
 
