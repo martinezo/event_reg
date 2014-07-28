@@ -1,4 +1,4 @@
-= simple_form_for @catalogs_participant, :html => {:novalidate => true, multipart: true} do |f|
+= simple_form_for @catalogs_participant, url: url, :html => {:novalidate => true, multipart: true} do |f|
 
   .t-right
     =jq_submit_tag t('commands.save')

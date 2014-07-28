@@ -20,6 +20,7 @@ es:
   titles:
     edit: Modificar %{param}
     delete: Borrar (%{param})
+#    TODO MOVE TO COMMANDS SECTION
     new: Nuevo %{param}
 
     sign_in: Inicio de sessión como administrador
@@ -41,6 +42,30 @@ es:
     invoice_data: Datos para factura
     additional_data: Otros datos
 
+  pdf:
+    reg_date: 'Fecha de registro:'
+    start_date: 'Fecha de inicio del evento'
+    general_info: Datos generales
+    name: 'Nombre:'
+    mail: 'Correo:'
+    phone_numbers: 'Telefono(s):'
+    academic_info: Información Académica
+    workplace: 'Institución o empresa:'
+    bachelor_deg: 'Titulo de licenciatura:'
+    master_deg: 'Titulo de maestría:'
+    phd_deg: 'Título de doctorado:'
+    invoice_info: Datos de Facturación
+    inv_name: 'Razón Social:'
+    inv_rfc: 'R.F.C.:'
+    inv_address: 'Dirección:'
+    inv_state: 'Estado:'
+    inv_city: 'Ciudad:'
+    inv_municipality: 'Municipio/Delegación:'
+    inv_mail: 'Correo:'
+    additional_info: Datos Adicionales
+    yes_: 'Si'
+    no_: 'No'
+    cost: 'Importe:'
 
   general:
     price: Precio

@@ -11,6 +11,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
   def list
     course = Catalogs::Course.find(params[:course_id])
+    @course_name = course.name
     @catalogs_participants = Catalogs::Participant.search(params[:search], params[:course_id]).order("#{sort_column} #{sort_direction}").paginate(per_page: 15, page: params[:page])
     authorize! :update, course, :message => "Not autorized for this course"
   end
@@ -18,7 +19,6 @@ class Catalogs::ParticipantsController < ApplicationController
   # GET /catalogs/participants/1
   # GET /catalogs/participants/1.json
   def show
-    #authorize! :show, @catalogs_participant, :message => "Not authorized to enter this section."
   end
 
   # GET /catalogs/participants/new
@@ -32,7 +32,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
   # GET /catalogs/participants/1/edit
   def edit
-    #authorize! :edit, @catalogs_participant, :message => "Not authorized to enter this section."
+    @cc = Catalogs::Course.find(params[:course_id])
   end
 
   # POST /catalogs/participants
@@ -87,7 +87,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white index through.
     def catalogs_participant_params
-      params.require(:catalogs_participant).permit(:course_id, :name, :surnames, :mail, :phone_numbers, :workplace, :bachelor_deg, :master_deg, :phd_deg, :inv_name, :inv_rfc, :inv_address, :inv_city, :inv_municipality, :inv_state, :inv_email, :opt_text, :str_op1, :opt_str1, :opt_str2, :opt_bol1, :opt_bol2, :opt_sel, :confirmed, :price)
+      params.require(:catalogs_participant).permit(:course_id, :name, :surnames, :mail, :phone_numbers, :workplace, :bachelor_deg, :master_deg, :phd_deg, :inv_name, :inv_rfc, :inv_address, :inv_city, :inv_municipality, :inv_state, :inv_mail, :text_opt, :str_op1, :opt_str1, :opt_str2, :opt_bol1, :opt_bol2, :opt_sel, :confirmed, :price)
     end
 
     # Authorize cancan
