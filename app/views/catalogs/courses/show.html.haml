@@ -89,7 +89,36 @@
     .col-2
       = r.value :contact
     .sp
-
+    %h3.t-head= t('titles.optional_data')
+    .col-1
+      = r.label :opt_text
+    .col-2
+      = r.value :opt_text
+    .col-1
+      = r.label :opt_str1
+    .col-2
+      = r.value :opt_str1
+    .col-1
+      = r.label :opt_str2
+    .col-2
+      = r.value :opt_str2
+    .col-1
+      = r.label :opt_bol1
+    .col-2
+      = r.value :opt_bol1
+    .col-1
+      = r.label :opt_bol2
+    .col-2
+      = r.value :opt_bol2
+    .col-1
+      = r.label :opt_sel
+    .col-2
+      = r.value :opt_sel
+    .col-1
+      = r.label :opt_sel_options
+    .col-2
+      = r.value :opt_sel_options
+    .sp
     %h3.t-head= t('titles.event_metadata')
     .col-1
       = r.label :image_file1
@@ -166,37 +195,6 @@
       = r.label :opt_field
     .col-2
       = r.value :opt_field
-    .sp
-
-    %h3.t-head= t('titles.optional_data')
-    .col-1
-      = r.label :opt_text
-    .col-2
-      = r.value :opt_text
-    .col-1
-      = r.label :opt_str1
-    .col-2
-      = r.value :opt_str1
-    .col-1
-      = r.label :opt_str2
-    .col-2
-      = r.value :opt_str2
-    .col-1
-      = r.label :opt_bol1
-    .col-2
-      = r.value :opt_bol1
-    .col-1
-      = r.label :opt_bol2
-    .col-2
-      = r.value :opt_bol2
-    .col-1
-      = r.label :opt_sel
-    .col-2
-      = r.value :opt_sel
-    .col-1
-      = r.label :opt_sel_options
-    .col-2
-      = r.value :opt_sel_options
     .sp
 
 %hr

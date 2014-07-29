@@ -52,6 +52,7 @@
       = f.label :price1
     .col-2
       = f.input_field :price1, as: :numeric
+      %b (Precio mayor)
     .col-1
       = f.label :price2_desc
     .col-2
@@ -60,6 +61,7 @@
       = f.label :price2
     .col-2
       = f.input_field :price2
+      %b (Precio medio)
     .col-1
       = f.label :price3_desc
     .col-2
@@ -68,6 +70,7 @@
       = f.label :price3
     .col-2
       = f.input_field :price3
+      %b (Precio menor)
     .col-1
       = f.label :payment_methods
     .col-2
@@ -98,6 +101,36 @@
       = f.input_field :contact, :size => 70
     .sp
 
+    %h3.t-head= t('titles.optional_data')
+    .col-1
+      = f.label :opt_text
+    .col-2
+      = f.input_field :opt_text, :size => 70
+    .col-1
+      = f.label :opt_str1
+    .col-2
+      = f.input_field :opt_str1, :size => 70
+    .col-1
+      = f.label :opt_str2
+    .col-2
+      = f.input_field :opt_str2, :size => 70
+    .col-1
+      = f.label :opt_bol1
+    .col-2
+      = f.input_field :opt_bol1, :size => 70
+    .col-1
+      = f.label :opt_bol2
+    .col-2
+      = f.input_field :opt_bol2, :size => 70
+    .col-1
+      = f.label :opt_sel
+    .col-2
+      = f.input_field :opt_sel, :size => 70
+    .col-1
+      = f.label :opt_sel_options
+    .col-2
+      = f.input_field :opt_sel_options, :size => 70, placeholder: 'Separar las opciones con coma ","'
+    .sp
     %h3.t-head= t('titles.event_metadata')
     .tbl-courses-attr
     .col-1
@@ -192,36 +225,7 @@
       = f.input_field :opt_field, :size => 70
     .sp
 
-    %h3.t-head= t('titles.optional_data')
-    .col-1
-      = f.label :opt_text
-    .col-2
-      = f.input_field :opt_text, :size => 70
-    .col-1
-      = f.label :opt_str1
-    .col-2
-      = f.input_field :opt_str1, :size => 70
-    .col-1
-      = f.label :opt_str2
-    .col-2
-      = f.input_field :opt_str2, :size => 70
-    .col-1
-      = f.label :opt_bol1
-    .col-2
-      = f.input_field :opt_bol1, :size => 70
-    .col-1
-      = f.label :opt_bol2
-    .col-2
-      = f.input_field :opt_bol2, :size => 70
-    .col-1
-      = f.label :opt_sel
-    .col-2
-      = f.input_field :opt_sel, :size => 70
-    .col-1
-      = f.label :opt_sel_options
-    .col-2
-      = f.input_field :opt_sel_options, :size => 70, placeholder: 'Separar las opciones con coma ","'
-    .sp
+
 
   %hr
   .t-right

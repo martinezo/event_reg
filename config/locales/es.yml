@@ -150,7 +150,7 @@ es:
         inv_city: Ciudad
         inv_municipality: Municipio
         inv_state: Estado
-        inv_email: Email de envío
+        inv_mail: Email de envío
         price: Costo
         participant_type: Tipo de participante
 

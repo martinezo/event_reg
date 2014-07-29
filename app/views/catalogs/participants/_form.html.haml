@@ -96,40 +96,42 @@
       .col-2
         =f.input_field :inv_mail, :size => 70
 
-  %h3.t-head= t('titles.additional_data')
-  .tbl-participants-attr
-    -if !@cc.opt_text.empty?
-      .col-1
-        =@cc.opt_text
-      .col-2
-        =f.input_field :opt_text, size: "69x5"
-    -if !@cc.opt_str1.empty?
-      .col-1
-        =@cc.opt_str1
-      .col-2
-        =f.input_field :opt_str1, :size => 70
-    -if !@cc.opt_str2.empty?
-      .col-1
-        =@cc.opt_str2
-      .col-2
-        =f.input_field :opt_str2, :size => 70
-    -if !@cc.opt_bol1.empty?
-      .col-1
-        =@cc.opt_bol1
-      .col-2
-        =f.input_field :opt_bol1, as: :boolean
-    -if !@cc.opt_bol2.empty?
-      .col-1
-        =@cc.opt_bol2
-      .col-2
-        =f.input_field :opt_bol2, as: :boolean
-    -if !@cc.opt_sel.empty?
-      - list = @cc.opt_sel_options.split(",")
-      .col-1
-        =@cc.opt_sel
-      .col-2
-        =f.select :opt_sel, list
+  - if !(@cc.opt_text+@cc.opt_str1+@cc.opt_str2+@cc.opt_bol1+@cc.opt_bol2+@cc.opt_sel).strip.empty?
+    %h3.t-head= t('titles.additional_data')
+    .tbl-participants-attr
+      -if !@cc.opt_text.empty?
+        .col-1
+          =@cc.opt_text
+        .col-2
+          =f.input_field :opt_text, size: "69x5"
+      -if !@cc.opt_str1.empty?
+        .col-1
+          =@cc.opt_str1
+        .col-2
+          =f.input_field :opt_str1, :size => 70
+      -if !@cc.opt_str2.empty?
+        .col-1
+          =@cc.opt_str2
+        .col-2
+          =f.input_field :opt_str2, :size => 70
+      -if !@cc.opt_bol1.empty?
+        .col-1
+          =@cc.opt_bol1
+        .col-2
+          =f.input_field :opt_bol1, as: :boolean
+      -if !@cc.opt_bol2.empty?
+        .col-1
+          =@cc.opt_bol2
+        .col-2
+          =f.input_field :opt_bol2, as: :boolean
+      -if !@cc.opt_sel.empty?
+        - list = @cc.opt_sel_options.split(",")
+        .col-1
+          =@cc.opt_sel
+        .col-2
+          =f.select :opt_sel, list
   %hr
   .t-right
     =jq_submit_tag t('commands.save')
     = link_to_jq_button({url: catalogs_participants_list_path(@cc), text: t('commands.cancel'), icon: 'close', remote: false})
+  .sp

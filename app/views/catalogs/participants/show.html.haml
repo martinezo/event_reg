@@ -92,9 +92,14 @@
         = r.label :inv_email
       .col-2
         = r.value :inv_email
-  - if !(@cc.opt_str1+@cc.opt_str2+@cc.opt_bol1+@cc.opt_bol2+@cc.opt_sel).strip.empty?
+  - if !(@cc.opt_text+@cc.opt_str1+@cc.opt_str2+@cc.opt_bol1+@cc.opt_bol2+@cc.opt_sel).strip.empty?
     %h3.t-head= t('titles.additional_data')
     .tbl-participants-attr
+      -if !@cc.opt_text.empty?
+        .col-1
+          = @cc.opt_text
+        .col-2
+          =r.value :opt_text
       -if !@cc.opt_str1.empty?
         .col-1
           =@cc.opt_str1
