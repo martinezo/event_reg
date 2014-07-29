@@ -1,78 +1,128 @@
-%p#notice= notice
+%h1= t('titles.participant')
 
-%p
-  %b Course:
-  = @catalogs_participant.course_id
-%p
-  %b Name:
-  = @catalogs_participant.name
-%p
-  %b Surnames:
-  = @catalogs_participant.surnames
-%p
-  %b Mail:
-  = @catalogs_participant.mail
-%p
-  %b Phone numbers:
-  = @catalogs_participant.phone_numbers
-%p
-  %b Workplace:
-  = @catalogs_participant.workplace
-%p
-  %b Bachelor deg:
-  = @catalogs_participant.bachelor_deg
-%p
-  %b Master deg:
-  = @catalogs_participant.master_deg
-%p
-  %b Phd deg:
-  = @catalogs_participant.phd_deg
-%p
-  %b Inv name:
-  = @catalogs_participant.inv_name
-%p
-  %b Inv rfc:
-  = @catalogs_participant.inv_rfc
-%p
-  %b Inv address:
-  = @catalogs_participant.inv_address
-%p
-  %b Inv city:
-  = @catalogs_participant.inv_city
-%p
-  %b Inv municipality:
-  = @catalogs_participant.inv_municipality
-%p
-  %b Inv state:
-  = @catalogs_participant.inv_state
-%p
-  %b Inv email:
-  = @catalogs_participant.inv_mail
-%p
-  %b Opt text:
-  = @catalogs_participant.opt_text
-%p
-  %b Opt str1:
-  = @catalogs_participant.opt_str1
-%p
-  %b Opt str2:
-  = @catalogs_participant.opt_str2
-%p
-  %b Opt bol1:
-  = @catalogs_participant.opt_bol1
-%p
-  %b Opt bol2:
-  = @catalogs_participant.opt_bol2
-%p
-  %b Opt sel:
-  = @catalogs_participant.opt_sel
-%p
-  %b Confirmed:
-  = @catalogs_participant.confirmed
-%p
-  %b Price:
-  = @catalogs_participant.price
+.t-right
+  = link_to_jq_button({url: edit_catalogs_participant_path(@catalogs_participant), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
+  = link_to_jq_button({url: catalogs_participants_list_path(@cc), text: t('commands.close'), icon: 'close', remote: false})
+.sp
 
-= link_to 'Edit', edit_catalogs_participant_path(@catalogs_participant)
-\|
-= link_to 'Back', catalogs_participants_path
+
+.alert-notice
+  =render partial: 'layouts/alert_notice'
+
+= show_for @catalogs_participant do |r|
+
+  %h3.t-head= t('titles.event_general_data')
+  .tbl-participants-attr
+    .col-1
+      = r.label :name
+    .col-2
+      = r.value :complete_name
+    .col-1
+      = r.label :mail
+    .col-2
+      = r.value :mail
+    .col-1
+      = r.label :phone_numbers
+    .col-2
+      = r.value :phone_numbers
+    .col-1
+      = r.label :workplace
+    .col-2
+      = r.value :workplace
+    -if @catalogs_participant.price == 1
+      .col-1
+        %strong= "#{t('general.price')} (#{@cc.price1_desc})"
+      .col-2
+        = number_with_precision(@cc.price1, precision: 2)
+    -if @catalogs_participant.price == 2
+      .col-1
+        %strong= "#{t('general.price')} (#{@cc.price2_desc})"
+      .col-2
+        = number_with_precision(@cc.price2, precision: 2)
+    -if @catalogs_participant.price == 3
+      .col-1
+        %strong= "#{t('general.price')} (#{@cc.price3_desc})"
+      .col-2
+        = number_with_precision(@cc.price3, precision: 2)
+
+  - if @cc.academic_data_required?
+    %h3.t-head= t('titles.academic_data')
+    .tbl-participants-attr
+      .col-1
+        = r.label :bachelor_deg
+      .col-2
+        = r.value :bachelor_deg
+      .col-1
+        = r.label :master_deg
+      .col-2
+        = r.value :master_deg
+      .col-1
+        = r.label :phd_deg
+      .col-2
+        = r.value :phd_deg
+
+  - if !@catalogs_participant.price.blank?
+    %h3.t-head= t('titles.invoice_data')
+    .tbl-participants-attr
+      .col-1
+        = r.label :inv_name
+      .col-2
+        = r.value :inv_name
+      .col-1
+        = r.label :inv_rfc
+      .col-2
+        = r.value :inv_rfc
+      .col-1
+        = r.label :inv_address
+      .col-2
+        = r.value :inv_address
+      .col-1
+        = r.label :inv_city
+      .col-2
+        = r.value :inv_city
+      .col-1
+        = r.label :inv_municipality
+      .col-2
+        = r.value :inv_municipality
+      .col-1
+        = r.label :inv_state
+      .col-2
+        = r.value :inv_state
+      .col-1
+        = r.label :inv_email
+      .col-2
+        = r.value :inv_email
+  - if !(@cc.opt_str1+@cc.opt_str2+@cc.opt_bol1+@cc.opt_bol2+@cc.opt_sel).strip.empty?
+    %h3.t-head= t('titles.additional_data')
+    .tbl-participants-attr
+      -if !@cc.opt_str1.empty?
+        .col-1
+          =@cc.opt_str1
+        .col-2
+          =r.value :opt_text
+      -if !@cc.opt_str2.empty?
+        .col-1
+          =@cc.opt_str2
+        .col-2
+          =r.value :opt_str2
+      -if !@cc.opt_bol1.empty?
+        .col-1
+          =@cc.opt_bol1
+        .col-2
+          =r.value :opt_bol1
+      -if !@cc.opt_bol2.empty?
+        .col-1
+          =@cc.opt_bol2
+        .col-2
+          =r.value :opt_bol2
+      -if !@cc.opt_sel.empty?
+        .col-1
+          =@cc.opt_sel
+        .col-2
+          =r.value :opt_sel
+
+%hr
+.t-right
+  = link_to_jq_button({url: edit_catalogs_participant_path(@catalogs_participant), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
+  = link_to_jq_button({url: catalogs_participants_list_path(@cc), text: t('commands.close'), icon: 'close', remote: false})
+.sp
