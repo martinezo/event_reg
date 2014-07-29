@@ -1,3 +1,7 @@
+.error-explanation
+
+%h1= "#{t('titles.participant')} (#{@cc.name})"
+
 = simple_form_for @catalogs_participant, url: url, :html => {:novalidate => true, multipart: true} do |f|
 
   .t-right
@@ -12,7 +16,7 @@
       =f.hidden_field :course_id, value: @cc.id
       =f.label :name
     .col-2
-      =f.input_field :name, :size => 50
+      =f.input_field :name, :size => 70
     .col-1
       =f.label :surnames
     .col-2
@@ -29,12 +33,16 @@
       =f.label :workplace
     .col-2
       =f.input_field :workplace, :size => 70
-    .col-1
-      - prices_str = '1. '+ @cc.price1_desc + ',2. ' + @cc.price2_desc + ',3. ' + @cc.price3_desc
-      - prices_list = prices_str.split(",")
-      = t('general.price')
-    .col-2
-      =f.select(:price, prices_list,{:prompt=> ""})
+
+    - prices = {}
+    - prices.merge!("#{@cc.price1_desc} ($ #{'%.2f' % @cc.price1})" => 1) unless @cc.price1_desc.try(:empty?)
+    - prices.merge!("#{@cc.price2_desc} ($ #{'%.2f' % @cc.price2})" => 2) unless @cc.price2_desc.try(:empty?)
+    - prices.merge!("#{@cc.price3_desc} ($ #{'%.2f' % @cc.price3})" => 3) unless @cc.price3_desc.try(:empty?)
+    - if prices.size > 0
+      .col-1
+        = f.label :participant_type
+      .col-2.prices
+        =f.input_field :price, collection: prices, as: :radio_buttons
 
   - if @cc.academic_data_required?
     %h3.t-head= t('titles.academic_data')
@@ -52,9 +60,13 @@
       .col-2
         =f.input_field :phd_deg, :size => 70
 
-  - if !@catalogs_participant.price.blank?
+  - if !(@cc.price1_desc+@cc.price2_desc+@cc.price3_desc).strip.empty?
     %h3.t-head= t('titles.invoice_data')
     .tbl-participants-attr
+      .col-1
+        =f.label :invoice_required
+      .col-2
+        =f.input_field :invoice_required, as: :boolean
       .col-1
         =f.label :inv_name
       .col-2
@@ -86,6 +98,11 @@
 
   %h3.t-head= t('titles.additional_data')
   .tbl-participants-attr
+    -if !@cc.opt_text.empty?
+      .col-1
+        =@cc.opt_text
+      .col-2
+        =f.input_field :opt_text, size: "69x5"
     -if !@cc.opt_str1.empty?
       .col-1
         =@cc.opt_str1
@@ -111,9 +128,7 @@
       .col-1
         =@cc.opt_sel
       .col-2
-        =f.select(:opt_sel, list,{:prompt=> ""})
-
-
+        =f.select :opt_sel, list
   %hr
   .t-right
     =jq_submit_tag t('commands.save')

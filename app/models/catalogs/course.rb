@@ -11,7 +11,9 @@ class Catalogs::Course < ActiveRecord::Base
   # validates_uniqueness_of :login
   validates_presence_of :name, :start_date, :description
 
-  #Change sql function now() instead date() for postresql
+  #SQLITE3 'date'
+  #scope :publishable, -> {where('date() BETWEEN start_date_pub AND end_date_pub')}
+  #POSTGRES 'now()'
   scope :publishable, -> {where('now() BETWEEN start_date_pub AND end_date_pub')}
 
   attr_reader :registrable, :num_participants, :num_participants_confirmed, :trimmed_name,

@@ -143,6 +143,7 @@ es:
         bachelor_deg: Titulo de licenciatura
         master_deg: Titulo de Maestría
         phd_deg: Título de Doctorado
+        invoice_required: Requiere factura
         inv_name: Nombre o razón social
         inv_rfc: RFC
         inv_address: Dirección Fiscal
@@ -150,8 +151,8 @@ es:
         inv_municipality: Municipio
         inv_state: Estado
         inv_email: Email de envío
-
-
+        price: Costo
+        participant_type: Tipo de participante
 
       devise_user:
         login: Usuario

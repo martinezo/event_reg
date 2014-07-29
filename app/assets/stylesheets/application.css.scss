@@ -61,7 +61,13 @@
   }
 }
 
-
+.prices .radio{
+  padding-top: 0.25em;
+  display: flex;
+  label{
+    font-weight: normal;
+  }
+}
 
 .tbl-system-config{
   @include two-columns(8,16);
