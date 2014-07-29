@@ -1,19 +1,19 @@
 .error-explanation
 
-%h1= "#{t('titles.participant')} (#{@cc.name})"
+%h1= "#{t('titles.participant')} (#{@catalogs_participant.course.name})"
 
 = simple_form_for @catalogs_participant, url: url, :html => {:novalidate => true, multipart: true} do |f|
 
-  .t-right
-    =jq_submit_tag t('commands.save')
-    = link_to_jq_button({url: catalogs_participants_list_path(@cc), text: t('commands.cancel'), icon: 'close', remote: false})
+  .command.t-right
+    .c-command{style: "background-color: #{@color_theme1}"}= link_to_jq_button({url: catalogs_participants_list_path(@catalogs_participant.course), text: t('commands.cancel'), icon: 'close', remote: false})
+    .c-command{style: "background-color: #{@color_theme1}"}=jq_submit_tag t('commands.save')
   .sp
 
 
-  %h3.t-head= t('titles.event_general_data')
+  %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.event_general_data')
   .tbl-participants-attr
     .col-1
-      =f.hidden_field :course_id, value: @cc.id
+      =f.hidden_field :course_id
       =f.label :name
     .col-2
       =f.input_field :name, :size => 70
@@ -35,17 +35,17 @@
       =f.input_field :workplace, :size => 70
 
     - prices = {}
-    - prices.merge!("#{@cc.price1_desc} ($ #{'%.2f' % @cc.price1})" => 1) unless @cc.price1_desc.try(:empty?)
-    - prices.merge!("#{@cc.price2_desc} ($ #{'%.2f' % @cc.price2})" => 2) unless @cc.price2_desc.try(:empty?)
-    - prices.merge!("#{@cc.price3_desc} ($ #{'%.2f' % @cc.price3})" => 3) unless @cc.price3_desc.try(:empty?)
+    - prices.merge!("#{@catalogs_participant.course.price1_desc} ($ #{'%.2f' % @catalogs_participant.course.price1})" => 1) unless @catalogs_participant.course.price1_desc.try(:empty?)
+    - prices.merge!("#{@catalogs_participant.course.price2_desc} ($ #{'%.2f' % @catalogs_participant.course.price2})" => 2) unless @catalogs_participant.course.price2_desc.try(:empty?)
+    - prices.merge!("#{@catalogs_participant.course.price3_desc} ($ #{'%.2f' % @catalogs_participant.course.price3})" => 3) unless @catalogs_participant.course.price3_desc.try(:empty?)
     - if prices.size > 0
       .col-1
         = f.label :participant_type
       .col-2.prices
         =f.input_field :price, collection: prices, as: :radio_buttons
 
-  - if @cc.academic_data_required?
-    %h3.t-head= t('titles.academic_data')
+  - if @catalogs_participant.course.academic_data_required?
+    %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.academic_data')
     .tbl-participants-attr
       .col-1
         =f.label :bachelor_deg
@@ -60,8 +60,8 @@
       .col-2
         =f.input_field :phd_deg, :size => 70
 
-  - if !(@cc.price1_desc+@cc.price2_desc+@cc.price3_desc).strip.empty?
-    %h3.t-head= t('titles.invoice_data')
+  - if !(@catalogs_participant.course.price1_desc+@catalogs_participant.course.price2_desc+@catalogs_participant.course.price3_desc).strip.empty?
+    %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.invoice_data')
     .tbl-participants-attr
       .col-1
         =f.label :invoice_required
@@ -96,40 +96,41 @@
       .col-2
         =f.input_field :inv_mail, :size => 70
 
-  %h3.t-head= t('titles.additional_data')
+  %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.additional_data')
   .tbl-participants-attr
-    -if !@cc.opt_text.empty?
+    -if !@catalogs_participant.course.opt_text.empty?
       .col-1
-        =@cc.opt_text
+        =@catalogs_participant.course.opt_text
       .col-2
         =f.input_field :opt_text, size: "69x5"
-    -if !@cc.opt_str1.empty?
+    -if !@catalogs_participant.course.opt_str1.empty?
       .col-1
-        =@cc.opt_str1
+        =@catalogs_participant.course.opt_str1
       .col-2
         =f.input_field :opt_str1, :size => 70
-    -if !@cc.opt_str2.empty?
+    -if !@catalogs_participant.course.opt_str2.empty?
       .col-1
-        =@cc.opt_str2
+        =@catalogs_participant.course.opt_str2
       .col-2
         =f.input_field :opt_str2, :size => 70
-    -if !@cc.opt_bol1.empty?
+    -if !@catalogs_participant.course.opt_bol1.empty?
       .col-1
-        =@cc.opt_bol1
+        =@catalogs_participant.course.opt_bol1
       .col-2
         =f.input_field :opt_bol1, as: :boolean
-    -if !@cc.opt_bol2.empty?
+    -if !@catalogs_participant.course.opt_bol2.empty?
       .col-1
-        =@cc.opt_bol2
+        =@catalogs_participant.course.opt_bol2
       .col-2
         =f.input_field :opt_bol2, as: :boolean
-    -if !@cc.opt_sel.empty?
-      - list = @cc.opt_sel_options.split(",")
+    -if !@catalogs_participant.course.opt_sel.empty?
+      - list = @catalogs_participant.course.opt_sel_options.split(",")
       .col-1
-        =@cc.opt_sel
+        =@catalogs_participant.course.opt_sel
       .col-2
         =f.select :opt_sel, list
-  %hr
-  .t-right
-    =jq_submit_tag t('commands.save')
-    = link_to_jq_button({url: catalogs_participants_list_path(@cc), text: t('commands.cancel'), icon: 'close', remote: false})
+  %hr{style: "color: #{@color_theme1}"}
+  .command.t-right
+    .c-command{style: "background-color: #{@color_theme1}"}= link_to_jq_button({url: catalogs_participants_list_path(@catalogs_participant.course), text: t('commands.cancel'), icon: 'close', remote: false})
+    .c-command{style: "background-color: #{@color_theme1}"}=jq_submit_tag t('commands.save')
+  %br

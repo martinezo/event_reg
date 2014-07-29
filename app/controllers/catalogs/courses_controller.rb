@@ -19,6 +19,7 @@ class Catalogs::CoursesController < ApplicationController
   # GET /catalogs/courses/new
   def new
     @catalogs_course = Catalogs::Course.new
+    @catalogs_course.user_id = current_devise_user.id
   end
 
   # GET /catalogs/courses/1/edit

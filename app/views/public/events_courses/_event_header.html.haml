@@ -3,13 +3,3 @@
     #c-header-bg
     #c-header-logo
   #c-course-info{style: "background-color: ##{@catalogs_participant.course.color_theme_l 3,0.6}; color: ##{@catalogs_participant.course.color_theme1}"}
-    .sp
-    - if flash[:alert]
-      .alert
-        %h3= render :partial => 'layouts/alert_notice'
-    - else
-      =render 'catalogs/participants/form', url: public_create_participant_path
-    %br
-    %br
-  #c-footer{style: "background-color: #{@color_theme1}; color: #{@color_theme3}"}
-    Ramón Martínez Olvera (442) 5623 40 52 | INB-UNAM

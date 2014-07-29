@@ -1,6 +1,6 @@
 class Public::EventsCoursesController < ApplicationController
   skip_before_filter :authenticate_devise_user!
-  layout 'events_courses', only: [:event_info, :new_participant]
+  layout 'events_courses', only: [:event_info, :new_participant, :registration_done ]
 
   load 'lib/pdf_generator.rb'
 
@@ -22,9 +22,13 @@ class Public::EventsCoursesController < ApplicationController
   end
 
   def new_participant
-    @cc = Catalogs::Course.find(params[:course_id])
-    if @cc.registrable
+    course = Catalogs::Course.find(params[:course_id])
+    if course.registrable
       @catalogs_participant = Catalogs::Participant.new
+      @catalogs_participant.course_id = course.id
+      @color_theme1 = "##{@catalogs_participant.course.color_theme1}"
+      @color_theme2 = "##{@catalogs_participant.course.color_theme2}"
+      @color_theme3 = "##{@catalogs_participant.course.color_theme3}"
     else
       flash[:alert] = t('notices.registration_unavailable')
       puts flash[:alert]
@@ -32,19 +36,23 @@ class Public::EventsCoursesController < ApplicationController
   end
 
   def create_participant
-  params.permit!
-  @catalogs_participant = Catalogs::Participant.new(params[:catalogs_participant])
-  respond_to do |format|
-    if @catalogs_participant.save
-      registration @catalogs_participant
-      #PdfGenerator.registration @catalogs_participant
-      format.html { redirect_to @catalogs_participant, notice: 'Participant was successfully created.' }
-      format.json { render action: 'show', status: :created, location: @catalogs_participant }
-    else
-      format.html { render action: 'new' }
-      format.json { render json: @catalogs_participant.errors, status: :unprocessable_entity }
+    params.permit!
+    @catalogs_participant = Catalogs::Participant.new(params[:catalogs_participant])
+    respond_to do |format|
+      if @catalogs_participant.save
+        registration @catalogs_participant
+        #PdfGenerator.registration @catalogs_participant
+        format.html { redirect_to public_registration_done_path(@catalogs_participant), notice: 'Participant was successfully created.' }
+        format.json { render action: 'registration_done', status: :created, location: @catalogs_participant }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @catalogs_participant.errors, status: :unprocessable_entity }
+      end
     end
   end
+
+  def registration_done
+    @catalogs_participant = Catalogs::Participant.find(params[:id])
   end
 
   require 'prawn'

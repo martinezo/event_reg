@@ -61,6 +61,12 @@
   }
 }
 
+.command{
+  display: flex;
+  float: right;
+  clear: both;
+}
+
 .prices .radio{
   padding-top: 0.25em;
   display: flex;

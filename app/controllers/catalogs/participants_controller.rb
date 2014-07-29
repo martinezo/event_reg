@@ -24,15 +24,16 @@ class Catalogs::ParticipantsController < ApplicationController
   # GET /catalogs/participants/new
   def new
     @catalogs_participant = Catalogs::Participant.new
+    @catalogs_participant.course_id = params[:course_id]
     # El nombre de la variable de instancia del curso debe llamarse @cc
     # porque el template para la vista pública usa esta variable para
     # tomar los colores del tema
-    @cc = Catalogs::Course.find(params[:course_id])
+    # @cc = Catalogs::Course.find(params[:course_id])
   end
 
   # GET /catalogs/participants/1/edit
   def edit
-    @cc = Catalogs::Course.find(params[:course_id])
+    #@cc = Catalogs::Course.find(params[:course_id])
   end
 
   # POST /catalogs/participants
@@ -42,6 +43,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
     respond_to do |format|
       if @catalogs_participant.save
+        #TODO Translate notice
         format.html { redirect_to @catalogs_participant, notice: 'Participant was successfully created.' }
         format.json { render action: 'show', status: :created, location: @catalogs_participant }
       else

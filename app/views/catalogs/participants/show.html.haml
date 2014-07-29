@@ -2,7 +2,7 @@
 
 .t-right
   = link_to_jq_button({url: edit_catalogs_participant_path(@catalogs_participant), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
-  = link_to_jq_button({url: catalogs_participants_list_path(@cc), text: t('commands.close'), icon: 'close', remote: false})
+  = link_to_jq_button({url: catalogs_participants_list_path(course_id: @catalogs_participant.course.id), text: t('commands.close'), icon: 'close', remote: false})
 .sp
 
 
@@ -31,21 +31,21 @@
       = r.value :workplace
     -if @catalogs_participant.price == 1
       .col-1
-        %strong= "#{t('general.price')} (#{@cc.price1_desc})"
+        %strong= "#{t('general.price')} (#{@catalogs_participant.course.price1_desc})"
       .col-2
-        = number_with_precision(@cc.price1, precision: 2)
+        = number_with_precision(@catalogs_participant.course.price1, precision: 2)
     -if @catalogs_participant.price == 2
       .col-1
-        %strong= "#{t('general.price')} (#{@cc.price2_desc})"
+        %strong= "#{t('general.price')} (#{@catalogs_participant.course.price2_desc})"
       .col-2
-        = number_with_precision(@cc.price2, precision: 2)
+        = number_with_precision(@catalogs_participant.course.price2, precision: 2)
     -if @catalogs_participant.price == 3
       .col-1
-        %strong= "#{t('general.price')} (#{@cc.price3_desc})"
+        %strong= "#{t('general.price')} (#{@catalogs_participant.course.price3_desc})"
       .col-2
-        = number_with_precision(@cc.price3, precision: 2)
+        = number_with_precision(@catalogs_participant.course.price3, precision: 2)
 
-  - if @cc.academic_data_required?
+  - if @catalogs_participant.course.academic_data_required?
     %h3.t-head= t('titles.academic_data')
     .tbl-participants-attr
       .col-1
@@ -89,40 +89,40 @@
       .col-2
         = r.value :inv_state
       .col-1
-        = r.label :inv_email
+        = r.label :inv_mail
       .col-2
-        = r.value :inv_email
-  - if !(@cc.opt_str1+@cc.opt_str2+@cc.opt_bol1+@cc.opt_bol2+@cc.opt_sel).strip.empty?
+        = r.value :inv_mail
+  - if !(@catalogs_participant.course.opt_str1+@catalogs_participant.course.opt_str2+@catalogs_participant.course.opt_bol1+@catalogs_participant.course.opt_bol2+@catalogs_participant.course.opt_sel).strip.empty?
     %h3.t-head= t('titles.additional_data')
     .tbl-participants-attr
-      -if !@cc.opt_str1.empty?
+      -if !@catalogs_participant.course.opt_str1.empty?
         .col-1
-          =@cc.opt_str1
+          =@catalogs_participant.course.opt_str1
         .col-2
           =r.value :opt_text
-      -if !@cc.opt_str2.empty?
+      -if !@catalogs_participant.course.opt_str2.empty?
         .col-1
-          =@cc.opt_str2
+          =@catalogs_participant.course.opt_str2
         .col-2
           =r.value :opt_str2
-      -if !@cc.opt_bol1.empty?
+      -if !@catalogs_participant.course.opt_bol1.empty?
         .col-1
-          =@cc.opt_bol1
+          =@catalogs_participant.course.opt_bol1
         .col-2
           =r.value :opt_bol1
-      -if !@cc.opt_bol2.empty?
+      -if !@catalogs_participant.course.opt_bol2.empty?
         .col-1
-          =@cc.opt_bol2
+          =@catalogs_participant.course.opt_bol2
         .col-2
           =r.value :opt_bol2
-      -if !@cc.opt_sel.empty?
+      -if !@catalogs_participant.course.opt_sel.empty?
         .col-1
-          =@cc.opt_sel
+          =@catalogs_participant.course.opt_sel
         .col-2
           =r.value :opt_sel
 
 %hr
 .t-right
   = link_to_jq_button({url: edit_catalogs_participant_path(@catalogs_participant), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
-  = link_to_jq_button({url: catalogs_participants_list_path(@cc), text: t('commands.close'), icon: 'close', remote: false})
+  = link_to_jq_button({url: catalogs_participants_list_path(@catalogs_participant.course), text: t('commands.close'), icon: 'close', remote: false})
 .sp
