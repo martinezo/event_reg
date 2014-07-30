@@ -8,7 +8,7 @@
       .alert
         %h3= render :partial => 'layouts/alert_notice'
     - else
-      =render 'catalogs/participants/form', url: public_create_participant_path
+      =render 'catalogs/participants/form', url: public_create_participant_path, url_cancel: public_event_info_path(@catalogs_participant.course_id)
     %br
     %br
   #c-footer{style: "background-color: #{@color_theme1}; color: #{@color_theme3}"}

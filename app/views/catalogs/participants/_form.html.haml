@@ -1,13 +1,13 @@
 %h1= "#{t('titles.participant')} (#{@catalogs_participant.course.name})"
 
 .error-explanation
-  = render 'layouts/validation_errors', errors:@catalogs_participant.errors
+  = render partial: 'layouts/validation_errors', locals: {errors: @catalogs_participant.errors}
   .sp
 
 = simple_form_for @catalogs_participant, url: url, :html => {:novalidate => true, multipart: true} do |f|
 
   .command.t-right
-    .c-command{style: "background-color: #{@color_theme1}"}= link_to_jq_button({url: catalogs_participants_list_path(@catalogs_participant.course), text: t('commands.cancel'), icon: 'close', remote: false})
+    .c-command{style: "background-color: #{@color_theme1}"}= link_to_jq_button({url: url_cancel, text: t('commands.cancel'), icon: 'close', remote: false})
     .c-command{style: "background-color: #{@color_theme1}"}=jq_submit_tag t('commands.save')
   .sp
 
@@ -132,6 +132,6 @@
         =f.select :opt_sel, list
   %hr{style: "color: #{@color_theme1}"}
   .command.t-right
-    .c-command{style: "background-color: #{@color_theme1}"}= link_to_jq_button({url: catalogs_participants_list_path(@catalogs_participant.course), text: t('commands.cancel'), icon: 'close', remote: false})
+    .c-command{style: "background-color: #{@color_theme1}"}= link_to_jq_button({url: url_cancel, text: t('commands.cancel'), icon: 'close', remote: false})
     .c-command{style: "background-color: #{@color_theme1}"}=jq_submit_tag t('commands.save')
   .sp

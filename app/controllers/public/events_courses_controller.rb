@@ -1,6 +1,6 @@
 class Public::EventsCoursesController < ApplicationController
   skip_before_filter :authenticate_devise_user!
-  layout 'events_courses', only: [:event_info, :new_participant, :registration_done ]
+  layout 'events_courses', only: [:event_info, :new_participant, :registration_done, :create_participant ]
 
   load 'lib/pdf_generator.rb'
 
@@ -45,7 +45,11 @@ class Public::EventsCoursesController < ApplicationController
         format.html { redirect_to public_registration_done_path(@catalogs_participant), notice: 'Participant was successfully created.' }
         format.json { render action: 'registration_done', status: :created, location: @catalogs_participant }
       else
-        format.html { render action: 'new' }
+        @color_theme1 = "##{@catalogs_participant.course.color_theme1}"
+        @color_theme2 = "##{@catalogs_participant.course.color_theme2}"
+        @color_theme3 = "##{@catalogs_participant.course.color_theme3}"
+        format.html { render action: :new_participant}
+        # format.html { redirect_to public_registration_path(course_id: @catalogs_participant.course_id)}
         format.json { render json: @catalogs_participant.errors, status: :unprocessable_entity }
       end
     end
