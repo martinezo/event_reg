@@ -109,8 +109,7 @@
         .input-file-button.jq-button
           =t('commands.select_file')
         .input-file-str
-          -#TODO placeholder message set size of images
-          =f.input_field :image_file1, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
+          =f.input_field :image_file1, size: 30, placeholder: t('titles.size_of_images'), readonly: true
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file1'}
           &nbsp;
     .col-1
@@ -122,8 +121,7 @@
         .input-file-button.jq-button
           =t('commands.select_file')
         .input-file-str
-          -#TODO placeholder message set size of images
-          =f.input_field :image_file2, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
+          =f.input_field :image_file2, size: 30, placeholder: t('titles.size_of_images'), readonly: true
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file2'}
           &nbsp;
     .col-1
@@ -135,8 +133,7 @@
         .input-file-button.jq-button
           =t('commands.select_file')
         .input-file-str
-          -#TODO placeholder message set size of images
-          =f.input_field :image_file3, size: 30, placeholder: 'Archivo JPG 960x260 pixeles', readonly: true
+          =f.input_field :image_file3, size: 30, placeholder: t('titles.size_of_images'), readonly: true
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_image_file3'}
           &nbsp;
     .col-1

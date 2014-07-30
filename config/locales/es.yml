@@ -41,6 +41,7 @@ es:
     academic_data: Datos académicos
     invoice_data: Datos para factura
     additional_data: Otros datos
+    size_of_images: Archivo JPG 960x260 pixeles
 
   pdf:
     reg_date: 'Fecha de registro:'
@@ -75,6 +76,7 @@ es:
     updated_successfully: Registro actualizado correctamente.
     event_info_unavailable: ¡Información de evento no disponible!
     registration_unavailable: ¡Registro a evento no disponible!
+    not_authorized: ¡No autorizado para entrar a esta sección!
 
   will_paginate:
     previous_label: Anterior

@@ -43,8 +43,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
     respond_to do |format|
       if @catalogs_participant.save
-        #TODO Translate notice
-        format.html { redirect_to @catalogs_participant, notice: 'Participant was successfully created.' }
+        format.html { redirect_to @catalogs_participant, notice: t('notices.saved_successfully') }
         format.json { render action: 'show', status: :created, location: @catalogs_participant }
       else
         format.html { render action: 'new' }
@@ -58,7 +57,7 @@ class Catalogs::ParticipantsController < ApplicationController
   def update
     respond_to do |format|
       if @catalogs_participant.update(catalogs_participant_params)
-        format.html { redirect_to @catalogs_participant, notice: 'Participant was successfully updated.' }
+        format.html { redirect_to @catalogs_participant, notice: t('notices.updated_successfully')}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -94,7 +93,7 @@ class Catalogs::ParticipantsController < ApplicationController
 
     # Authorize cancan
     def authorize_resource
-      authorize! :manage, @catalogs_participant, :message => "Not authorized to enter this section."
+      authorize! :manage, @catalogs_participant, :message => t('notices.not_authorized')
     end 
 
     def sort_column

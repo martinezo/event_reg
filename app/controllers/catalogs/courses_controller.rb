@@ -24,7 +24,7 @@ class Catalogs::CoursesController < ApplicationController
 
   # GET /catalogs/courses/1/edit
   def edit
-    authorize! :update, @catalogs_course, :message => "Not authorized to enter this section."
+    authorize! :update, @catalogs_course, :message => t('notices.not_authorized')
   end
 
   # POST /catalogs/courses
