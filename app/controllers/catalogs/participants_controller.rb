@@ -1,6 +1,6 @@
 class Catalogs::ParticipantsController < ApplicationController
-  before_action :set_catalogs_participant, only: [:show, :edit, :update, :destroy, :confirm_participant]
-  before_action :authorize_resource, only: [:edit, :show, :destroy]
+  before_action :set_catalogs_participant, only: [:show, :edit, :update, :destroy_participant, :confirm_participant, :delete]
+  before_action :authorize_resource, only: [:edit, :show, :destroy_participant, :delete]
 
   helper_method :sort_column, :sort_direction
 
@@ -72,12 +72,11 @@ class Catalogs::ParticipantsController < ApplicationController
 
   # DELETE /catalogs/participants/1
   # DELETE /catalogs/participants/1.json
-  def destroy
+  def destroy_participant
     @catalogs_participant.destroy
-    respond_to do |format|
-      format.html { redirect_to catalogs_participants_url }
-      format.json { head :no_content }
-    end
+  end
+
+  def delete
   end
 
   private

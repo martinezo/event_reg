@@ -7,19 +7,19 @@
     &nbsp
 
 - @catalogs_participants.each_with_index do |catalogs_participant, i|
-  .tbl-participants{:id => "row-#{i}",:class => "alt-#{i % 2}" }
+  .tbl-participants{:id => "row-#{catalogs_participant.id}",:class => "alt-#{i % 2}" }
     .col-1
       = catalogs_participant.complete_name
     .col-2
-      = catalogs_participant.mail || '&nbsp'.html_safe
+      = catalogs_participant.mail.empty? ? '&nbsp'.html_safe : catalogs_participant.mail
     .col-3.t-cent
       = link_to_jq_button({url: catalogs_participant, icon: 'document', title: t('commands.show'), remote: false})
       = link_to_jq_button({url: edit_catalogs_participant_path(catalogs_participant, course_id:params[:course_id]), icon: 'pencil', title: t('commands.edit'), remote: false})
-      = link_to_jq_button({url: catalogs_confirm_participant_path(catalogs_participant), icon: (catalogs_participant.confirmed ? 'check' : 'circle-check'), title: (catalogs_participant.confirmed ? t('titles.confirmed') : t('titles.unconfirmed') ), id: 'confirm-link'})
-      -#= link_to_jq_button({url: delete_catalogs_participant_path(participant_id: catalogs_participant), icon: 'trash', title: t('commands.delete'), remote: false})
+      = link_to_jq_button({url: catalogs_confirm_participant_path(catalogs_participant), icon: (catalogs_participant.confirmed ? 'check' : 'circle-check'), title: (catalogs_participant.confirmed ? t('titles.confirmed') : t('titles.unconfirmed') ), id: "confirm-link-#{catalogs_participant.id}"})
+      = link_to_jq_button({url: catalogs_delete_participant_path(catalogs_participant), icon: 'trash', title: 'Eliminar'})
+
       -#TODO link to download xls index of participants
       -#= link_to_jq_button({url: '#', icon: 'person', title: t('titles.download'), remote: false})
-      -#TODO implement destroy action (don forget to erase related files to course in public/attachments)
 
 
 #will-paginate

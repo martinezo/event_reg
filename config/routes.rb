@@ -4,6 +4,8 @@ EventReg::Application.routes.draw do
     resources :participants
     get 'participants/list/:course_id' => 'participants#list', as: 'participants_list'
     get 'participants/confirm_participant/:id' => 'participants#confirm_participant', as: 'confirm_participant'
+    get 'participant/delete/:id' => 'participants#delete', as: 'delete_participant'
+    delete 'participant/destroy/:id' => 'participants#destroy_participant', as: 'destroy_participant'
   end
 
   namespace :public do

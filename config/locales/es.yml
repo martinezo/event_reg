@@ -136,7 +136,7 @@ es:
         start_date: Fecha Inicio
 
       catalogs/participant:
-        course_id: Curso/evento id
+        course_id: Curso/evento
         name: Nombre
         surnames: Apellidos
         mail: Correo
@@ -181,7 +181,15 @@ es:
             start_date:
               blank: es un dato requerido.
             user_id:
-              blank: es un dato rquerido.
+              blank: es un dato requerido.
+        catalogs/participant:
+          attributes:
+            name:
+              blank: es un dato requerido.
+            surnames:
+              blank: es un dato requerido.
+            course_id:
+              taken: ¡Usuario ya registrado!
 
 #http://blog.lingohub.com/developers/2013/08/internationalization-for-ruby-i18n-gem/
   time:

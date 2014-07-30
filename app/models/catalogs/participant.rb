@@ -4,7 +4,7 @@ class Catalogs::Participant < ActiveRecord::Base
   attr_reader :complete_name
 
   validates :name, :surnames, presence: true
-  validates :course_id, uniqueness:  {scope: [:name, :surnames]}
+  validates :course_id, uniqueness: {scope: [:name, :surnames]}
 
   def self.search(search, course_id)
     if search
