@@ -12,8 +12,9 @@ class Ability
         cannot :change_owner, Catalogs::Course
         cannot :manage, Admin::User
       when 3
-        can :read, Catalogs::Courses
+        can :manage, Catalogs::Courses
+        can :manage, Catalogs::Participant
+        cannot :manage, Admin::User
     end
-    can :read, :all
   end
 end
