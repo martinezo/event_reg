@@ -2,6 +2,8 @@ class Public::EventsCoursesController < ApplicationController
   skip_before_filter :authenticate_devise_user!
   layout 'events_courses', only: [:event_info, :new_participant, :registration_done, :create_participant ]
 
+  require 'pdf_generator'
+
   def index
      @courses = Catalogs::Course.publishable.order(:start_date)
   end
@@ -33,7 +35,6 @@ class Public::EventsCoursesController < ApplicationController
     end
   end
 
-  require 'pdf_generator'
 
   def create_participant
     params.permit!
@@ -41,7 +42,10 @@ class Public::EventsCoursesController < ApplicationController
     respond_to do |format|
       if @catalogs_participant.save
         # registration @catalogs_participant, "public/pdf/#{@catalogs_participant.pdf_reg_filename}"
-        PdfGenerator.registration(@catalogs_participant,"public/pdf/#{@catalogs_participant.pdf_reg_filename}")
+        filename = "public/pdf/#{@catalogs_participant.pdf_reg_filename}"
+        PdfGenerator.registration(@catalogs_participant, filename)
+        RegistrationMailer.participant_reg(@catalogs_participant, filename).deliver unless @catalogs_participant.mail.strip.empty?
+        RegistrationMailer.participant_reg_notification(@catalogs_participant, filename).deliver unless @catalogs_participant.course.mail_notif_deposit.strip.empty?
         format.html { redirect_to public_registration_done_path(@catalogs_participant), notice: 'Participant was successfully created.' }
         format.json { render action: 'registration_done', status: :created, location: @catalogs_participant }
       else

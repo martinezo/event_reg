@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      #{@participant.course.name}
+    %br
+    %br
+    Favor de generar y envìar ficha de depósito para:
+    %br
+    %br
+    Nombre:
+    %strong
+      #{@participant.complete_name}
+    %br
+    Correo: #{@participant.mail}
+    %br
+    Importe: #{@price}
+    %br
+    %br
+    Mayores informes:
+    %br
+    #{@participant.course.contact}
+    %br
+    %br
+    Gracias.

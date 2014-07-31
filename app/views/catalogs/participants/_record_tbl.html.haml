@@ -24,4 +24,4 @@
 
 
 #will-paginate
-  = will_paginate @catalogs_participants, params: {id: nil, action: 'index'}
+  = will_paginate @catalogs_participants, params: {course_id: params[:course_id], controller: :participants, action: 'list'}

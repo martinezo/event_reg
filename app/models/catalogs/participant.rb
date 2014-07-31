@@ -12,10 +12,9 @@ class Catalogs::Participant < ActiveRecord::Base
 
   def self.search(search, course_id)
     if search
-      where("course_id = ? AND (translate(lower(name),'áéíóúàèìòù', 'aeiouaeiou') LIKE translate(lower(?),'áéíóúàèìòù', 'aeiouaeiou')\
-            OR translate(lower(surnames),'áéíóúàèìòù', 'aeiouaeiou') LIKE translate(lower(?),'áéíóúàèìòù', 'aeiouaeiou')\
+      where("course_id = ? AND (translate(lower(name || ' ' || surnames ),'áéíóúàèìòù', 'aeiouaeiou') LIKE translate(lower(?),'áéíóúàèìòù', 'aeiouaeiou')\
             OR translate(lower(mail),'áéíóúàèìòù', 'aeiouaeiou') LIKE translate(lower(?),'áéíóúàèìòù', 'aeiouaeiou'))",
-            "#{course_id}","%#{search}%","%#{search}%","%#{search}%")
+            "#{course_id}","%#{search}%","%#{search}%")
     else
       where("course_id=?","#{course_id}")
     end

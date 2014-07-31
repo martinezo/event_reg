@@ -16,6 +16,7 @@ es:
     cancel: Cancelar
     download: Descargar %{param}
     registration: Registro
+    send: Enviar
 
   titles:
     edit: Modificar %{param}

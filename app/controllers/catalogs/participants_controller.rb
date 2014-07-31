@@ -3,6 +3,7 @@ class Catalogs::ParticipantsController < ApplicationController
   before_action :authorize_resource, only: [:edit, :show, :destroy_participant, :delete]
 
   helper_method :sort_column, :sort_direction
+  require 'pdf_generator'
 
   # GET /catalogs/participants
   # GET /catalogs/participants.json
@@ -43,6 +44,8 @@ class Catalogs::ParticipantsController < ApplicationController
 
     respond_to do |format|
       if @catalogs_participant.save
+        filename = "public/pdf/#{@catalogs_participant.pdf_reg_filename}"
+        PdfGenerator.registration(@catalogs_participant, filename)
         format.html { redirect_to @catalogs_participant, notice: t('notices.saved_successfully') }
         format.json { render action: 'show', status: :created, location: @catalogs_participant }
       else
@@ -57,6 +60,8 @@ class Catalogs::ParticipantsController < ApplicationController
   def update
     respond_to do |format|
       if @catalogs_participant.update(catalogs_participant_params)
+        filename = "public/pdf/#{@catalogs_participant.pdf_reg_filename}"
+        PdfGenerator.registration(@catalogs_participant, filename)
         format.html { redirect_to @catalogs_participant, notice: t('notices.updated_successfully')}
         format.json { head :no_content }
       else
