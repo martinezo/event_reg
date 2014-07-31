@@ -4,15 +4,37 @@
     #c-header-logo
   #c-course-info{style: "background-color: ##{@catalogs_participant.course.color_theme_l 3,0.6}; color: ##{@catalogs_participant.course.color_theme1}"}
 
+    #name
+      = @catalogs_participant.course.name
+    #participant-name
+      %h1= @catalogs_participant.complete_name
+      %br
+      = t('notices.registration_done')
+      %br
+      %br
+    -if !@catalogs_participant.course.info_after_reg.empty?
+      #after-registration
+        = @catalogs_participant.course.info_after_reg
+        .sp
+    -if !@catalogs_participant.course.contact.empty?
+      #course-contact
+        =t('general.contact')+':'
+        %br
+        %br
+        = @catalogs_participant.course.contact
 
-    = @catalogs_participant.course.name
-    = @catalogs_participant.complete_name
-    -# when fields not empty
-    = @catalogs_participant.course.info_after_reg
-    Mayores informes:
-    = @catalogs_participant.course.contact
-    = link_to 'Terminar', public_event_info_path(@catalogs_participant.course_id)
-    = link_to 'Descargar hoja de registro', public_event_courses_download_file_path(@catalogs_participant.pdf_reg_filename)
+    %br
+    .t-right
+      .c-command{class: 'w-110', style: "background-color: ##{@catalogs_participant.course.color_theme1}"}= link_to_jq_button({url: public_event_info_path(@catalogs_participant.course_id), text: t('commands.finish'), icon: 'close', remote: false})
+      .c-command{class: 'w-200', style: "background-color: ##{@catalogs_participant.course.color_theme1}"}= link_to_jq_button({url: public_event_courses_download_file_path(@catalogs_participant.pdf_reg_filename), text: t('commands.download_reg_form'), icon: 'close', remote: false})
+      .sp
+
+
+
+  -#  = link_to 'Terminar', public_event_info_path(@catalogs_participant.course_id)
+  -#  = link_to 'Descargar hoja de registro', public_event_courses_download_file_path(@catalogs_participant.pdf_reg_filename)
+
+
 
   #c-footer{style: "background-color: ##{@catalogs_participant.course.color_theme1}; color: ##{@catalogs_participant.course.color_theme3}"}
     Ramón Martínez Olvera (442) 5623 40 52 | INB-UNAM
