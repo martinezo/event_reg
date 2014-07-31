@@ -22,7 +22,7 @@ config/ldap.yml
 
 #sqlite3 data base in macbookpro
 db/event_reg_development
-public/attachments/*
+public/attachments/*.*
 !public/attachments/0_image_file1.jpg
 public/pfd/*
 !public/pdf/*/
