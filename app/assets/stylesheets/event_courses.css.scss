@@ -132,6 +132,31 @@ h1{
   padding-bottom: 1em;
 }
 
+#participant-name{
+  text-align: center;
+  font-size: 1.2em;
+  padding: 1em 0;
+  border-bottom: solid 2px;
+  padding-bottom: 0.5em;
+}
+
+#after-registration
+{
+  text-align: center;
+  font-size: 1.2em;
+  padding: 1em 0;
+  padding-bottom: 1em;
+}
+
+#course-contact{
+  text-align: center;
+  font-size: 1.1em;
+  padding: 1em 0;
+  border-bottom: solid 2px;
+  padding-bottom: 1em;
+}
+
+
 #carousel .item{
   display: block;
   width: 960px;

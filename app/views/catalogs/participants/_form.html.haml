@@ -94,40 +94,41 @@
         =f.label :inv_mail
       .col-2
         =f.input_field :inv_mail, :size => 70
+  - if !(@catalogs_participant.course.opt_str1+@catalogs_participant.course.opt_str2+@catalogs_participant.course.opt_bol1+@catalogs_participant.course.opt_bol2+@catalogs_participant.course.opt_sel).strip.empty?
+    %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.additional_data')
+    .tbl-participants-attr
+      -if !@catalogs_participant.course.opt_text.empty?
+        .col-1
+          =@catalogs_participant.course.opt_text
+        .col-2
+          =f.input_field :opt_text, size: "69x5"
+      -if !@catalogs_participant.course.opt_str1.empty?
+        .col-1
+          =@catalogs_participant.course.opt_str1
+        .col-2
+          =f.input_field :opt_str1, :size => 70
+      -if !@catalogs_participant.course.opt_str2.empty?
+        .col-1
+          =@catalogs_participant.course.opt_str2
+        .col-2
+          =f.input_field :opt_str2, :size => 70
+      -if !@catalogs_participant.course.opt_bol1.empty?
+        .col-1
+          =@catalogs_participant.course.opt_bol1
+        .col-2
+          =f.input_field :opt_bol1, as: :boolean
+      -if !@catalogs_participant.course.opt_bol2.empty?
+        .col-1
+          =@catalogs_participant.course.opt_bol2
+        .col-2
+          =f.input_field :opt_bol2, as: :boolean
+      -if !@catalogs_participant.course.opt_sel.empty?
+        - list = @catalogs_participant.course.opt_sel_options.split(",")
+        .col-1
+          =@catalogs_participant.course.opt_sel
+        .col-2
+          =f.select :opt_sel, list
 
-  %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.additional_data')
-  .tbl-participants-attr
-    -if !@catalogs_participant.course.opt_text.empty?
-      .col-1
-        =@catalogs_participant.course.opt_text
-      .col-2
-        =f.input_field :opt_text, size: "69x5"
-    -if !@catalogs_participant.course.opt_str1.empty?
-      .col-1
-        =@catalogs_participant.course.opt_str1
-      .col-2
-        =f.input_field :opt_str1, :size => 70
-    -if !@catalogs_participant.course.opt_str2.empty?
-      .col-1
-        =@catalogs_participant.course.opt_str2
-      .col-2
-        =f.input_field :opt_str2, :size => 70
-    -if !@catalogs_participant.course.opt_bol1.empty?
-      .col-1
-        =@catalogs_participant.course.opt_bol1
-      .col-2
-        =f.input_field :opt_bol1, as: :boolean
-    -if !@catalogs_participant.course.opt_bol2.empty?
-      .col-1
-        =@catalogs_participant.course.opt_bol2
-      .col-2
-        =f.input_field :opt_bol2, as: :boolean
-    -if !@catalogs_participant.course.opt_sel.empty?
-      - list = @catalogs_participant.course.opt_sel_options.split(",")
-      .col-1
-        =@catalogs_participant.course.opt_sel
-      .col-2
-        =f.select :opt_sel, list
   %hr{style: "color: #{@color_theme1}"}
   .command.t-right
     .c-command{style: "background-color: #{@color_theme1}"}= link_to_jq_button({url: url_cancel, text: t('commands.cancel'), icon: 'close', remote: false})

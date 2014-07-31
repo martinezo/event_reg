@@ -16,6 +16,8 @@ es:
     cancel: Cancelar
     download: Descargar %{param}
     registration: Registro
+    terminate: Terminar
+    download_reg_form: Descargar hoja de registro
 
   titles:
     edit: Modificar %{param}
@@ -73,6 +75,7 @@ es:
 
   general:
     price: Precio
+    contact: Mayores Informes
 
   notices:
     saved_successfully: Registro guardado correctamente. 
@@ -81,6 +84,7 @@ es:
     registration_unavailable: ¡Registro a evento no disponible!
     not_authorized: ¡No autorizado para entrar a esta sección!
     processing: Procesando...
+    registration_done: Tu registro para este evento ha sido efectuado correctamente.
 
   will_paginate:
     previous_label: Anterior

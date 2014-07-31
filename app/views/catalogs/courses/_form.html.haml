@@ -52,6 +52,7 @@
       = f.label :price1
     .col-2
       = f.input_field :price1, as: :numeric
+      %b (Precio mayor)
     .col-1
       = f.label :price2_desc
     .col-2
@@ -60,6 +61,7 @@
       = f.label :price2
     .col-2
       = f.input_field :price2
+      %b (Precio medio)
     .col-1
       = f.label :price3_desc
     .col-2
@@ -68,6 +70,7 @@
       = f.label :price3
     .col-2
       = f.input_field :price3
+      %b (Precio menor)
     .col-1
       = f.label :payment_methods
     .col-2
@@ -217,7 +220,7 @@
     .col-1
       = f.label :opt_sel_options
     .col-2
-      = f.input_field :opt_sel_options, :size => 70, placeholder: 'Separar las opciones con coma ","'
+      = f.input_field :opt_sel_options, :size => 70, placeholder: 'Separar las opciones con coma ",". La primer opción es la opción por defecto.'
     .sp
 
   %hr
