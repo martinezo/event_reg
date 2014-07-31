@@ -1,2 +1,8 @@
 = @catalogs_participant.course.name
 = @catalogs_participant.complete_name
+-# when fields not empty
+= @catalogs_participant.course.info_after_reg
+Mayores informes:
+= @catalogs_participant.course.contact
+= link_to 'Terminar', public_event_info_path(@catalogs_participant.course_id)
+= link_to 'Descargar hoja de registro', public_event_courses_download_file_path(@catalogs_participant.pdf_reg_filename)

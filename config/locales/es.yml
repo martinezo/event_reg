@@ -42,6 +42,7 @@ es:
     invoice_data: Datos para factura
     additional_data: Otros datos
     size_of_images: Archivo JPG 960x260 pixeles
+    reg_sheet: Hoja de registro PDF
 
   pdf:
     reg_date: 'Fecha de registro:'
@@ -67,6 +68,8 @@ es:
     yes_: 'Si'
     no_: 'No'
     cost: 'Importe:'
+    invoice_required: 'El participante requiere Factura'
+    invoice_not_required: 'El participante NO requiere factura'
 
   general:
     price: Precio
@@ -77,6 +80,7 @@ es:
     event_info_unavailable: ¡Información de evento no disponible!
     registration_unavailable: ¡Registro a evento no disponible!
     not_authorized: ¡No autorizado para entrar a esta sección!
+    processing: Procesando...
 
   will_paginate:
     previous_label: Anterior

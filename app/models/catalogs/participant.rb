@@ -1,10 +1,14 @@
 class Catalogs::Participant < ActiveRecord::Base
   belongs_to :course, :class_name => 'Catalogs::Course'
 
-  attr_reader :complete_name
+  attr_reader :complete_name, :pdf_reg_filename
 
   validates :name, :surnames, presence: true
   validates :course_id, uniqueness: {scope: [:name, :surnames]}
+
+  def pdf_reg_filename
+    ('%06i' % id) + "_registration.pdf"
+  end
 
   def self.search(search, course_id)
     if search

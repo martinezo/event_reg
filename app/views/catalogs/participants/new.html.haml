@@ -1,1 +1,1 @@
-= render partial: 'form', locals: {url: @catalogs_participant.id, url_cancel: catalogs_participants_list_path(course_id: params[:course_id])}
+= render partial: 'form', locals: {url: @catalogs_participant.id, url_cancel: catalogs_participants_list_path(course_id: @catalogs_participant.course_id)}

@@ -16,6 +16,7 @@
       = link_to_jq_button({url: catalogs_participant, icon: 'document', title: t('commands.show'), remote: false})
       = link_to_jq_button({url: edit_catalogs_participant_path(catalogs_participant, course_id:params[:course_id]), icon: 'pencil', title: t('commands.edit'), remote: false})
       = link_to_jq_button({url: catalogs_confirm_participant_path(catalogs_participant), icon: (catalogs_participant.confirmed ? 'check' : 'circle-check'), title: (catalogs_participant.confirmed ? t('titles.confirmed') : t('titles.unconfirmed') ), id: "confirm-link-#{catalogs_participant.id}"})
+      = link_to_jq_button({url: catalogs_participant_download_file_path(catalogs_participant.pdf_reg_filename), icon: 'circle-arrow-s', title: t('commands.download', param: t('titles.reg_sheet')), remote: false })
       = link_to_jq_button({url: catalogs_delete_participant_path(catalogs_participant), icon: 'trash', title: 'Eliminar'})
 
       -#TODO link to download xls index of participants

@@ -1,7 +1,7 @@
 %h1= t('titles.participant')
 
 .t-right
-  = link_to_jq_button({url: edit_catalogs_participant_path(@catalogs_participant, {course_id: @catalogs_participant.course.id}), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
+  = link_to_jq_button({url: edit_catalogs_participant_path(@catalogs_participant, {course_id: @catalogs_participant.course_id}), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
   = link_to_jq_button({url: catalogs_participants_list_path(course_id: @catalogs_participant.course.id), text: t('commands.close'), icon: 'close', remote: false})
 .sp
 
@@ -123,6 +123,6 @@
 
 %hr
 .t-right
-  = link_to_jq_button({url: edit_catalogs_participant_path(@catalogs_participant, {course_id: @catalogs_participant.course.id}), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
+  = link_to_jq_button({url: edit_catalogs_participant_path(@catalogs_participant, {course_id: @catalogs_participant.course_id}), text: t('commands.edit'), title: t('commands.edit'), icon: 'pencil', remote: false})
   = link_to_jq_button({url: catalogs_participants_list_path(@catalogs_participant.course), text: t('commands.close'), icon: 'close', remote: false})
 .sp

@@ -77,7 +77,17 @@ class Catalogs::ParticipantsController < ApplicationController
   end
 
   def delete
+
   end
+
+  def download_file
+    file = "public/pdf/#{params[:filename]}"
+    name = params[:name]
+    type = params[:filename].sub(/^.*\./,'')
+    send_file  file, filename: name, type: "application/#{type}"
+    #"#{Rails.root}/#{file}",
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

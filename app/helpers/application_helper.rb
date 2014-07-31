@@ -22,8 +22,8 @@ module ApplicationHelper
   end
 
 
-  def jq_submit_tag(title)
-    submit_tag title, :'jq-text' => true, :class => 'jq-button'
+  def jq_submit_tag(title, data=nil)
+    submit_tag title, :'jq-text' => true, :class => 'jq-button', data: data
   end
 
   # TODO remove commented lines if methods are not used
