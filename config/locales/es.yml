@@ -143,6 +143,7 @@ es:
         opt_field: Campo opcional
         opt_field_title: Campo opcional Título
         start_date: Fecha Inicio
+        upload_files: Permitir subir archivos
 
       catalogs/participant:
         course_id: Curso/evento
@@ -164,6 +165,9 @@ es:
         inv_email: Email de envío
         price: Costo
         participant_type: Tipo de participante
+        upload_file1: Subir archivo 1
+        upload_file2: Subir archivo 2
+        upload_file3: Subir archivo 3
 
       devise_user:
         login: Usuario

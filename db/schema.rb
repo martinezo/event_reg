@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724220424) do
+ActiveRecord::Schema.define(version: 20140801031446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140724220424) do
     t.string   "opt_sel_options"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "upload_files"
   end
 
   create_table "catalogs_participants", force: true do |t|
@@ -101,6 +102,9 @@ ActiveRecord::Schema.define(version: 20140724220424) do
     t.integer  "price",            default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "upload_file1"
+    t.string   "upload_file2"
+    t.string   "upload_file3"
   end
 
   create_table "catalogs_states", force: true do |t|

@@ -42,6 +42,45 @@
         = f.label :participant_type
       .col-2.prices
         =f.input_field :price, collection: prices, as: :radio_buttons
+    - if @catalogs_participant.course.upload_files >= 1
+      .col-1
+        =f.label :upload_file1
+      .col-2.file-selector
+        .input-file
+          =text_field_tag :catalogs_participant_upload_file1_tag, nil, type: 'file'
+        .input-file-jq
+          .input-file-button.jq-button
+            =t('commands.select_file')
+          .input-file-str
+            =f.input_field :upload_file1, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
+            &nbsp;
+    - if @catalogs_participant.course.upload_files >= 2
+      .col-1
+        =f.label :upload_file2
+      .col-2.file-selector
+        .input-file
+          =text_field_tag :catalogs_participant_upload_file2_tag, nil, type: 'file'
+        .input-file-jq
+          .input-file-button.jq-button
+            =t('commands.select_file')
+          .input-file-str
+            =f.input_field :upload_file2, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_content_file'}
+            &nbsp;
+    - if @catalogs_participant.course.upload_files >= 3
+      .col-1
+        =f.label :upload_file3
+      .col-2.file-selector
+        .input-file
+          =text_field_tag :catalogs_participant_upload_file3_tag, nil, type: 'file'
+        .input-file-jq
+          .input-file-button.jq-button
+            =t('commands.select_file')
+          .input-file-str
+            =f.input_field :upload_file3, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_content_file'}
+            &nbsp;
 
   - if @catalogs_participant.course.academic_data_required?
     %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.academic_data')
@@ -94,6 +133,7 @@
         =f.label :inv_mail
       .col-2
         =f.input_field :inv_mail, :size => 70
+
   - if !(@catalogs_participant.course.opt_str1+@catalogs_participant.course.opt_str2+@catalogs_participant.course.opt_bol1+@catalogs_participant.course.opt_bol2+@catalogs_participant.course.opt_sel).strip.empty?
     %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.additional_data')
     .tbl-participants-attr

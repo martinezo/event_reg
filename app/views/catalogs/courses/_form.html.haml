@@ -190,6 +190,15 @@
       = f.label :opt_field
     .col-2
       = f.input_field :opt_field, :size => 70
+    .col-1
+      = f.label :upload_files
+    .col-2
+      - options = {}
+      - options["No subir"] = 0
+      - options["1 Archivo"] = 1
+      - options["2 Archivos"] = 2
+      - options["3 Archivos"] = 3
+      =f.input_field :upload_files, collection: options, as: :radio_buttons, style: "display:inline"
     .sp
 
     %h3.t-head= t('titles.optional_data')
