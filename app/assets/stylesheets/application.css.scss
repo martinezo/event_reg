@@ -9,8 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_directory ./jquery
- *= require_directory ./catalogs
+ *= require_directory ../../../vendor/assets/stylesheets/jquery/
+ *= require_directory ../../../vendor/assets/stylesheets/owl-carousel/
+ *= require ../../../vendor/assets/stylesheets/colorpicker/colpick
  */
 
 @import "base";

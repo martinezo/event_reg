@@ -9,11 +9,15 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-// Necesary for uploading files with ajax response (remote: true). Add in Gemfile: gem 'remotipart'
+// jquery.remotipart Necessary for uploading files with ajax response (remote: true). Add in Gemfile: gem 'remotipart'
 // Error: ActionController::InvalidAuthenticityToken in Catalogs::CoursesController#update
-//= require jquery.remotipart
+
+// TODO check if require_tree . is necessary
+//= require jquery
 //= require turbolinks
+//= require jquery_ujs
+//= require jquery.remotipart
+//= require ../../../vendor/assets/javascripts/jquery-ui.min
+//= require ../../../vendor/assets/javascripts/colpick
+//= require_tree ../../../vendor/assets/javascripts/owl-carousel
 //= require_tree .
