@@ -7,6 +7,6 @@ ActionMailer::Base.smtp_settings = {
     :domain => "inb.unam.mx" ,
     :enable_starttls_auto => true
     #:authentication => :login,
-    #:user_name => "martinezo",
+    #:user_name => "xxxxxxx",
     #:password => "xxxxxxx"
 }

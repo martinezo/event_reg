@@ -16,7 +16,7 @@ EventReg::Application.routes.draw do
     get 'events_courses/event_info/:id' => 'events_courses#event_info', as: 'event_info'
     get 'events_courses/registration/:course_id' => 'events_courses#new_participant', as: 'registration'
     post 'events_courses/create_participant' => 'events_courses#create_participant', as: 'create_participant'
-    get 'events_courses/registration_done/:id' => 'events_courses#registration_done', as: 'registration_done'
+    get 'events_courses/registration_done' => 'events_courses#registration_done', as: 'registration_done'
     get 'events_courses/download_file/:filename' => 'events_courses#download_file',
         as: 'event_courses_download_file',
         constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }

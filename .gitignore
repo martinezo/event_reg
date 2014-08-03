@@ -24,7 +24,7 @@ config/ldap.yml
 db/event_reg_development
 public/attachments/*.*
 !public/attachments/0_image_file1.jpg
-public/pfd/*.*
+public/pdf/*.*
 !public/pdf/*/
 Gemfile.lock
 db/schema.rb

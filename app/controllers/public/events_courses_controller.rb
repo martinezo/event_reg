@@ -45,8 +45,10 @@ class Public::EventsCoursesController < ApplicationController
         filename = "public/pdf/#{@catalogs_participant.pdf_reg_filename}"
         PdfGenerator.registration(@catalogs_participant, filename)
         RegistrationMailer.participant_reg(@catalogs_participant, filename).deliver unless @catalogs_participant.mail.strip.empty?
-        RegistrationMailer.participant_reg_notification(@catalogs_participant, filename).deliver unless @catalogs_participant.course.mail_notif_deposit.strip.empty?
-        format.html { redirect_to public_registration_done_path(@catalogs_participant), notice: 'Participant was successfully created.' }
+        send_to_admin = !(@catalogs_participant.course.price1_desc+@catalogs_participant.course.price2_desc+@catalogs_participant.course.price3_desc).strip.empty? &&
+                        !@catalogs_participant.course.mail_notif_deposit.strip.empty?
+        RegistrationMailer.participant_reg_notification(@catalogs_participant, filename).deliver if send_to_admin
+        format.html { redirect_to public_registration_done_path, flash: {participant_id: @catalogs_participant.id}}
         format.json { render action: 'registration_done', status: :created, location: @catalogs_participant }
       else
         @color_theme1 = "##{@catalogs_participant.course.color_theme1}"
@@ -60,7 +62,7 @@ class Public::EventsCoursesController < ApplicationController
   end
 
   def registration_done
-    @catalogs_participant = Catalogs::Participant.find(params[:id])
+    @catalogs_participant = Catalogs::Participant.find(flash[:participant_id].to_i)
   end
 
   def download_file
