@@ -106,7 +106,8 @@ es:
         description: Descripción
         schedule: Fechas y Horarios
         location: Lugar
-        content_file: Programa
+        content_file_desc: Título de campo (Archivo)
+        content_file: Archivo
         price1_desc: Descripción Precio 1
         price2_desc: Descripción Precio 2
         price3_desc: Descripción Precio 3
@@ -143,6 +144,9 @@ es:
         opt_field: Campo opcional
         opt_field_title: Campo opcional Título
         start_date: Fecha Inicio
+        upload_file1_desc: Título - Subir archivo 1
+        upload_file2_desc: Título - Subir archivo 2
+        upload_file3_desc: Título - Subir archivo 3
 
       catalogs/participant:
         course_id: Curso/evento
