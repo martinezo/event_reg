@@ -9,6 +9,7 @@ EventReg::Application.routes.draw do
     get 'participant/download_file/:filename' => 'participants#download_file',
         as: 'participant_download_file',
         constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }
+    get 'participants/download_xlsx_list/:course_id' => 'participants#download_xlsx_list', as: 'participants_download_xlsx_list'
   end
 
   namespace :public do
