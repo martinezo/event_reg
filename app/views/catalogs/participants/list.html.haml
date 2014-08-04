@@ -7,6 +7,7 @@
 =render 'layouts/search', url: catalogs_participants_list_path(params[:course_id])
 
 .t-right
+  = link_to_jq_button(url: catalogs_participants_download_xlsx_list_path(params[:course_id]), text: 'XLXS', remote: false)
   = link_to_jq_button(url: new_catalogs_participant_path(course_id: params[:course_id]), icon: 'plus', text: t('commands.new'),remote: false)
   = link_to_jq_button(url: catalogs_courses_path, icon: 'arrowreturn-1-w', text: t('commands.back'), remote: false )
 
