@@ -111,7 +111,7 @@ class Catalogs::ParticipantsController < ApplicationController
     end 
 
     def sort_column
-      params[:sort] || 'surnames'
+      params[:sort] || 'name,surnames'
     end
 
     def sort_direction
