@@ -93,6 +93,20 @@ class Catalogs::ParticipantsController < ApplicationController
     #"#{Rails.root}/#{file}",
   end
 
+  def download_xlsx_list
+    package = Axlsx::Package.new
+    workbook = package.workbook
+    @catalogs_participants = Catalogs::Participant.all
+    workbook.add_worksheet(name: "Participantes" ) do |sheet|
+      sheet.add_row ["Nombre", "Apellidos", "Email", "Telefono(s)", "Empresa/Institución"]
+      @catalogs_participants.each do |r|
+        sheet.add_row [r.name, r.surnames, r.mail, r.phone_numbers, r.workplace]
+      end
+    end
+    package.serialize('public/xlsx/participants.xlsx')
+    send_file("#{Rails.root}/public/xlsx/participants.xlsx", filename: "Participants.xlsx", type: "application/vnd.ms-excel")
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -111,7 +125,7 @@ class Catalogs::ParticipantsController < ApplicationController
     end 
 
     def sort_column
-      params[:sort] || 'surnames'
+      params[:sort] || 'name,surnames'
     end
 
     def sort_direction

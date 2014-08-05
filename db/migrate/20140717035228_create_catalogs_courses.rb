@@ -8,9 +8,9 @@ class CreateCatalogsCourses < ActiveRecord::Migration
       t.string :schedule
       t.string :location
       t.string :content_file
-      t.decimal :price1
-      t.decimal :price2
-      t.decimal :price3
+      t.decimal :price1, default: 0
+      t.decimal :price2, default: 0
+      t.decimal :price3, default: 0
       t.string :payment_methods
       t.string :target
       t.string :prerequisites

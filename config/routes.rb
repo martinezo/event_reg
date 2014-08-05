@@ -9,6 +9,7 @@ EventReg::Application.routes.draw do
     get 'participant/download_file/:filename' => 'participants#download_file',
         as: 'participant_download_file',
         constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }
+    get 'participants/download_xlsx_list/:course_id' => 'participants#download_xlsx_list', as: 'participants_download_xlsx_list'
   end
 
   namespace :public do
@@ -16,7 +17,7 @@ EventReg::Application.routes.draw do
     get 'events_courses/event_info/:id' => 'events_courses#event_info', as: 'event_info'
     get 'events_courses/registration/:course_id' => 'events_courses#new_participant', as: 'registration'
     post 'events_courses/create_participant' => 'events_courses#create_participant', as: 'create_participant'
-    get 'events_courses/registration_done/:id' => 'events_courses#registration_done', as: 'registration_done'
+    get 'events_courses/registration_done' => 'events_courses#registration_done', as: 'registration_done'
     get 'events_courses/download_file/:filename' => 'events_courses#download_file',
         as: 'event_courses_download_file',
         constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }
