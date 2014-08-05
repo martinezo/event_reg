@@ -19,6 +19,7 @@ class Catalogs::Course < ActiveRecord::Base
   attr_reader :registrable, :num_participants, :num_participants_confirmed, :trimmed_name,
               :image_file1_s, :image_file2_s, :image_file3_s, :content_file_s
 
+
   def image_file1_s(filename = nil)
     file = filename || image_file1
     if file.strip.empty?

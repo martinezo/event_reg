@@ -35,11 +35,11 @@
                 =r.label :location
               .col-2
                 =r.value :location
-          - if !@cc.content_file.empty?
+          - if !@cc.content_file_desc.empty?
             - i +=1
             #c-content_file.c-info{class: "alt-#{i%2}"}
               .col-1
-                =r.label :content_file
+                %strong= "#{@cc.content_file_desc}"
               .col-2.c-link{style: "color: ##{@cc.color_theme1}"}
                 = link_to @cc.content_file,
                   catalogs_course_download_file_path("#{@cc.content_file_s}", name: @cc.content_file)

@@ -33,6 +33,10 @@
   %h3.t-head= t('titles.event_detail_data')
   .tbl-courses-attr
     .col-1
+      =f.label :content_file_desc
+    .col-2
+      =f.input_field :content_file_desc, :size => 70, placeholder: 'Ej. programa, lectura, etc.'
+    .col-1
       =f.label :content_file
     .col-2.file-selector
       .input-file
@@ -47,7 +51,7 @@
     .col-1
       = f.label :price1_desc
     .col-2
-      = f.input_field :price1_desc, :size => 70
+      = f.input_field :price1_desc, :size => 70, placeholder: 'Ej. Precio normal'
     .col-1
       = f.label :price1
     .col-2
@@ -56,7 +60,7 @@
     .col-1
       = f.label :price2_desc
     .col-2
-      = f.input_field :price2_desc, :size => 70
+      = f.input_field :price2_desc, :size => 70, placeholder: 'Ej. Precio (pago 15 dias antes de la fecha de inicio)'
     .col-1
       = f.label :price2
     .col-2
@@ -65,7 +69,7 @@
     .col-1
       = f.label :price3_desc
     .col-2
-      = f.input_field :price3_desc, :size => 70
+      = f.input_field :price3_desc, :size => 70, placeholder: 'Ej. Precio estudiantes UNAM'
     .col-1
       = f.label :price3
     .col-2
@@ -99,10 +103,65 @@
       = f.label :contact
     .col-2
       = f.input_field :contact, :size => 70
+    .col-1
+      = f.label :opt_field_title
+    .col-2
+      = f.input_field :opt_field_title, :size => 70, placeholder: 'Ej. Condiciones de cancelación.'
+    .col-1
+      = f.label :opt_field
+    .col-2
+      = f.input_field :opt_field, :size => 70, placeholder: 'Ej. Sólo será posible la cancelación de registro 10 días entes del evento.'
+
+    .sp
+
+    %h3.t-head= t('titles.optional_data')
+    .col-1
+      = f.label :opt_text
+    .col-2
+      = f.input_field :opt_text, :size => 70
+    .col-1
+      = f.label :opt_str1
+    .col-2
+      = f.input_field :opt_str1, :size => 70
+    .col-1
+      = f.label :opt_str2
+    .col-2
+      = f.input_field :opt_str2, :size => 70
+    .col-1
+      = f.label :opt_bol1
+    .col-2
+      = f.input_field :opt_bol1, :size => 70
+    .col-1
+      = f.label :opt_bol2
+    .col-2
+      = f.input_field :opt_bol2, :size => 70
+    .col-1
+      = f.label :opt_sel
+    .col-2
+      = f.input_field :opt_sel, :size => 70
+    .col-1
+      = f.label :opt_sel_options
+    .col-2
+      = f.input_field :opt_sel_options, :size => 70, placeholder: 'Separar las opciones con coma ",". La primer opción es la opción por defecto.'
+    .sp
+
+    %h3.t-head= t('titles.event_files')
+    .col-1
+      = f.label :upload_file1_desc
+    .col-2
+      = f.input_field :upload_file1_desc, :size => 70
+    .col-1
+      = f.label :upload_file2_desc
+    .col-2
+      = f.input_field :upload_file2_desc, :size => 70
+    .col-1
+      = f.label :upload_file3_desc
+    .col-2
+      = f.input_field :upload_file3_desc, :size => 70
+
     .sp
 
     %h3.t-head= t('titles.event_metadata')
-    .tbl-courses-attr
     .col-1
       =f.label :image_file1
     .col-2.file-selector
@@ -182,46 +241,9 @@
       = f.label :info_after_reg
     .col-2
       = f.input_field :info_after_reg, :size => 70
-    .col-1
-      = f.label :opt_field_title
-    .col-2
-      = f.input_field :opt_field_title, :size => 70
-    .col-1
-      = f.label :opt_field
-    .col-2
-      = f.input_field :opt_field, :size => 70
+
     .sp
 
-    %h3.t-head= t('titles.optional_data')
-    .col-1
-      = f.label :opt_text
-    .col-2
-      = f.input_field :opt_text, :size => 70
-    .col-1
-      = f.label :opt_str1
-    .col-2
-      = f.input_field :opt_str1, :size => 70
-    .col-1
-      = f.label :opt_str2
-    .col-2
-      = f.input_field :opt_str2, :size => 70
-    .col-1
-      = f.label :opt_bol1
-    .col-2
-      = f.input_field :opt_bol1, :size => 70
-    .col-1
-      = f.label :opt_bol2
-    .col-2
-      = f.input_field :opt_bol2, :size => 70
-    .col-1
-      = f.label :opt_sel
-    .col-2
-      = f.input_field :opt_sel, :size => 70
-    .col-1
-      = f.label :opt_sel_options
-    .col-2
-      = f.input_field :opt_sel_options, :size => 70, placeholder: 'Separar las opciones con coma ",". La primer opción es la opción por defecto.'
-    .sp
 
   %hr
   .t-right

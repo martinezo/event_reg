@@ -58,6 +58,24 @@ class Catalogs::ParticipantsController < ApplicationController
   # PATCH/PUT /catalogs/participants/1
   # PATCH/PUT /catalogs/participants/1.json
   def update
+    @catalogs_participant = Catalogs::Participant.find(params[:id])
+
+    #upload upload_file1
+    filename =  params[:catalogs_participant][:upload_file1]
+    upload_file = params[:catalogs_participant_upload_file1_tag]
+    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file1_s(filename)) if upload_file
+
+    #upload upload_file2
+    filename =  params[:catalogs_participant][:upload_file2]
+    upload_file = params[:catalogs_participant_upload_file2_tag]
+    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file2_s(filename)) if upload_file
+
+    #upload upload_file3
+    filename =  params[:catalogs_participant][:upload_file3]
+    upload_file = params[:catalogs_participant_upload_file3_tag]
+    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file3_s(filename)) if upload_file
+
+
     respond_to do |format|
       if @catalogs_participant.update(catalogs_participant_params)
         filename = "public/pdf/#{@catalogs_participant.pdf_reg_filename}"
@@ -116,7 +134,12 @@ class Catalogs::ParticipantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white index through.
     def catalogs_participant_params
-      params.require(:catalogs_participant).permit(:course_id, :name, :surnames, :mail, :phone_numbers, :workplace, :bachelor_deg, :master_deg, :phd_deg, :inv_name, :inv_rfc, :inv_address, :inv_city, :inv_municipality, :inv_state, :inv_mail, :text_opt, :str_op1, :opt_str1, :opt_str2, :opt_bol1, :opt_bol2, :opt_sel, :confirmed, :price)
+      params.require(:catalogs_participant).permit(:course_id, :name, :surnames, :mail, :phone_numbers, :workplace,
+                                                   :bachelor_deg, :master_deg, :phd_deg, :inv_name, :inv_rfc,
+                                                   :inv_address, :inv_city, :inv_municipality, :inv_state, :inv_mail,
+                                                   :text_opt, :str_op1, :opt_str1, :opt_str2, :opt_bol1, :opt_bol2,
+                                                   :opt_sel, :confirmed, :price, :upload_file1, :upload_file2,
+                                                   :upload_file3)
     end
 
     # Authorize cancan

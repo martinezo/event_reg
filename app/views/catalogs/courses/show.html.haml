@@ -40,14 +40,15 @@
     .sp
 
     %h3.t-head= t('titles.event_detail_data')
-    .col-1
-      = r.label :content_file
-    .col-2.wrapper
-      -if @catalogs_course.content_file_s
-        = link_to @catalogs_course.content_file,
-        catalogs_course_download_file_path(@catalogs_course.content_file_s, name: @catalogs_course.content_file)
-      -else
-        =t('show_for.blank')
+    -if !@catalogs_course.content_file_desc.try(:empty?)
+      .col-1
+        %strong= "#{@catalogs_course.content_file_desc}"
+      .col-2.wrapper
+        -if @catalogs_course.content_file_s
+          = link_to @catalogs_course.content_file,
+          catalogs_course_download_file_path(@catalogs_course.content_file_s, name: @catalogs_course.content_file)
+        -else
+          =t('show_for.blank')
     .col-1
       %strong= "#{t('general.price')} (#{@catalogs_course.price1_desc})"
     .col-2
@@ -88,6 +89,60 @@
       = r.label :contact
     .col-2
       = r.value :contact
+    .col-1
+      = r.label :opt_field_title
+    .col-2
+      = r.value :opt_field_title
+    .col-1
+      = r.label :opt_field
+    .col-2
+      = r.value :opt_field
+    .sp
+
+    %h3.t-head= t('titles.optional_data')
+    .col-1
+      = r.label :opt_text
+    .col-2
+      = r.value :opt_text
+    .col-1
+      = r.label :opt_str1
+    .col-2
+      = r.value :opt_str1
+    .col-1
+      = r.label :opt_str2
+    .col-2
+      = r.value :opt_str2
+    .col-1
+      = r.label :opt_bol1
+    .col-2
+      = r.value :opt_bol1
+    .col-1
+      = r.label :opt_bol2
+    .col-2
+      = r.value :opt_bol2
+    .col-1
+      = r.label :opt_sel
+    .col-2
+      = r.value :opt_sel
+    .col-1
+      = r.label :opt_sel_options
+    .col-2
+      = r.value :opt_sel_options
+    .sp
+
+    %h3.t-head= t('titles.event_files')
+    .col-1
+      = r.label :upload_file1_desc
+    .col-2
+      = r.value :upload_file1_desc
+    .col-1
+      = r.label :upload_file2_desc
+    .col-2
+      = r.value :upload_file2_desc
+    .col-1
+      = r.label :upload_file3_desc
+    .col-2
+      = r.value :upload_file3_desc
     .sp
 
     %h3.t-head= t('titles.event_metadata')
@@ -158,46 +213,8 @@
       = r.label :info_after_reg
     .col-2
       = r.value :info_after_reg
-    .col-1
-      = r.label :opt_field_title
-    .col-2
-      = r.value :opt_field_title
-    .col-1
-      = r.label :opt_field
-    .col-2
-      = r.value :opt_field
     .sp
 
-    %h3.t-head= t('titles.optional_data')
-    .col-1
-      = r.label :opt_text
-    .col-2
-      = r.value :opt_text
-    .col-1
-      = r.label :opt_str1
-    .col-2
-      = r.value :opt_str1
-    .col-1
-      = r.label :opt_str2
-    .col-2
-      = r.value :opt_str2
-    .col-1
-      = r.label :opt_bol1
-    .col-2
-      = r.value :opt_bol1
-    .col-1
-      = r.label :opt_bol2
-    .col-2
-      = r.value :opt_bol2
-    .col-1
-      = r.label :opt_sel
-    .col-2
-      = r.value :opt_sel
-    .col-1
-      = r.label :opt_sel_options
-    .col-2
-      = r.value :opt_sel_options
-    .sp
 
 %hr
 .t-right

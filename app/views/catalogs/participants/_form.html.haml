@@ -43,6 +43,48 @@
       .col-2.prices
         =f.input_field :price, collection: prices, as: :radio_buttons
 
+    -#UPLOAD FILES
+
+    -if !@catalogs_participant.course.upload_file1_desc.empty?
+      .col-1
+        %strong= "#{@catalogs_participant.course.upload_file1_desc}"
+      .col-2.file-selector
+        .input-file
+          =text_field_tag :catalogs_participant_upload_file1_tag, nil, type: 'file'
+        .input-file-jq
+          .input-file-button.jq-button
+            =t('commands.select_file')
+          .input-file-str
+            =f.input_field :upload_file1, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
+            &nbsp;
+    -if !@catalogs_participant.course.upload_file2_desc.empty?
+      .col-1
+        %strong= "#{@catalogs_participant.course.upload_file2_desc}"
+      .col-2.file-selector
+        .input-file
+          =text_field_tag :catalogs_participant_upload_file2_tag, nil, type: 'file'
+        .input-file-jq
+          .input-file-button.jq-button
+            =t('commands.select_file')
+          .input-file-str
+            =f.input_field :upload_file2, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file2'}
+            &nbsp;
+    -if !@catalogs_participant.course.upload_file3_desc.empty?
+      .col-1
+        %strong= "#{@catalogs_participant.course.upload_file3_desc}"
+      .col-2.file-selector
+        .input-file
+          =text_field_tag :catalogs_participant_upload_file3_tag, nil, type: 'file'
+        .input-file-jq
+          .input-file-button.jq-button
+            =t('commands.select_file')
+          .input-file-str
+            =f.input_field :upload_file3, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file3'}
+            &nbsp;
+
   - if @catalogs_participant.course.academic_data_required?
     %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.academic_data')
     .tbl-participants-attr
@@ -94,7 +136,8 @@
         =f.label :inv_mail
       .col-2
         =f.input_field :inv_mail, :size => 70
-  - if !(@catalogs_participant.course.opt_str1+@catalogs_participant.course.opt_str2+@catalogs_participant.course.opt_bol1+@catalogs_participant.course.opt_bol2+@catalogs_participant.course.opt_sel).strip.empty?
+
+  - if !(@catalogs_participant.course.opt_str1+@catalogs_participant.course.opt_str2+@catalogs_participant.course.opt_bol1+ @catalogs_participant.course.opt_bol2+@catalogs_participant.course.opt_sel).strip.empty?
     %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.additional_data')
     .tbl-participants-attr
       -if !@catalogs_participant.course.opt_text.empty?
@@ -128,7 +171,6 @@
           =@catalogs_participant.course.opt_sel
         .col-2
           =f.select :opt_sel, list
-
   %hr{style: "color: #{@color_theme1}"}
   .command.t-right
     .c-command{class: 'w-110', style: "background-color: #{@color_theme1}"}= link_to_jq_button({url: url_cancel, text: t('commands.cancel'), icon: 'close', remote: false})

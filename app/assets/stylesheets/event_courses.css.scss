@@ -268,3 +268,53 @@ h1{
     padding-left: 2em;
   }
 }
+
+
+.col-2.file-selector{
+  height: 25;
+  position: relative;
+  margin-bottom: 3px;
+  .input-file{
+    position: absolute;
+    z-index: 99;
+    opacity: 0;
+  }
+  .input-file-jq{
+//    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 15px;
+    border: solid 1px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    padding: 3px 8px;
+  }
+  .input-file-str {
+    display: inline-block;
+  }
+  .remove-file-button {
+    display: inline-block;
+  }
+}
+
+
+.file-selector1{
+  position: relative;
+  height: 25px;
+//  clear: both;
+
+  .input-file-jq {
+    position: absolute;
+    border-radius: 3px;
+    border: 1px solid;
+    width: 170px;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    .input-file-button {
+      top: 0;
+      left: 0;
+    }
+  }
+}
