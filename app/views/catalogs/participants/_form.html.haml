@@ -42,6 +42,9 @@
         = f.label :participant_type
       .col-2.prices
         =f.input_field :price, collection: prices, as: :radio_buttons
+
+    -#UPLOAD FILES
+
     -if !@catalogs_participant.course.upload_file1_desc.empty?
       .col-1
         %strong= "#{@catalogs_participant.course.upload_file1_desc}"
@@ -65,8 +68,8 @@
           .input-file-button.jq-button
             =t('commands.select_file')
           .input-file-str
-            =f.input_field :upload_file1, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
-          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
+            =f.input_field :upload_file2, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file2'}
             &nbsp;
     -if !@catalogs_participant.course.upload_file3_desc.empty?
       .col-1
@@ -78,8 +81,8 @@
           .input-file-button.jq-button
             =t('commands.select_file')
           .input-file-str
-            =f.input_field :upload_file1, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
-          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
+            =f.input_field :upload_file3, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file3'}
             &nbsp;
 
   - if @catalogs_participant.course.academic_data_required?

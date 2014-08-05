@@ -19,19 +19,19 @@ $(document).on "page:load", ->
   set_colorpickers()
   return
 
-fill_input_file_name = ->
-  $("#catalogs_course_content_file_tag,#catalogs_course_image_file1_tag,#catalogs_course_image_file2_tag,#catalogs_course_image_file3_tag").change ->
-    $("#" + @id.slice(0, -4)).val $(this).val()
-    return
-  return
-
-clear_input_file = ->
-  $(".remove-file-button").click (event) ->
-    event.preventDefault()
-    $($(this).attr("name")).val ""
-    $($(this).attr("name") + "_tag").val ""
-    return
-  return
+#fill_input_file_name = ->
+#  $("#catalogs_course_content_file_tag,#catalogs_course_image_file1_tag,#catalogs_course_image_file2_tag,#catalogs_course_image_file3_tag").change ->
+#    $("#" + @id.slice(0, -4)).val $(this).val()
+#    return
+#  return
+#
+#clear_input_file = ->
+#  $(".remove-file-button").click (event) ->
+#    event.preventDefault()
+#    $($(this).attr("name")).val ""
+#    $($(this).attr("name") + "_tag").val ""
+#    return
+#  return
 
 color_picker = ->
   # Fill the text box just if the color was set using the picker, and not the colpickSetColor function.

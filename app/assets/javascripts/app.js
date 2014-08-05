@@ -63,10 +63,27 @@ function carousel(){
     });
 }
 
+function fill_input_file_name() {
+    $("#catalogs_course_content_file_tag,#catalogs_course_image_file1_tag,#catalogs_course_image_file2_tag,#catalogs_course_image_file3_tag,#catalogs_participant_upload_file1_tag,#catalogs_participant_upload_file2_tag,#catalogs_participant_upload_file3_tag").change(function() {
+        $("#" + this.id.slice(0, -4)).val($(this).val());
+    });
+};
+
+function clear_input_file() {
+    $(".remove-file-button").click(function(event) {
+        event.preventDefault();
+        $($(this).attr("name")).val("");
+        $($(this).attr("name") + "_tag").val("");
+    });
+};
+
+
 function load_jquery_ui(){
     jqbuttons();
     jqdatepicker();
     remote_will_paginate();
     jqmenu();
     carousel();
+    clear_input_file();
+    fill_input_file_name();
 }
