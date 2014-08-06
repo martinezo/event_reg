@@ -51,39 +51,41 @@
       .col-2.file-selector
         .input-file
           =text_field_tag :catalogs_participant_upload_file1_tag, nil, type: 'file'
-        .input-file-jq
-          .input-file-button.jq-button
+        .input-file-handler
+          .input-file-button.jq-button{style: "background-color: #{@color_theme3}"}
             =t('commands.select_file')
           .input-file-str
             =f.input_field :upload_file1, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
-          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
-            &nbsp;
+          .remove-file-button.jq-button{style: "background-color: #{@color_theme3}",'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
+            X
+
     -if !@catalogs_participant.course.upload_file2_desc.empty?
       .col-1
         %strong= "#{@catalogs_participant.course.upload_file2_desc}"
       .col-2.file-selector
         .input-file
           =text_field_tag :catalogs_participant_upload_file2_tag, nil, type: 'file'
-        .input-file-jq
-          .input-file-button.jq-button
+        .input-file-handler
+          .input-file-button.jq-button{style: "background-color: #{@color_theme3}"}
             =t('commands.select_file')
           .input-file-str
             =f.input_field :upload_file2, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
-          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file2'}
-            &nbsp;
+          .remove-file-button.jq-button{style: "background-color: #{@color_theme3}",'jq-icon' => 'trash', name: '#catalogs_participant_upload_file2'}
+            X
+
     -if !@catalogs_participant.course.upload_file3_desc.empty?
       .col-1
         %strong= "#{@catalogs_participant.course.upload_file3_desc}"
       .col-2.file-selector
         .input-file
           =text_field_tag :catalogs_participant_upload_file3_tag, nil, type: 'file'
-        .input-file-jq
-          .input-file-button.jq-button
+        .input-file-handler
+          .input-file-button.jq-button{style: "background-color: #{@color_theme3}"}
             =t('commands.select_file')
           .input-file-str
             =f.input_field :upload_file3, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
-          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file3'}
-            &nbsp;
+          .remove-file-button.jq-button{style: "background-color: #{@color_theme3}",'jq-icon' => 'trash', name: '#catalogs_participant_upload_file3'}
+            X
 
   - if @catalogs_participant.course.academic_data_required?
     %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.academic_data')
