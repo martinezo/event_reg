@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  layout 'admin'
   before_action :set_admin_user, only: [:show, :edit, :update, :destroy, :delete]
   before_action :authorize_resource
   helper_method :sort_column, :sort_direction

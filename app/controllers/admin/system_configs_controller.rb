@@ -1,4 +1,5 @@
 class Admin::SystemConfigsController < ApplicationController
+  layout 'admin'
   before_action :set_admin_system_config, only: [:index]
 
   def index

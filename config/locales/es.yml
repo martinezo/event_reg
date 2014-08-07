@@ -47,6 +47,9 @@ es:
     additional_data: Otros datos
     size_of_images: Archivo JPG 960x260 pixeles
     reg_sheet: Hoja de registro PDF
+    upload_file1: Archivo anexo 1
+    upload_file2: Archivo anexo 2
+    upload_file3: Archivo anexo 3
 
   pdf:
     reg_date: 'Fecha de registro:'

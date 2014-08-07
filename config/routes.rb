@@ -6,8 +6,11 @@ EventReg::Application.routes.draw do
     get 'participants/confirm_participant/:id' => 'participants#confirm_participant', as: 'confirm_participant'
     get 'participant/delete/:id' => 'participants#delete', as: 'delete_participant'
     delete 'participant/destroy/:id' => 'participants#destroy_participant', as: 'destroy_participant'
-    get 'participant/download_file/:filename' => 'participants#download_file',
-        as: 'participant_download_file',
+    get 'participant/download_pdf/:filename' => 'participants#download_pdf',
+        as: 'participant_download_pdf',
+        constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }
+    get 'participant/download_attachment/:filename' => 'participants#download_attachment',
+        as: 'participant_download_attachment',
         constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }
     get 'participants/download_xlsx_list/:course_id' => 'participants#download_xlsx_list', as: 'participants_download_xlsx_list'
   end

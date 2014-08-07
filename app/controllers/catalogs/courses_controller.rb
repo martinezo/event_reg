@@ -1,10 +1,9 @@
 class Catalogs::CoursesController < ApplicationController
-
+  layout :set_layout
   before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :change_owner, :update_owner]
   helper_method :sort_column, :sort_direction
 
-  layout 'events_courses', only: [:preview]
-  
+
   # GET /catalogs/courses
   # GET /catalogs/courses.json
   def index
@@ -102,14 +101,14 @@ class Catalogs::CoursesController < ApplicationController
 
   def preview
     @cc= Catalogs::Course.find(params[:id])
-    image_1 = "/attachments/#{@cc.image_file1_s}" unless @cc.image_file1.empty?
-    image_2 = "/attachments/#{@cc.image_file2_s}" unless @cc.image_file2.empty?
-    image_3 = "/attachments/#{@cc.image_file3_s}" unless @cc.image_file3.empty?
+    image_1 = "/attachments/courses/#{@cc.image_file1_s}" unless @cc.image_file1.empty?
+    image_2 = "/attachments/courses/#{@cc.image_file2_s}" unless @cc.image_file2.empty?
+    image_3 = "/attachments/courses/#{@cc.image_file3_s}" unless @cc.image_file3.empty?
     @carousel = [image_1, image_2, image_3].compact
   end
 
   def download_file
-    file = "public/attachments/#{params[:filename]}"
+    file = "public/attachments/courses/#{params[:filename]}"
     name = params[:name]
     type = params[:filename].sub(/^.*\./,'')
     send_file  file, filename: name, type: "application/#{type}"
@@ -143,6 +142,14 @@ class Catalogs::CoursesController < ApplicationController
 
     def sort_direction
       params[:direction] || 'asc' 
+    end
+
+    def set_layout
+      if action_name == 'preview'
+        'public'
+      else
+        'admin'
+      end
     end
 
 end

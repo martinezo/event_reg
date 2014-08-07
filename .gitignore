@@ -7,10 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
@@ -20,11 +16,14 @@ config/ldap.yml
 # RubyMine
 /.idea
 
-#sqlite3 data base in macbookpro
-db/event_reg_development
-public/attachments/*.*
-!public/attachments/0_image_file1.jpg
-public/pdf/*.*
-!public/pdf/*/
+# Ignore Gem and db config
 Gemfile.lock
 db/schema.rb
+
+# Ignore atacchement of courses an particiants
+public/attachments/courses/*.*
+public/attachments/participants/*.*
+!public/attachments/courses/0_image_file1.jpg
+public/pdf/*.*
+!public/pdf/*/
+

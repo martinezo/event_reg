@@ -1,4 +1,5 @@
 class Catalogs::ParticipantsController < ApplicationController
+  layout 'admin'
   before_action :set_catalogs_participant, only: [:show, :edit, :update, :destroy_participant, :confirm_participant, :delete]
   before_action :authorize_resource, only: [:edit, :show, :destroy_participant, :delete]
 
@@ -60,20 +61,6 @@ class Catalogs::ParticipantsController < ApplicationController
   def update
     @catalogs_participant = Catalogs::Participant.find(params[:id])
 
-    #upload upload_file1
-    filename =  params[:catalogs_participant][:upload_file1]
-    upload_file = params[:catalogs_participant_upload_file1_tag]
-    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file1_s(filename)) if upload_file
-
-    #upload upload_file2
-    filename =  params[:catalogs_participant][:upload_file2]
-    upload_file = params[:catalogs_participant_upload_file2_tag]
-    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file2_s(filename)) if upload_file
-
-    #upload upload_file3
-    filename =  params[:catalogs_participant][:upload_file3]
-    upload_file = params[:catalogs_participant_upload_file3_tag]
-    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file3_s(filename)) if upload_file
 
 
     respond_to do |format|
@@ -89,6 +76,24 @@ class Catalogs::ParticipantsController < ApplicationController
     end
   end
 
+  def upload_files(catalogs_participant)
+    #upload upload_file1
+    filename =  params[:catalogs_participant][:upload_file1]
+    upload_file = params[:catalogs_participant_upload_file1_tag]
+    catalogs_participant.upload_file(upload_file, catalogs_participant.upload_file1_s(filename)) if upload_file
+
+    #upload upload_file2
+    filename =  params[:catalogs_participant][:upload_file2]
+    upload_file = params[:catalogs_participant_upload_file2_tag]
+    catalogs_participant.upload_file(upload_file, catalogs_participant.upload_file2_s(filename)) if upload_file
+
+    #upload upload_file3
+    filename =  params[:catalogs_participant][:upload_file3]
+    upload_file = params[:catalogs_participant_upload_file3_tag]
+    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file3_s(filename)) if upload_file
+  end
+
+
   def confirm_participant
     @catalogs_participant.update_attribute(:confirmed, !@catalogs_participant.confirmed)
   end
@@ -103,8 +108,16 @@ class Catalogs::ParticipantsController < ApplicationController
 
   end
 
-  def download_file
+  def download_pdf
     file = "public/pdf/#{params[:filename]}"
+    name = params[:name]
+    type = params[:filename].sub(/^.*\./,'')
+    send_file  file, filename: name, type: "application/#{type}"
+    #"#{Rails.root}/#{file}",
+  end
+
+  def download_attachment
+    file = "public/attachments/participants/#{params[:filename]}"
     name = params[:name]
     type = params[:filename].sub(/^.*\./,'')
     send_file  file, filename: name, type: "application/#{type}"

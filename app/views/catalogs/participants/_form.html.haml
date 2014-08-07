@@ -52,12 +52,11 @@
         .input-file
           =text_field_tag :catalogs_participant_upload_file1_tag, nil, type: 'file'
         .input-file-handler
-          .input-file-button.jq-button{style: "background-color: #{@color_theme3}"}
+          .input-file-button.jq-button.c-command{style: "background-color: #{@color_theme3}"}
             =t('commands.select_file')
           .input-file-str
             =f.input_field :upload_file1, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
-          .remove-file-button.jq-button{style: "background-color: #{@color_theme3}",'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
-            X
+          .remove-file-button.jq-button.c-command{style: "background-color: #{@color_theme3}",'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'} X
 
     -if !@catalogs_participant.course.upload_file2_desc.empty?
       .col-1

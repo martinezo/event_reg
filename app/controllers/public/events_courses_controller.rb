@@ -1,6 +1,6 @@
 class Public::EventsCoursesController < ApplicationController
   skip_before_filter :authenticate_devise_user!
-  layout 'events_courses', only: [:event_info, :new_participant, :registration_done, :create_participant ]
+  layout :set_layout
 
   require 'pdf_generator'
 
@@ -11,9 +11,9 @@ class Public::EventsCoursesController < ApplicationController
   def event_info
     @cc= Catalogs::Course.find(params[:id])
     if (@cc.start_date_pub..@cc.end_date_pub).cover? Time.now
-      image_1 = "/attachments/#{@cc.image_file1_s}" unless @cc.image_file1.empty?
-      image_2 = "/attachments/#{@cc.image_file2_s}" unless @cc.image_file2.empty?
-      image_3 = "/attachments/#{@cc.image_file3_s}" unless @cc.image_file3.empty?
+      image_1 = "/attachments/courses/#{@cc.image_file1_s}" unless @cc.image_file1.empty?
+      image_2 = "/attachments/courses/#{@cc.image_file2_s}" unless @cc.image_file2.empty?
+      image_3 = "/attachments/courses/#{@cc.image_file3_s}" unless @cc.image_file3.empty?
       @carousel = [image_1, image_2, image_3].compact
     else
       flash[:alert] = t('notices.event_info_unavailable')
@@ -39,8 +39,10 @@ class Public::EventsCoursesController < ApplicationController
   def create_participant
     params.permit!
     @catalogs_participant = Catalogs::Participant.new(params[:catalogs_participant])
+
     respond_to do |format|
       if @catalogs_participant.save
+        upload_files(@catalogs_participant)
         # registration @catalogs_participant, "public/pdf/#{@catalogs_participant.pdf_reg_filename}"
         filename = "public/pdf/#{@catalogs_participant.pdf_reg_filename}"
         PdfGenerator.registration(@catalogs_participant, filename)
@@ -61,6 +63,23 @@ class Public::EventsCoursesController < ApplicationController
     end
   end
 
+  def upload_files(catalogs_participant)
+    #upload upload_file1
+    filename =  params[:catalogs_participant][:upload_file1]
+    upload_file = params[:catalogs_participant_upload_file1_tag]
+    catalogs_participant.upload_file(upload_file, catalogs_participant.upload_file1_s(filename)) if upload_file
+
+    #upload upload_file2
+    filename =  params[:catalogs_participant][:upload_file2]
+    upload_file = params[:catalogs_participant_upload_file2_tag]
+    catalogs_participant.upload_file(upload_file, catalogs_participant.upload_file2_s(filename)) if upload_file
+
+    #upload upload_file3
+    filename =  params[:catalogs_participant][:upload_file3]
+    upload_file = params[:catalogs_participant_upload_file3_tag]
+    catalogs_participant.upload_file(upload_file, catalogs_participant.upload_file3_s(filename)) if upload_file
+  end
+
   def registration_done
     @catalogs_participant = Catalogs::Participant.find(flash[:participant_id].to_i)
   end
@@ -72,5 +91,15 @@ class Public::EventsCoursesController < ApplicationController
     send_file  file, filename: name, type: "application/#{type}"
     #"#{Rails.root}/#{file}",
   end
+
+  private
+
+    def set_layout
+      if action_name == 'index'
+        'admin'
+      else
+        'public'
+      end
+    end
 
 end
