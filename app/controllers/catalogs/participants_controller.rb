@@ -61,6 +61,20 @@ class Catalogs::ParticipantsController < ApplicationController
   def update
     @catalogs_participant = Catalogs::Participant.find(params[:id])
 
+    #upload 'upload file 1'
+    filename =  params[:catalogs_participant][:upload_file1]
+    upload_file = params[:catalogs_participant_upload_file1_tag]
+    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file1_s(filename)) if upload_file
+
+    #upload 'upload file 2'
+    filename =  params[:catalogs_participant][:upload_file2]
+    upload_file = params[:catalogs_participant_upload_file2_tag]
+    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file2_s(filename)) if upload_file
+
+    #upload 'upload file 3'
+    filename =  params[:catalogs_participant][:upload_file3]
+    upload_file = params[:catalogs_participant_upload_file3_tag]
+    @catalogs_participant.upload_file(upload_file, @catalogs_participant.upload_file3_s(filename)) if upload_file
 
 
     respond_to do |format|
@@ -127,12 +141,26 @@ class Catalogs::ParticipantsController < ApplicationController
   def download_xlsx_list
     package = Axlsx::Package.new
     workbook = package.workbook
-    @catalogs_participants = Catalogs::Participant.all
+
+    header_style = workbook.styles.add_style sz: 11, b: 1
+
+    @catalogs_participants = Catalogs::Participant.where(course_id: params[:course_id])
+
+    @cc = Catalogs::Course.find(params[:course_id])
     workbook.add_worksheet(name: "Participantes" ) do |sheet|
-      sheet.add_row ["Nombre", "Apellidos", "Email", "Telefono(s)", "Empresa/Institución"]
+      # Format for header cells
+      header_cell = sheet.styles.add_style sz: 11, alignment: { horizontal: :left }, b: 1, fg_color: '000000', bg_color: "dee1e3"
+
+      sheet.add_row [t('titles.participants')+ " (" +@cc.name+")"]
+      sheet.add_row
+      sheet.add_row [t('xlsx_list.name'), "Apellidos", "Email", "Telefono(s)", "Empresa/Institución"], :style => header_cell
+
+      count =  @catalogs_participants.count
       @catalogs_participants.each do |r|
         sheet.add_row [r.name, r.surnames, r.mail, r.phone_numbers, r.workplace]
       end
+      sheet.add_row
+      sheet.add_row ["Total partcipantes:", count], style: header_style
     end
     package.serialize('public/xlsx/participants.xlsx')
     send_file("#{Rails.root}/public/xlsx/participants.xlsx", filename: "Participants.xlsx", type: "application/vnd.ms-excel")

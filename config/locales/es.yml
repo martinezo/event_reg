@@ -50,6 +50,7 @@ es:
     upload_file1: Archivo anexo 1
     upload_file2: Archivo anexo 2
     upload_file3: Archivo anexo 3
+    upload_files: Enviar archivos
 
   pdf:
     reg_date: 'Fecha de registro:'

@@ -19,13 +19,13 @@
       = link_to_jq_button({url: catalogs_participant_download_pdf_path(catalogs_participant.pdf_reg_filename), icon: 'circle-arrow-s', title: t('commands.download', param: t('titles.reg_sheet')), remote: false })
       = link_to_jq_button({url: catalogs_delete_participant_path(catalogs_participant), icon: 'trash', title: 'Eliminar'})
       -path = 'attachments/participants/'
-      -if catalogs_participant.upload_file1
+      -if !catalogs_participant.upload_file1.blank?
         = link_to_jq_button(url: catalogs_participant_download_attachment_path(catalogs_participant.upload_file1_s, folder: ''),
           name: catalogs_participant.upload_file1, icon: 'document-b', title: t('titles.upload_file1'),remote: false)
-      -if catalogs_participant.upload_file2
+      -if !catalogs_participant.upload_file2.blank?
         = link_to_jq_button(url: catalogs_participant_download_attachment_path(catalogs_participant.upload_file2_s, folder: ''),
           name: catalogs_participant.upload_file2, icon: 'document-b', title: t('titles.upload_file2'),remote: false)
-      -if catalogs_participant.upload_file3
+      -if !catalogs_participant.upload_file3.blank?
         = link_to_jq_button(url: catalogs_participant_download_attachment_path(catalogs_participant.upload_file3_s, folder: ''),
           name: catalogs_participant.upload_file3, icon: 'document-b', title: t('titles.upload_file3'),remote: false)
 

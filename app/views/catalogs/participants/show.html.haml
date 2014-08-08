@@ -44,6 +44,42 @@
         %strong= "#{t('general.price')} (#{@catalogs_participant.course.price3_desc})"
       .col-2
         = number_with_precision(@catalogs_participant.course.price3, precision: 2)
+    .sp
+    - if !(@catalogs_participant.course.upload_file1_desc+@catalogs_participant.course.upload_file2_desc+@catalogs_participant.course.upload_file3_desc).try(:empty?)
+      %h3.t-head= t('titles.upload_files')
+      -if !@catalogs_participant.course.upload_file1_desc.empty?
+        .col-1
+          %strong= "#{@catalogs_participant.course.upload_file1_desc}"
+        -#TODO change path download file
+        .col-2
+          -lnk= @catalogs_participant.upload_file1
+          -if @catalogs_participant.upload_file1_s
+            = link_to lnk,
+                catalogs_participant_download_attachment_path(@catalogs_participant.upload_file1_s, name: lnk)
+          -else
+            =t('show_for.blank')
+      -if !@catalogs_participant.course.upload_file2_desc.empty?
+        .col-1
+          %strong= "#{@catalogs_participant.course.upload_file2_desc}"
+        -#TODO change path download file
+        .col-2
+          -lnk= @catalogs_participant.upload_file2
+          -if @catalogs_participant.upload_file2_s
+            = link_to lnk,
+                catalogs_course_download_file_path(@catalogs_participant.upload_file2_s, name: lnk)
+          -else
+            =t('show_for.blank')
+      -if !@catalogs_participant.course.upload_file3_desc.empty?
+        .col-1
+          %strong= "#{@catalogs_participant.course.upload_file3_desc}"
+        -#TODO change path download file
+        .col-2
+          -lnk= @catalogs_participant.upload_file3
+          -if @catalogs_participant.upload_file3_s
+            = link_to lnk,
+                catalogs_course_download_file_path(@catalogs_participant.upload_file3_s, name: lnk)
+          -else
+            =t('show_for.blank')
 
   - if @catalogs_participant.course.academic_data_required?
     %h3.t-head= t('titles.academic_data')
