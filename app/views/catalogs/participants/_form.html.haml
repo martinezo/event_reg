@@ -42,22 +42,23 @@
         = f.label :participant_type
       .col-2.prices
         =f.input_field :price, collection: prices, as: :radio_buttons
-
+      &nbsp;
     -#UPLOAD FILES
-
-    -if !@catalogs_participant.course.upload_file1_desc.empty?
-      .col-1
-        %strong= "#{@catalogs_participant.course.upload_file1_desc}"
-      .col-2.file-selector
-        .input-file
-          =text_field_tag :catalogs_participant_upload_file1_tag, nil, type: 'file'
-        .input-file-jq
-          .input-file-button.jq-button
-            =t('commands.select_file')
-          .input-file-str
-            =f.input_field :upload_file1, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
-          .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
-            &nbsp;
+    - if !(@catalogs_participant.course.upload_file1_desc+@catalogs_participant.course.upload_file2_desc+@catalogs_participant.course.upload_file3_desc).strip.empty?
+      %h3.t-head{style: "background-color: #{@color_theme3};"}= t('titles.upload_files')
+      -if !@catalogs_participant.course.upload_file1_desc.empty?
+        .col-1
+          %strong= "#{@catalogs_participant.course.upload_file1_desc}"
+        .col-2.file-selector
+          .input-file
+            =text_field_tag :catalogs_participant_upload_file1_tag, nil, type: 'file'
+          .input-file-jq
+            .input-file-button.jq-button
+              =t('commands.select_file')
+            .input-file-str
+              =f.input_field :upload_file1, size: 30, placeholder: 'Se recomienda un archivo PDF o Word Office', readonly: true
+            .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_participant_upload_file1'}
+              &nbsp;
     -if !@catalogs_participant.course.upload_file2_desc.empty?
       .col-1
         %strong= "#{@catalogs_participant.course.upload_file2_desc}"

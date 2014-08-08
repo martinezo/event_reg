@@ -47,6 +47,7 @@ es:
     additional_data: Otros datos
     size_of_images: Archivo JPG 960x260 pixeles
     reg_sheet: Hoja de registro PDF
+    upload_files: Enviar Información
 
   pdf:
     reg_date: 'Fecha de registro:'
@@ -170,6 +171,8 @@ es:
         price: Costo
         participant_type: Tipo de participante
 
+
+
       devise_user:
         login: Usuario
         password: Contraseña
@@ -204,6 +207,12 @@ es:
               blank: son datos requeridos.
             course_id:
               taken: ¡Usuario ya registrado!
+  xlsx_list:
+    name: Nombre
+    surnames: Apellidos
+    mail: Correo
+    phone_numbers: Teléfono(s)
+    workplace: Institución empresa en donde labora
 
 #http://blog.lingohub.com/developers/2013/08/internationalization-for-ruby-i18n-gem/
   time:
