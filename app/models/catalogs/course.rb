@@ -11,10 +11,8 @@ class Catalogs::Course < ActiveRecord::Base
   # validates_uniqueness_of :login
   validates_presence_of :name, :start_date, :description
 
-  #SQLITE3 'date'
-  #scope :publishable, -> {where('date() BETWEEN start_date_pub AND end_date_pub')}
-  #POSTGRES 'now()'
-  scope :publishable, -> {where('now() BETWEEN start_date_pub AND end_date_pub')}
+  #  now()::date (date without time)
+  scope :publishable, -> {where('now()::date BETWEEN start_date_pub AND end_date_pub')}
 
   attr_reader :registrable, :num_participants, :num_participants_confirmed, :trimmed_name,
               :image_file1_s, :image_file2_s, :image_file3_s, :content_file_s

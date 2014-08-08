@@ -10,7 +10,7 @@ class Public::EventsCoursesController < ApplicationController
 
   def event_info
     @cc= Catalogs::Course.find(params[:id])
-    if (@cc.start_date_pub..@cc.end_date_pub).cover? Time.now
+    if (@cc.start_date_pub..@cc.end_date_pub).cover? Time.now.beginning_of_day
       image_1 = "/attachments/courses/#{@cc.image_file1_s}" unless @cc.image_file1.empty?
       image_2 = "/attachments/courses/#{@cc.image_file2_s}" unless @cc.image_file2.empty?
       image_3 = "/attachments/courses/#{@cc.image_file3_s}" unless @cc.image_file3.empty?

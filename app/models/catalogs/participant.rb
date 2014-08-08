@@ -7,6 +7,10 @@ class Catalogs::Participant < ActiveRecord::Base
 
   attr_reader :complete_name, :pdf_reg_filename, :upload_file1_s, :upload_file2_s, :upload_file3_s
 
+  def self.for_course(course_id)
+    course = Catalogs::Course.find(course_id)
+    field = 'id, name, surnames, mail, phone_number'
+  end
 
   def upload_file1_s(filename = nil)
     file = filename || upload_file1
@@ -60,4 +64,5 @@ class Catalogs::Participant < ActiveRecord::Base
   def complete_name
     "#{name} #{surnames}"
   end
+
 end
