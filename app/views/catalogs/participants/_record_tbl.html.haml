@@ -21,13 +21,13 @@
       -path = 'attachments/participants/'
       -if !catalogs_participant.upload_file1.blank?
         = link_to_jq_button(url: catalogs_participant_download_attachment_path(catalogs_participant.upload_file1_s, folder: ''),
-          name: catalogs_participant.upload_file1, icon: 'document-b', title: t('titles.upload_file1'),remote: false)
+          name: catalogs_participant.upload_file1, icon: 'document-b', title: catalogs_participant.upload_file1,remote: false)
       -if !catalogs_participant.upload_file2.blank?
         = link_to_jq_button(url: catalogs_participant_download_attachment_path(catalogs_participant.upload_file2_s, folder: ''),
-          name: catalogs_participant.upload_file2, icon: 'document-b', title: t('titles.upload_file2'),remote: false)
+          name: catalogs_participant.upload_file2, icon: 'document-b', title: catalogs_participant.upload_file2,remote: false)
       -if !catalogs_participant.upload_file3.blank?
         = link_to_jq_button(url: catalogs_participant_download_attachment_path(catalogs_participant.upload_file3_s, folder: ''),
-          name: catalogs_participant.upload_file3, icon: 'document-b', title: t('titles.upload_file3'),remote: false)
+          name: catalogs_participant.upload_file3, icon: 'document-b', title: catalogs_participant.upload_file3,remote: false)
 
       -#TODO link to download xls index of participants
       -#= link_to_jq_button({url: '#', icon: 'person', title: t('titles.download'), remote: false})

@@ -62,7 +62,7 @@ class PdfGenerator
         headers = [[I18n.t('pdf.inv_name')], [I18n.t('pdf.inv_rfc')], [I18n.t('pdf.inv_address')],
                    [I18n.t('pdf.inv_municipality')], [I18n.t('pdf.inv_city')],
                    [I18n.t('pdf.inv_state')], [I18n.t('pdf.inv_mail')]]
-        data = [[r.inv_name], [r.inv_rfc], [r.inv_address], [r.inv_municipality], [r.inv_city], [r.inv_state], [r.inv_mail]]
+        data = [[r.inv_name], [r.inv_rfc], [r.inv_address], [r.inv_municipality], [r.inv_city], [r.state.name], [r.inv_mail]]
         col_1 = make_table headers, column_widths: 2.in, cell_style: c_style.merge(c_style_h)
         col_2 = make_table data, column_widths: 5.in, row_colors: [alt_1, alt_2], cell_style: c_style.merge(c_style_d)
         table [[col_1, col_2]]

@@ -50,7 +50,7 @@ es:
     upload_file1: Archivo anexo 1
     upload_file2: Archivo anexo 2
     upload_file3: Archivo anexo 3
-    upload_files: Enviar archivos
+    upload_files: Archivos anexos
 
   pdf:
     reg_date: 'Fecha de registro:'
@@ -141,7 +141,7 @@ es:
         start_date_reg: Fecha inicio de registro
         end_date_reg: Fecha fin de registro
         mail_notif_deposit: Correos para solicitud de ficha de pago
-        academic_data_required: Se solicitaran datos académicos/laborales en registro
+        academic_data_required: Se solicitaran datos académicos
         info_after_reg: Instrucciones para después de registro
         color_theme1: Color tema 1
         color_theme2: Color tema 2
@@ -154,6 +154,7 @@ es:
         upload_file3_desc: Título archivo 3
 
       catalogs/participant:
+        id: Registro
         course_id: Curso/evento
         name: Nombre
         surnames: Apellidos
@@ -169,10 +170,11 @@ es:
         inv_address: Dirección Fiscal
         inv_city: Ciudad
         inv_municipality: Municipio
-        inv_state: Estado
-        inv_email: Email de envío
+        inv_state_id: Estado
+        inv_mail: Correo para envío de factura
         price: Costo
         participant_type: Tipo de participante
+        created_at: Fecha de registro
 
       devise_user:
         login: Usuario

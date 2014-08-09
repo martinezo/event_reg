@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804015756) do
+ActiveRecord::Schema.define(version: 20140809032346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 20140804015756) do
     t.string   "inv_address"
     t.string   "inv_city"
     t.string   "inv_municipality"
-    t.string   "inv_state"
     t.string   "inv_mail"
     t.text     "opt_text"
     t.string   "opt_str1"
@@ -108,6 +107,7 @@ ActiveRecord::Schema.define(version: 20140804015756) do
     t.string   "upload_file1"
     t.string   "upload_file2"
     t.string   "upload_file3"
+    t.integer  "inv_state_id",     default: 22
   end
 
   create_table "catalogs_states", force: true do |t|
