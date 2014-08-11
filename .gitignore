@@ -22,8 +22,10 @@ db/schema.rb
 
 # Ignore atacchement of courses an particiants
 /public/assets
-/public/attachments/courses/*.*
-/public/attachments/participants/*.*
+/public/images
+/public/attachments
+/public/attachments/participants/*
+/public/attachments/courses/*
 !/public/attachments/courses/0_image_file1.jpg
 /public/pdf/*.*
 !/public/pdf/*/

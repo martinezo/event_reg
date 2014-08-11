@@ -20,7 +20,7 @@
         -if @cc.registrable && controller_name == "events_courses"
           #c-registration-link{style: "background-color: ##{@cc.color_theme1}; color: ##{@cc.color_theme_l 1,0.8}"}
             =link_to t('commands.registration'), public_registration_path(@cc.id)
-        #tbl-course-info{style:"border: solid ##{@cc.color_theme1}; border-width: 1px 0px; background-color: ##{@cc.color_theme2};"}
+        #tbl-course-info{style:"border: solid ##{@cc.color_theme1}; border-width: 1px 0px; background-color: ##{@cc.color_theme_l 2,0.5};"}
           - if !@cc.schedule.empty?
             - i += 1
             #c-schedule.c-info{class: "alt-#{i%2}"}
