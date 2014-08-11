@@ -35,7 +35,7 @@
                 =r.label :location
               .col-2
                 =r.value :location
-          - if !@cc.content_file_desc.empty?
+          - if !(@cc.content_file_desc).try(:empty?) && !(@cc.content_file).try(:empty?)
             - i +=1
             #c-content_file.c-info{class: "alt-#{i%2}"}
               .col-1

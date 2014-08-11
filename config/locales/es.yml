@@ -51,6 +51,7 @@ es:
     upload_file2: Archivo anexo 2
     upload_file3: Archivo anexo 3
     upload_files: Archivos anexos
+    copy_event: Copiar evento
 
   pdf:
     reg_date: 'Fecha de registro:'

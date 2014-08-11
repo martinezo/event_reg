@@ -1,6 +1,6 @@
 class Catalogs::CoursesController < ApplicationController
   layout :set_layout
-  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :change_owner, :update_owner]
+  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :change_owner, :update_owner, :copy_event, :new_copy]
   helper_method :sort_column, :sort_direction
 
 
@@ -67,7 +67,7 @@ class Catalogs::CoursesController < ApplicationController
 
     respond_to do |format|
       if @catalogs_course.update(catalogs_course_params)
-        format.html { redirect_to @catalogs_course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to @catalogs_course, notice: t('notices.updated_successfully') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -87,6 +87,52 @@ class Catalogs::CoursesController < ApplicationController
       @errors = @catalogs_course.errors
     end
   end
+
+
+  def copy_event
+
+  end
+
+  def new_copy
+    @new_copy = Catalogs::Course.new
+    @catalogs_course = Catalogs::Course.find(params[:id])
+    @new_copy.attributes = @catalogs_course.attributes
+    @new_copy.id = nil
+    @new_copy.name = params[:catalogs_course][:name]
+    @new_copy.start_date = params[:catalogs_course][:start_date]
+    @new_copy.location = params[:catalogs_course][:location]
+    @new_copy.schedule =params[:catalogs_course][:schedule]
+    @new_copy.content_file = nil
+    @new_copy.start_date_pub = nil
+    @new_copy.end_date_pub = nil
+    @new_copy.start_date_reg = nil
+    @new_copy.end_date_reg = nil
+
+    if @new_copy.save
+      @catalogs_course = @new_copy
+      if !@catalogs_course.image_file1.empty?
+        image1 = params[:id].to_s + '_'+ @catalogs_course.image_file1
+        image2 = @catalogs_course.id.to_s + '_' + @catalogs_course.image_file1.to_s
+        @catalogs_course.copy_file_to(image1,image2)
+      end
+      if !@catalogs_course.image_file2.empty?
+        image1 = params[:id].to_s + '_'+ @catalogs_course.image_file2
+        image2 = @catalogs_course.id.to_s + '_' + @catalogs_course.image_file2.to_s
+        @catalogs_course.copy_file_to(image1,image2)
+      end
+      if !@catalogs_course.image_file3.empty?
+        image1 = params[:id].to_s + '_'+ @catalogs_course.image_file3
+        image2 = @catalogs_course.id.to_s + '_' + @catalogs_course.image_file3.to_s
+        @catalogs_course.copy_file_to(image1,image2)
+      end
+      flash[:notice] = t('notices.saved_successfully')
+      render :js => "window.location = '#{edit_catalogs_course_path(@catalogs_course)}'"
+    else
+      @errors = @new_copy.errors
+    end
+  end
+
+
 
   # DELETE /catalogs/courses/1
   # DELETE /catalogs/courses/1.json
