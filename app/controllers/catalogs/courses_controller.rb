@@ -101,9 +101,10 @@ class Catalogs::CoursesController < ApplicationController
 
   def preview
     @cc= Catalogs::Course.find(params[:id])
-    image_1 = "/attachments/courses/#{@cc.image_file1_s}" unless @cc.image_file1.empty?
-    image_2 = "/attachments/courses/#{@cc.image_file2_s}" unless @cc.image_file2.empty?
-    image_3 = "/attachments/courses/#{@cc.image_file3_s}" unless @cc.image_file3.empty?
+    Rails.env.development? ? (path = '/attachments/courses/') : (path = '/events/attachments/courses/')
+    image_1 = "#{path}#{@cc.image_file1_s}" unless @cc.image_file1.empty?
+    image_2 = "#{path}#{@cc.image_file2_s}" unless @cc.image_file2.empty?
+    image_3 = "#{path}#{@cc.image_file3_s}" unless @cc.image_file3.empty?
     @carousel = [image_1, image_2, image_3].compact
   end
 
