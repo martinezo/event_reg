@@ -205,7 +205,7 @@ h1{
   padding-bottom: 0.5em;
   border: inherit;
   &:hover{
-    background-image: url('hover.png');
+    background: asset-url('hover.png',image());
     font-weight: bold;
   }
 }
