@@ -51,7 +51,7 @@ es:
     upload_file2: Archivo anexo 2
     upload_file3: Archivo anexo 3
     upload_files: Archivos anexos
-    copy_event: Copiar evento
+    copy_event: Duplicar evento
 
   pdf:
     reg_date: 'Fecha de registro:'
@@ -195,7 +195,7 @@ es:
         catalogs/course:
           attributes:
             name:
-              take: ya existe.
+              taken: de evento exietente en la misma fecha.
               blank: es un dato requerido.
             description:
               blank: es un dato requerido.

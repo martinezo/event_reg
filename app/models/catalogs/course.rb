@@ -12,7 +12,7 @@ class Catalogs::Course < ActiveRecord::Base
   validates_presence_of :name, :start_date, :description
 
 
-  validates :user_id, uniqueness: {scope: [:name, :start_date]}
+  validates :name, uniqueness: {scope: :start_date}
 
   #  now()::date (date without time)
   scope :publishable, -> {where('now()::date BETWEEN start_date_pub AND end_date_pub')}
@@ -92,12 +92,13 @@ class Catalogs::Course < ActiveRecord::Base
     File.open(path, "wb") { |f| f.write(upload.tempfile.read) }
   end
 
-  def copy_file_to(source, target)
-    directory = "public/attachments/courses/"
-    source_f = File.join(directory, source)
-    target_f = File.join(directory, target)
-    # copy_file source_f, target_f
-  end
+  #TODO remove
+  # def copy_file_to(source, target)
+  #   directory = "public/attachments/courses/"
+  #   source_f = File.join(directory, source)
+  #   target_f = File.join(directory, target)
+    copy_file source_f, target_f
+  # end
 
   def color_theme_l(color,amount)
     case color

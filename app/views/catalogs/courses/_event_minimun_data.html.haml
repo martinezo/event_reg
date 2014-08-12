@@ -1,0 +1,10 @@
+= f.hidden_field :user_id, value: current_devise_user.id
+= f.input :name, :input_html => {:size => 50}
+= f.input :start_date, as: :string, input_html: {class: 'jq-datepicker'}
+= f.input :description, as: :text, :input_html => {:size => "38x5"}
+= f.input :location, :input_html => {:size => 50}
+= f.input :schedule, :input_html => {:size => 50}
+.sp
+%hr
+.t-right
+  = jq_submit_tag t('commands.save')
