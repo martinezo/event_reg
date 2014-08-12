@@ -140,7 +140,7 @@ class Catalogs::ParticipantsController < ApplicationController
   end
 
   def download_xlsx_list
-    participants = Catalogs::Participant.search(params[:search], params[:course_id]).order("#{sort_column} #{sort_direction}").for_course(params[:course_id])
+    participants = Catalogs::Participant.where(course_id: params[:course_id]).for_course(params[:course_id])
     course = Catalogs::Course.find(params[:course_id])
     XlsxGenerator.xlsx_participants(participants,course)
     file = "public/xlsx/participants.xlsx"

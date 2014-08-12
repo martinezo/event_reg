@@ -29,5 +29,4 @@ db/schema.rb
 !/public/attachments/courses/0_image_file1.jpg
 /public/pdf/*.*
 !/public/pdf/*/
-/public/xlsx
-
+/public/xlsx/*.*
