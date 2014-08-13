@@ -93,6 +93,7 @@ es:
     not_authorized: ¡No autorizado para entrar a esta sección!
     processing: Procesando...
     registration_done: Tu registro para este evento ha sido efectuado correctamente.
+    delete_unsuccessfully: El evento no se puede borrar tiene participante(s) registrado(s).
 
   will_paginate:
     previous_label: Anterior

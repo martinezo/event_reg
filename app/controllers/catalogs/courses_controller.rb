@@ -1,6 +1,6 @@
 class Catalogs::CoursesController < ApplicationController
   layout :set_layout
-  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :change_owner, :update_owner]
+  before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :delete,  :change_owner, :update_owner]
   helper_method :sort_column, :sort_direction
 
 
@@ -151,12 +151,20 @@ class Catalogs::CoursesController < ApplicationController
   # DELETE /catalogs/courses/1
   # DELETE /catalogs/courses/1.json
   def destroy
-    @catalogs_course.destroy
-    respond_to do |format|
-      format.html { redirect_to catalogs_courses_url }
-      format.json { head :no_content }
+    if @catalogs_course.num_participants == 0
+      @catalogs_course.destroy
+    else
+      flash[:notice] = t('notices.delete_unsuccessfully')
+      render :js => "window.location = '#{catalogs_courses_path}'"
     end
+    index
   end
+
+  def delete
+  end
+
+
+
 
 
   def preview

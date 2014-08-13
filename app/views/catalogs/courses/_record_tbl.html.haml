@@ -24,10 +24,11 @@
         -if can? :change_owner, @catalogs_course
           = link_to_jq_button({url: catalogs_course_change_owner_path(catalogs_course), icon: 'transfer-e-w', title: t('titles.change_owner')})
         = link_to_jq_button({url: catalogs_course_copy_event_path(catalogs_course), icon: 'copy', title: t('titles.copy_event')})
+        = link_to_jq_button({url: catalogs_course_delete_path(catalogs_course), icon: 'trash', title: 'Eliminar'})
         -#TODO link to download xls index of participants
         -#= link_to_jq_button({url: '#', icon: 'person', title: t('titles.download'), remote: false})
         -#TODO implement destroy action (don forget to erase related files to course in public/attachments)
-        -# = link_to_jq_button({url: catalogs_delete_course_path(catalogs_course), icon: 'trash', title: 'Eliminar'})
+        -#= link_to_jq_button({url: catalogs_delete_course_path(catalogs_course), icon: 'trash', title: 'Eliminar'})
 
 #will-paginate
   = will_paginate @catalogs_courses, params: {id: nil, action: 'index'}

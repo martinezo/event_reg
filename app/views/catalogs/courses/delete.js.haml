@@ -1,0 +1,4 @@
+:plain
+  $('#delete-dialog').html("#{escape_javascript(render 'layouts/delete_dialog', :record => @catalogs_course)}");
+  $('#delete-dialog').dialog({resizable: false, width: 380, modal: true, title: '#{t('titles.delete', param: @catalogs_course.name)}'});
+  jqbuttons();
