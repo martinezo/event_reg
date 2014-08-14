@@ -53,7 +53,7 @@ es:
     upload_files: Archivos anexos
     xls_participants: Descargar lista de participantes XLSX
     copy_event: Duplicar evento
-    
+
   pdf:
     reg_date: 'Fecha de registro:'
     start_date: 'Fecha de inicio del evento'
