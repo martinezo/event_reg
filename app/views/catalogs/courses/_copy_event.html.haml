@@ -1,0 +1,4 @@
+.error-explanation
+
+= simple_form_for @catalogs_course, url: catalogs_course_new_copy_path(event_source: params[:id]), method: :post, :html => {:novalidate => true}, remote: true do |f|
+  =render 'event_minimun_data', f: f

@@ -52,7 +52,8 @@ es:
     upload_file3: Archivo anexo 3
     upload_files: Archivos anexos
     xls_participants: Descargar lista de participantes XLSX
-
+    copy_event: Duplicar evento
+    
   pdf:
     reg_date: 'Fecha de registro:'
     start_date: 'Fecha de inicio del evento'
@@ -196,7 +197,7 @@ es:
         catalogs/course:
           attributes:
             name:
-              take: ya existe.
+              taken: de evento exietente en la misma fecha.
               blank: es un dato requerido.
             description:
               blank: es un dato requerido.

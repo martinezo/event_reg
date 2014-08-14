@@ -1,0 +1,9 @@
+:plain
+  $('#copy-event').html("#{escape_javascript(render 'copy_event')}");
+  $('#copy-event').dialog({
+    title: "#{@catalogs_course.name}",
+    width: 450,
+    modal: true,
+  });
+  jqbuttons();
+  jqdatepicker();

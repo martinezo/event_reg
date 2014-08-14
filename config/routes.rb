@@ -34,6 +34,9 @@ EventReg::Application.routes.draw do
         constraints: { :filename => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/, :name => /[^\/]+i(?=\.html\z|\.json\z)|[^\/]+/  }
     get 'courses/change_owner/:id' => 'courses#change_owner', as: 'course_change_owner'
     post 'course/update_owner' => 'courses#update_owner', as: 'course_update_owner'
+
+    get 'courses/copy_event/:id' => 'courses#copy_event', as: 'course_copy_event'
+    post 'course/new_copy' => 'courses#new_copy', as: 'course_new_copy'
   end
 
   devise_for :devise_users
