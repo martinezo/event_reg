@@ -97,7 +97,7 @@ class Catalogs::Course < ActiveRecord::Base
   #   directory = "public/attachments/courses/"
   #   source_f = File.join(directory, source)
   #   target_f = File.join(directory, target)
-    copy_file source_f, target_f
+  #  copy_file source_f, target_f
   # end
 
   def color_theme_l(color,amount)

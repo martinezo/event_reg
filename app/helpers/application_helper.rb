@@ -16,9 +16,9 @@ module ApplicationHelper
     data = options[:data] || nil
     icon = options[:icon] || nil
     id = options[:id] || nil
-    htm_class = 'jq-button' << (options[:htm_class] ? ",#{html_class}" : '')
+    html_class = 'jq-button' << (options[:html_class] ? ", #{options[:html_class]}" : '')
     target = options[:target] || nil
-    link_to text, url, title: title, remote: remote, data: data, 'jq-icon'=> icon, id: id, class: htm_class, 'jq-text' => jq_text, target: target
+    link_to text, url, title: title, remote: remote, data: data, 'jq-icon'=> icon, id: id, class: html_class, 'jq-text' => jq_text, target: target
   end
 
 

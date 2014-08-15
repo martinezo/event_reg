@@ -53,7 +53,13 @@ es:
     upload_files: Archivos anexos
     xls_participants: Descargar lista de participantes XLSX
     copy_event: Duplicar evento
+<<<<<<< HEAD
 
+=======
+    title_for_event_info: Titulo que aparecerá en la página del infromación del evento
+    name_for_admin: Nombre interno para administración y envio de correos
+    
+>>>>>>> delete_event
   pdf:
     reg_date: 'Fecha de registro:'
     start_date: 'Fecha de inicio del evento'
@@ -93,6 +99,7 @@ es:
     not_authorized: ¡No autorizado para entrar a esta sección!
     processing: Procesando...
     registration_done: Tu registro para este evento ha sido efectuado correctamente.
+    delete_unsuccessfully: El evento no se puede borrar tiene participante(s) registrado(s).
 
   will_paginate:
     previous_label: Anterior
@@ -110,6 +117,7 @@ es:
         user_id: Propietario
         user: Propietario
         name: Nombre
+        title: Título
         description: Descripción
         schedule: Fechas y Horarios
         location: Lugar

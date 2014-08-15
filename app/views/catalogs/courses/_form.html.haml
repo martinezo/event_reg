@@ -11,7 +11,11 @@
     .col-1
       =f.label :name
     .col-2
-      =f.input_field :name, :size => 50
+      =f.input_field :name, :size => 50, placeholder: t('titles.name_for_admin')
+    .col-1
+      =f.label :title
+    .col-2
+      =f.input_field :title, size:70, placeholder: t('titles.title_for_event_info')
     .col-1
       = f.label :start_date
     .col-2
