@@ -53,13 +53,9 @@ es:
     upload_files: Archivos anexos
     xls_participants: Descargar lista de participantes XLSX
     copy_event: Duplicar evento
-<<<<<<< HEAD
-
-=======
     title_for_event_info: Titulo que aparecerá en la página del infromación del evento
     name_for_admin: Nombre interno para administración y envio de correos
     
->>>>>>> delete_event
   pdf:
     reg_date: 'Fecha de registro:'
     start_date: 'Fecha de inicio del evento'
