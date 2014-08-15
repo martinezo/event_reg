@@ -9,8 +9,9 @@
         %h3= render :partial => 'layouts/alert_notice'
     - else
       = show_for @cc do |r|
-        #name
-          = r.value :name
+        -if !@cc.title.strip.empty?
+          #title
+            = r.value :title
         #carousel
           -@carousel.each do |img|
             .item{style:"background-image:url('#{img}');"}

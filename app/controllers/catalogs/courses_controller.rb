@@ -105,56 +105,18 @@ class Catalogs::CoursesController < ApplicationController
     else
       @errors = @catalogs_course.errors
     end
-
-    #TODO remove
-    # @new_copy = Catalogs::Course.new
-    # @catalogs_course = Catalogs::Course.find(params[:id])
-    # @new_copy.attributes = @catalogs_course.attributes
-    # @new_copy.id = nil
-    # @new_copy.name = params[:catalogs_course][:name]
-    # @new_copy.start_date = params[:catalogs_course][:start_date]
-    # @new_copy.location = params[:catalogs_course][:location]
-    # @new_copy.schedule =params[:catalogs_course][:schedule]
-    # @new_copy.content_file = nil
-    # @new_copy.start_date_pub = nil
-    # @new_copy.end_date_pub = nil
-    # @new_copy.start_date_reg = nil
-    # @new_copy.end_date_reg = nil
-
-
-    # if @new_copy.save
-    #   @catalogs_course = @new_copy
-    #   if !@catalogs_course.image_file1.empty?
-    #     image1 = params[:id].to_s + '_'+ @catalogs_course.image_file1
-    #     image2 = @catalogs_course.id.to_s + '_' + @catalogs_course.image_file1.to_s
-    #     @catalogs_course.copy_file_to(image1,image2)
-    #   end
-    #   if !@catalogs_course.image_file2.empty?
-    #     image1 = params[:id].to_s + '_'+ @catalogs_course.image_file2
-    #     image2 = @catalogs_course.id.to_s + '_' + @catalogs_course.image_file2.to_s
-    #     @catalogs_course.copy_file_to(image1,image2)
-    #   end
-    #   if !@catalogs_course.image_file3.empty?
-    #     image1 = params[:id].to_s + '_'+ @catalogs_course.image_file3
-    #     image2 = @catalogs_course.id.to_s + '_' + @catalogs_course.image_file3.to_s
-    #     @catalogs_course.copy_file_to(image1,image2)
-    #   end
-    #   flash[:notice] = t('notices.saved_successfully')
-    #   render :js => "window.location = '#{edit_catalogs_course_path(@catalogs_course)}'"
-    # else
-    #   @errors = @new_copy.errors
-    # end
   end
-
-
 
   # DELETE /catalogs/courses/1
   # DELETE /catalogs/courses/1.json
   def destroy
     if @catalogs_course.num_participants == 0
-      @catalogs_course.destroy
+      if @catalogs_course.destroy
+        path = "public/attachments/courses/"
+        FileUtils.rm Dir["#{path}#{@catalogs_course.id}_*.*"]
+      end
     else
-      flash[:notice] = t('notices.delete_unsuccessfully')
+      flash[:alert] = t('notices.delete_unsuccessfully')
       render :js => "window.location = '#{catalogs_courses_path}'"
     end
     index
@@ -162,10 +124,6 @@ class Catalogs::CoursesController < ApplicationController
 
   def delete
   end
-
-
-
-
 
   def preview
     @cc= Catalogs::Course.find(params[:id])
@@ -192,7 +150,7 @@ class Catalogs::CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white index through.
     def catalogs_course_params
-      params.require(:catalogs_course).permit(:user_id, :name, :start_date, :description, :schedule, :location,
+      params.require(:catalogs_course).permit(:user_id, :name, :title, :start_date, :description, :schedule, :location,
                                               :content_file, :price1, :price2, :price3, :price1_desc, :price2_desc, :price3_desc,
                                               :opt_text, :opt_str1,
                                               :opt_str2, :opt_bol1, :opt_bol2, :opt_sel, :opt_sel_options, :payment_methods, :target,
