@@ -127,10 +127,12 @@ class PdfGenerator
       end
 
       # LEGEND INVOICE REQUIRED / NOT REQUIRED
-      if r.invoice_required
-        pad(10) { text I18n.t('pdf.invoice_required'), align: :center, style: :bold, size: 12 }
-      else
-        pad(10) { text I18n.t('pdf.invoice_not_required'), align: :center, style: :bold, size: 12 }
+      if !"#{r.course.price1_desc}#{r.course.price2_desc}#{r.course.price3_desc}".strip.empty?
+        if r.invoice_required
+            pad(10) { text I18n.t('pdf.invoice_required'), align: :center, style: :bold, size: 12 }
+        else
+          pad(10) { text I18n.t('pdf.invoice_not_required'), align: :center, style: :bold, size: 12 }
+        end
       end
 
       # PRICE

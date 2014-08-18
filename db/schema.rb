@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140809032346) do
+ActiveRecord::Schema.define(version: 20140815002114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20140809032346) do
     t.string   "upload_file1_desc"
     t.string   "upload_file2_desc"
     t.string   "upload_file3_desc"
+    t.string   "title"
   end
 
   create_table "catalogs_participants", force: true do |t|

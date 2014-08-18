@@ -37,6 +37,7 @@ EventReg::Application.routes.draw do
 
     get 'courses/copy_event/:id' => 'courses#copy_event', as: 'course_copy_event'
     post 'course/new_copy' => 'courses#new_copy', as: 'course_new_copy'
+    get 'courses/delete/:id' => 'courses#delete', as: 'course_delete'
   end
 
   devise_for :devise_users

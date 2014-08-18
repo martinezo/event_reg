@@ -4,5 +4,5 @@
     .image-course
       =link_to image_tag("/attachments/courses/#{c.image_file1_s}", size: '300x81'),
         public_event_info_path(c), target: '_blank'
-    %strong.ec-name= c.name
+    %strong.ec-name= c.title
     .ec-date= I18n.localize(c.start_date, format: :long_only_date)

@@ -3,7 +3,7 @@
   = hidden_field_tag :sort, params[:sort]
   .tbl-search
     .col-1
-      = text_field_tag :search, '', :size => 37
+      = text_field_tag :search, '', :size => 20
     .col-2.t-cent
       = jq_submit_tag t('commands.search')
       = link_to_jq_button({url: url, text: t('commands.list_all')})
