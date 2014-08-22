@@ -9,25 +9,18 @@
   =render partial: 'layouts/alert_notice'
   .sp 
 
+
+
 = form_tag admin_system_config_update_path, method: 'post' do
   .tbl-system-config
     %strong.col-1.t-right
-      -#TODO Traducir etiquetas
-      Precio al público
+      = t('titles.link_page')
     .col-2
-      = text_field_tag :internal_price, Admin::SystemConfig.internal_price
+      = text_field_tag :page_return, Admin::SystemConfig.page_return
     %strong.col-1.t-right
-      Precio interno 
+      = t('titles.mail_request_auth')
     .col-2
-      = text_field_tag :external_price, Admin::SystemConfig.external_price
-    %strong.col-1.t-right
-      Correos para notificar nuevas solicitudes
-    .col-2
-      = text_field_tag :new_request_mails, Admin::SystemConfig.new_request_mails, size: 70
-    %strong.col-1.t-right
-      Correos para solicitar ficha de depósito
-    .col-2
-      = text_field_tag :new_deposit_slip_mail, Admin::SystemConfig.new_deposit_slip_mail, size: 40
-  .sp   
+      = text_field_tag :mail_request_auth, Admin::SystemConfig.mail_request_auth, size: 70
+  .sp
   = jq_submit_tag t('commands.save') 
   

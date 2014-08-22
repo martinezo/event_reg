@@ -55,6 +55,9 @@ es:
     copy_event: Duplicar evento
     title_for_event_info: Titulo que aparecerá en la página del infromación del evento
     name_for_admin: Nombre interno para administración y envio de correos
+    link_page: Página de retorno
+    mail_request_auth: Correo de autorización
+
     
   pdf:
     reg_date: 'Fecha de registro:'
@@ -159,6 +162,7 @@ es:
         upload_file1_desc: Título archivo 1
         upload_file2_desc: Título archivo 2
         upload_file3_desc: Título archivo 3
+        page_return: Página de retorno
 
       catalogs/participant:
         id: Registro

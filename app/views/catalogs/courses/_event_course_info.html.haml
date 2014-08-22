@@ -121,5 +121,8 @@
                 =r.value :opt_field_title
               .col-2
                 =r.value :opt_field
+    .sp
+    #c-registration-link{style: "background-color: ##{@cc.color_theme1}; color: ##{@cc.color_theme_l 1,0.8}"}
+      = link_to t('commands.back'), @cc.page_return, data: { confirm: "¿Está seguro?" }
   #c-footer{style: "background-color: ##{@cc.color_theme1}; color: ##{@cc.color_theme_l 1,0.3}"}
     Ramón Martínez Olvera (442) 5623 40 52 | INB-UNAM
