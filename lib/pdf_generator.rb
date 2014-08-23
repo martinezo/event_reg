@@ -11,7 +11,7 @@ class PdfGenerator
       table [[{image: img, fit: [500, 200]}]], position: :center,
             cell_style: {background_color: r.course.color_theme1, padding: 0, border_width: 0}
 
-      pad(20) { text r.course.name, align: :center, style: :bold, size: 14 }
+      pad(20) { text r.course.title, align: :center, style: :bold, size: 14 }
 
       # TABLE FORMAT
       c_style = {height: (0.25).in, padding: 3, size: 10, border_color: r.course.color_theme1, valign: :middle}
@@ -137,18 +137,9 @@ class PdfGenerator
 
       # PRICE
       move_down (0.12).in
-      cost = 0
-      case r.price
-        when 1
-          cost = r.course.price1 || 0
-        when 2
-          cost = r.course.price2 || 0
-        when 3
-          cost = r.course.price3 || 0
-      end
-      if cost > 0
-        headers = [["#{I18n.t('pdf.cost')} (#{eval("r.course.price#{r.price}_desc")})"]]
-        data = [["$ #{'%.2f' % cost}"]]
+      if r.price > 0
+        headers = [["#{I18n.t('pdf.cost')} (#{eval("r.course.price#{r.price_id}_desc")})"]]
+        data = [["$ #{'%.2f' % r.price}"]]
         c_style_d = {align: :right}
         col_1 = make_table headers, cell_style: c_style.merge(c_style_h)
         col_2 = make_table data, column_widths: 1.in, cell_style: c_style.merge(c_style_d)

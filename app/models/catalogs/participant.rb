@@ -7,6 +7,20 @@ class Catalogs::Participant < ActiveRecord::Base
 
   attr_reader :complete_name, :pdf_reg_filename, :upload_file1_s, :upload_file2_s, :upload_file3_s
 
+
+  before_save :set_price
+
+  def set_price
+    case price_id
+      when 1
+        self.price = self.course.price1
+      when 2
+        self.price = self.course.price2
+      when 3
+        self.price = self.course.price3
+    end
+  end
+
   def upload_file1_s(filename = nil)
     file = filename || upload_file1
     if file.strip.empty?

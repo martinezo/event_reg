@@ -15,7 +15,7 @@ class XlsxGenerator
       headers = sheet.styles.add_style sz: 12, alignment: { horizontal: :left }, b: 1, fg_color: '000000', bg_color: "dee1e3"
 
       # Course name and start date
-      sheet.add_row ["#{course.name} (#{I18n.localize(course.start_date, :format => :long_only_date)})"], :style => title, :widths=>[6]
+      sheet.add_row ["#{course.title} (#{I18n.localize(course.start_date, :format => :long_only_date)})"], :style => title, :widths=>[6]
       sheet.add_row
 
       # Records header
@@ -52,15 +52,6 @@ class XlsxGenerator
         values = [i+1]
         r.attributes.each do |f|
           case f[0]
-            when 'price'
-              case f[1]
-                when 1
-                  values << course.price1
-                when 2
-                  values << course.price2
-                when 3
-                  values << course.price3
-              end
             when 'inv_state_id'
               values << r.state.name
             else

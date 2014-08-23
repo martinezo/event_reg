@@ -6,14 +6,14 @@ class RegistrationMailer < ActionMailer::Base
     # TODO Add email contact in course as required field
     attachments[attach_file] = File.read(attach_file)
     @participant_name = participant.complete_name
-    @course_name = participant.course.name
+    @course_title = participant.course.title
     @info_after_reg = participant.course.info_after_reg
     mail :from => 'computo@inb.unam.mx', :to => participant.mail, :subject => @course_name
   end
 
   def participant_reg_notification(participant, attach_file)
     attachments[attach_file] = File.read(attach_file)
-    @course_name = participant.course.name
+    @course_title = participant.course.title
     @participant_name = participant.complete_name
     @participant_mail = participant.mail
     @course_contact = participant.course.contact

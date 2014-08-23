@@ -29,17 +29,17 @@
       = r.label :workplace
     .col-2
       = r.value :workplace
-    -if @catalogs_participant.price == 1
+    -if @catalogs_participant.price_id == 1
       .col-1
         %strong= "#{t('general.price')} (#{@catalogs_participant.course.price1_desc})"
       .col-2
         .wrapper= number_with_precision(@catalogs_participant.course.price1, precision: 2)
-    -if @catalogs_participant.price == 2
+    -if @catalogs_participant.price_id == 2
       .col-1
         %strong= "#{t('general.price')} (#{@catalogs_participant.course.price2_desc})"
       .col-2
         .wrapper= number_with_precision(@catalogs_participant.course.price2, precision: 2)
-    -if @catalogs_participant.price == 3
+    -if @catalogs_participant.price_id == 3
       .col-1
         %strong= "#{t('general.price')} (#{@catalogs_participant.course.price3_desc})"
       .col-2
