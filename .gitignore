@@ -18,7 +18,6 @@ config/ldap.yml
 
 # Ignore Gem and db config
 Gemfile.lock
-db/schema.rb
 
 # Ignore atacchement of courses an particiants
 /public/assets
