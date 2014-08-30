@@ -13,11 +13,11 @@ class Catalogs::Participant < ActiveRecord::Base
   def set_price
     case price_id
       when 1
-        self.price = self.course.price1
+        self.price = self.course.price1 || 0
       when 2
-        self.price = self.course.price2
+        self.price = self.course.price2 || 0
       when 3
-        self.price = self.course.price3
+        self.price = self.course.price3 || 0
     end
   end
 
