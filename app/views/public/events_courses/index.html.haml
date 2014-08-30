@@ -1,8 +1,11 @@
 .sp
+- Admin::SystemConfig.get
+.t-cent= link_to_jq_button({text: t('commands.back'), url: Admin::SystemConfig.return_page, remote: false})
+.sp
 - @courses.each do |c|
   .event-course
     .image-course
       =link_to image_tag("/attachments/courses/#{c.image_file1_s}", size: '300x81'),
-        public_event_info_path(c), target: '_blank'
+        public_event_info_path(c)
     %strong.ec-name= c.title
     .ec-date= I18n.localize(c.start_date, format: :long_only_date)

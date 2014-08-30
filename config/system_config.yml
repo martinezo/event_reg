@@ -1,7 +1,4 @@
 ---
-prices:
-  internal: 200
-  external: 300
-notifications:
-  new_request_mails: rmartinez1006@prodigy.net.mx, martinezo@inb,unam.mx
-  new_deposit_slip_mail: martinezo@inb.unam.mx
+general:
+  return_page: http://www.inb.unam.mx/
+  mail_request_auth: martinezo@inb.unam.mx

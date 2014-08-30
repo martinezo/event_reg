@@ -16,7 +16,7 @@
               =label_tag t('titles.users'), nil, class: 'ui-state-disabled'
             - else
               =link_to t('titles.users'), admin_users_path
-          -#%li
+          %li
             - if controller_name == 'system_configs'
               =label_tag t('titles.system_config'), nil, class: 'ui-state-disabled'
             - else

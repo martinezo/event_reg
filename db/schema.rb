@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140822144153) do
     t.string   "upload_file2_desc"
     t.string   "upload_file3_desc"
     t.string   "title"
+    t.string   "return_page",            default: ""
   end
 
   create_table "catalogs_participants", force: true do |t|
@@ -109,7 +110,11 @@ ActiveRecord::Schema.define(version: 20140822144153) do
     t.string   "upload_file2"
     t.string   "upload_file3"
     t.integer  "inv_state_id",     default: 22
+<<<<<<< HEAD
     t.decimal  "price"
+=======
+    t.decimal  "price",            default: 0.0
+>>>>>>> add_return_page
   end
 
   create_table "catalogs_states", force: true do |t|

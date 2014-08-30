@@ -20,7 +20,6 @@ class Catalogs::Course < ActiveRecord::Base
   attr_reader :registrable, :num_participants, :num_participants_confirmed, :trimmed_name,
               :image_file1_s, :image_file2_s, :image_file3_s, :content_file_s
 
-
   def image_file1_s(filename = nil)
     file = filename || image_file1
     if file.strip.empty?
@@ -91,14 +90,6 @@ class Catalogs::Course < ActiveRecord::Base
     # write the file
     File.open(path, "wb") { |f| f.write(upload.tempfile.read) }
   end
-
-  #TODO remove
-  # def copy_file_to(source, target)
-  #   directory = "public/attachments/courses/"
-  #   source_f = File.join(directory, source)
-  #   target_f = File.join(directory, target)
-  #  copy_file source_f, target_f
-  # end
 
   def color_theme_l(color,amount)
     case color

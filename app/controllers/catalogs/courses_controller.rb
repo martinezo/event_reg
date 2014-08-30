@@ -159,7 +159,7 @@ class Catalogs::CoursesController < ApplicationController
                                               :end_date_pub, :start_date_reg, :end_date_reg, :mail_notif_deposit,
                                               :academic_data_required, :info_after_reg, :color_theme1,
                                               :color_theme2, :color_theme3, :opt_field, :opt_field_title, :content_file_desc,
-                                              :upload_file1_desc, :upload_file2_desc, :upload_file3_desc)
+                                              :upload_file1_desc, :upload_file2_desc, :upload_file3_desc, :return_page)
 
     end
 

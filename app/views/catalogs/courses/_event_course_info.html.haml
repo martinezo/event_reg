@@ -17,10 +17,13 @@
             .item{style:"background-image:url('#{img}');"}
         #c-description
           =r.value :description
-        - i = 0
         -if @cc.registrable && controller_name == "events_courses"
           #c-registration-link{style: "background-color: ##{@cc.color_theme1}; color: ##{@cc.color_theme_l 1,0.8}"}
             =link_to t('commands.registration'), public_registration_path(@cc.id)
+        -if controller_name == "events_courses"
+          #c-registration-link{style: "background-color: ##{@cc.color_theme1}; color: ##{@cc.color_theme_l 1,0.8}"}
+            = link_to t('commands.back'), @cc.return_page.empty? ? public_events_courses_index_path : @cc.return_page
+        - i = 0
         #tbl-course-info{style:"border: solid ##{@cc.color_theme1}; border-width: 1px 0px; background-color: ##{@cc.color_theme_l 2,0.5};"}
           - if !@cc.schedule.empty?
             - i += 1
