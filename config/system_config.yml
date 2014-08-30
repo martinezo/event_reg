@@ -1,5 +1,5 @@
 ---
 link_page:
-  page_return: www.unam.mx
+  return_page: www.inb.unam.mx
 mail_authorization:
-  mail_request_auth: martinezo@inb,unam.mx
+  mail_request_auth: martinezo@inb.unam.mx

@@ -57,8 +57,9 @@ es:
     name_for_admin: Nombre interno para administración y envio de correos
     link_page: Página de retorno
     mail_request_auth: Correo de autorización
+    return_direction: 'Ej. http://www.google.com.mx (debe incluir protocolo: http o https)'
 
-    
+
   pdf:
     reg_date: 'Fecha de registro:'
     start_date: 'Fecha de inicio del evento'
@@ -162,7 +163,7 @@ es:
         upload_file1_desc: Título archivo 1
         upload_file2_desc: Título archivo 2
         upload_file3_desc: Título archivo 3
-        page_return: Página de retorno
+        return_page: Página de retorno
 
       catalogs/participant:
         id: Registro
