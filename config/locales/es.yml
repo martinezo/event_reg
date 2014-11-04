@@ -53,7 +53,7 @@ es:
     upload_files: Archivos anexos
     xls_participants: Descargar lista de participantes XLSX
     copy_event: Duplicar evento
-    title_for_event_info: Titulo que aparecerá en la página del infromación del evento
+    title_for_event_info: Título que aparecerá en la página del infromación del evento
     name_for_admin: Nombre interno para administración y envio de correos
     link_page: Página de retorno
     mail_request_auth: Correo de autorización
@@ -69,8 +69,8 @@ es:
     phone_numbers: 'Telefono(s):'
     academic_info: Información Académica
     workplace: 'Institución o empresa:'
-    bachelor_deg: 'Titulo de licenciatura:'
-    master_deg: 'Titulo de maestría:'
+    bachelor_deg: 'Título de licenciatura:'
+    master_deg: 'Título de maestría:'
     phd_deg: 'Título de doctorado:'
     invoice_info: Datos de Facturación
     inv_name: 'Razón Social:'
@@ -139,7 +139,7 @@ es:
         opt_sel_options: Opciones del campo de seleccion
         payment_methods: Formas de pago y descuentos
         target: Dirigido a
-        prerequisites: Prerequisitos
+        prerequisites: Prerrequisitos
         min_quota: Cupo mínimo
         max_quota: Cupo máximo
         instructors: Instructores
@@ -173,8 +173,8 @@ es:
         mail: Correo
         phone_numbers: Teléfono(s)
         workplace: Institución empresa en donde labora
-        bachelor_deg: Titulo de licenciatura
-        master_deg: Titulo de Maestría
+        bachelor_deg: Título de Licenciatura
+        master_deg: Título de Maestría
         phd_deg: Título de Doctorado
         invoice_required: Requiere factura
         inv_name: Nombre o razón social

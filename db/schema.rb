@@ -110,11 +110,7 @@ ActiveRecord::Schema.define(version: 20140822144153) do
     t.string   "upload_file2"
     t.string   "upload_file3"
     t.integer  "inv_state_id",     default: 22
-<<<<<<< HEAD
-    t.decimal  "price"
-=======
     t.decimal  "price",            default: 0.0
->>>>>>> add_return_page
   end
 
   create_table "catalogs_states", force: true do |t|

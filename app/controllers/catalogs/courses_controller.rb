@@ -2,7 +2,7 @@ class Catalogs::CoursesController < ApplicationController
   layout :set_layout
   before_action :set_catalogs_course, only: [:show, :edit, :update, :destroy, :delete,  :change_owner, :update_owner]
   helper_method :sort_column, :sort_direction
-
+  skip_before_filter :authenticate_devise_user!, only: :download_file
 
   # GET /catalogs/courses
   # GET /catalogs/courses.json
