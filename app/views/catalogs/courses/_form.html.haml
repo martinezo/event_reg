@@ -53,6 +53,38 @@
         .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_content_file'}
           &nbsp;
     .col-1
+      =f.label :content_file2_desc
+    .col-2
+      =f.input_field :content_file2_desc, :size => 70, placeholder: 'Ej. programa, lectura, etc.'
+    .col-1
+      =f.label :content_file2
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_content_file2_tag, nil, type: 'file'
+      .input-file-handler
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          =f.input_field :content_file2, size: 30, placeholder: 'Se recomienda un archivo PDF', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_content_file2'}
+          &nbsp;
+    .col-1
+      =f.label :content_file3_desc
+    .col-2
+      =f.input_field :content_file3_desc, :size => 70, placeholder: 'Ej. programa, lectura, etc.'
+    .col-1
+      =f.label :content_file3
+    .col-2.file-selector
+      .input-file
+        =text_field_tag :catalogs_course_content_file3_tag, nil, type: 'file'
+      .input-file-handler
+        .input-file-button.jq-button
+          =t('commands.select_file')
+        .input-file-str
+          =f.input_field :content_file3, size: 30, placeholder: 'Se recomienda un archivo PDF', readonly: true
+        .remove-file-button.jq-button{'jq-icon' => 'trash', name: '#catalogs_course_content_file3'}
+          &nbsp;
+    .col-1
       = f.label :price1_desc
     .col-2
       = f.input_field :price1_desc, :size => 70, placeholder: 'Ej. Precio normal'
@@ -115,6 +147,24 @@
       = f.label :opt_field
     .col-2
       = f.input_field :opt_field, :size => 70, placeholder: 'Ej. Sólo será posible la cancelación de registro 10 días entes del evento.'
+
+    .col-1
+      = f.label :opt_field2_title
+    .col-2
+      = f.input_field :opt_field2_title, :size => 70, placeholder: 'Ej. Condiciones de cancelación.'
+    .col-1
+      = f.label :opt_field2
+    .col-2
+      = f.input_field :opt_field2, :size => 70, placeholder: 'Ej. Sólo será posible la cancelación de registro 10 días entes del evento.'
+
+    .col-1
+      = f.label :opt_field3_title
+    .col-2
+      = f.input_field :opt_field3_title, :size => 70, placeholder: 'Ej. Condiciones de cancelación.'
+    .col-1
+      = f.label :opt_field3
+    .col-2
+      = f.input_field :opt_field3, :size => 70, placeholder: 'Ej. Sólo será posible la cancelación de registro 10 días entes del evento.'
 
     .sp
 
@@ -249,6 +299,14 @@
       = f.label :page_return
     .col-2
       = f.input_field :page_return, :size => 70
+    .col-1
+      = f.label :link_field1
+    .col-2
+      = f.input_field :link_field1, :size => 70
+    .col-1
+      = f.label :link_field2
+    .col-2
+      = f.input_field :link_field2, :size => 70
     .sp
 
 

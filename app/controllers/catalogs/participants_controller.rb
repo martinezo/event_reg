@@ -85,7 +85,8 @@ class Catalogs::ParticipantsController < ApplicationController
         format.html { redirect_to @catalogs_participant, notice: t('notices.updated_successfully')}
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        #format.html { render action: 'edit' }
+        format.html { redirect_to edit_catalogs_participant_path(@catalogs_participant, course_id:@catalogs_participant.course_id)}
         format.json { render json: @catalogs_participant.errors, status: :unprocessable_entity }
       end
     end

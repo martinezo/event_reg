@@ -50,6 +50,19 @@ class Catalogs::CoursesController < ApplicationController
     content_file = params[:catalogs_course_content_file_tag]
     @catalogs_course.upload_file(content_file, @catalogs_course.content_file_s(filename)) if content_file
 
+
+    # sta-rmo-nov-2014
+    filename =  params[:catalogs_course][:content_file2]
+    content_file = params[:catalogs_course_content_file2_tag]
+    @catalogs_course.upload_file(content_file, @catalogs_course.content_file2_s(filename)) if content_file
+
+    filename =  params[:catalogs_course][:content_file3]
+    content_file = params[:catalogs_course_content_file3_tag]
+    @catalogs_course.upload_file(content_file, @catalogs_course.content_file3_s(filename)) if content_file
+    # end-rmo-nov-2014
+
+
+
     #upload image file 1
     filename =  params[:catalogs_course][:image_file1]
     image_file = params[:catalogs_course_image_file1_tag]
@@ -159,7 +172,10 @@ class Catalogs::CoursesController < ApplicationController
                                               :end_date_pub, :start_date_reg, :end_date_reg, :mail_notif_deposit,
                                               :academic_data_required, :info_after_reg, :color_theme1,
                                               :color_theme2, :color_theme3, :opt_field, :opt_field_title, :content_file_desc,
-                                              :upload_file1_desc, :upload_file2_desc, :upload_file3_desc, :page_return)
+                                              :upload_file1_desc, :upload_file2_desc, :upload_file3_desc, :page_return,
+                                              :content_file2, :content_file2_desc, :content_file3, :content_file3_desc,
+                                              :opt_field2, :opt_field2_title,:opt_field3, :opt_field3_title,
+                                              :link_field1, :link_field2)
 
     end
 

@@ -123,6 +123,11 @@ es:
         location: Lugar
         content_file_desc: Descripción de archivo
         content_file: Archivo
+        content_file2_desc: Descripción de archivo
+        content_file2: Archivo
+        content_file3_desc: Descripción de archivo
+        content_file3: Archivo
+
         price1_desc: Descripción Precio 1
         price2_desc: Descripción Precio 2
         price3_desc: Descripción Precio 3
@@ -156,13 +161,19 @@ es:
         color_theme1: Color tema 1
         color_theme2: Color tema 2
         color_theme3: Color tema 3
-        opt_field: Campo opcional
-        opt_field_title: Campo opcional Título
+        opt_field: Campo opcional 1
+        opt_field_title: Campo opcional Título 1
+        opt_field2: Campo opcional 2
+        opt_field2_title: Campo opcional Título 2
+        opt_field3: Campo opcional 3
+        opt_field3_title: Campo opcional Título 3
         start_date: Fecha Inicio
         upload_file1_desc: Título archivo 1
         upload_file2_desc: Título archivo 2
         upload_file3_desc: Título archivo 3
         page_return: Página de retorno
+        link_field1: Link 1
+        link_field2: Link 2
 
       catalogs/participant:
         id: Registro
